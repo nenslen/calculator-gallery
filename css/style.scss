@@ -1,0 +1,302 @@
+@import "variables";
+@import "functions";
+
+ul, body {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	background-color: $bg-color; // Backup
+	background-image: $bg-image;
+	font-size: 115%;
+	font-family: Century Gothic, sans-serif;
+}
+
+a {
+	text-decoration: none;
+	color: $link-color;
+}
+
+a:hover {
+	color: lighten($link-color, 25%);
+}
+
+p {
+    line-height: 1.5em;
+}
+
+label {
+	color: #123;
+}
+.calculator-outer {
+	width: 100%;
+	margin-top: 50px;
+	margin-bottom: 25px;
+}
+
+.calculator {
+	margin-left: auto;
+	margin-right: auto;
+	background-color: $calculator-bg-color;
+	border: 1px solid $calculator-border-color;
+	border-radius: $calculator-border-radius;
+	box-shadow: $calculator-box-shadow;
+	transition: all 0.2s ease-in-out;
+	height: auto;
+	color: $calculator-text-color;
+	text-align: left;
+	padding: 25px;
+	margin-top: 25px;
+	max-width: 400px;
+
+	.calculator-inner {
+
+		.calculator-title {
+			border-bottom: 1px solid $calculator-border-color;
+			line-height: 1.5em;
+			//padding: ($calculator-spacing / 3) ($calculator-spacing / 2);
+			transition: all 0.2s ease-in-out;
+			font-size: 140%;
+		}
+
+		.calculator-description {
+			line-height: 1.7em;
+			margin-bottom: 50px;
+			display: block;
+		}
+
+		.calculator-input-title {
+			transition: all 0.2s ease-in-out;
+			font-size: 110%;
+			margin-bottom: 5px;
+			display: block;
+		}
+
+		.calculator-output-title {
+			transition: all 0.2s ease-in-out;
+			font-size: 110%;
+			margin-bottom: 5px;
+			display: block;
+			font-weight: bold;
+		}
+
+		.calculator-input, .calculator-output {
+			transition: all 0.2s ease-in-out;
+			display: block;
+			margin-top: 15px;
+			margin-bottom: 5px;
+		}
+
+		.calculator-inputs {
+			margin-bottom: 25px;
+		}
+
+		.calculator-outputs {
+			margin-top: 50px;
+		}
+
+		.calculator-error {
+			display: block;
+			margin-top: 25px;
+
+			.error {
+				color: #a94442;
+			    background-color: #f2dede;
+			    border-color: #ebccd1;
+			    padding: 15px;
+			    border-radius: 4px;
+			    border: 1px solid transparent;
+			    margin-top: 10px;
+			    margin-bottom: 10px;
+			    text-shadow: none;
+			}
+		}
+
+		.calculator-button {
+			transition: all 0.2s ease-in-out;
+			display: block;
+			margin-top: 25px;
+			margin-bottom: 5px;
+		}
+	}
+}
+
+
+.button{
+	@include buttonize(0, 0, 95, 1, 0);
+	outline: none; 
+	border-radius: 3px; 
+	cursor: pointer; 
+	display: inline-block; 
+	font-family: Verdana, sans-serif; 
+	font-size: 1.2em; 
+	font-weight: 400;
+	line-height: 20px;
+	padding: 16px;
+	transition: all 20ms ease-out; 
+	vertical-align: top;
+}
+
+.default{ } 
+.default-background{ }
+.default-disabled{ 		@include buttonize(0, 0, 75, 1, 0); }
+
+.white{ 				}
+.white-disabled{ 		@include buttonize(0, 0, 75, 1, 0);}
+
+.blue{ 					@include buttonize(199, 65, 89, 0, 1);}
+.blue-background{		@include buttonize(199, 54, 65, 0, 0);}
+.blue-disabled{ 		@include buttonize(199, 65, 45, 0, 0);}
+
+.green{ 				@include buttonize(97, 42, 80, 0, 1);}
+.green-background{ 		@include buttonize(97, 30, 60, 0, 0);}
+.green-disabled{ 		@include buttonize(97, 42, 40, 0, 0);}
+
+.purple{ 				@include buttonize(249, 34, 73, 0, 1);}
+.purple-background{		@include buttonize(249, 23, 50, 0, 0);}
+.purple-disabled{ 		@include buttonize(249, 34, 30, 0, 0);}
+
+.orange{ 				@include buttonize(26, 77, 96, 0, 1);}
+.orange-background{		@include buttonize(26, 55, 75, 0, 0);}
+.orange-disabled{ 		@include buttonize(26, 77, 45, 0, 0);}
+
+.red{ 					@include buttonize(4, 58, 93, 0, 1);}
+.red-background{ 		@include buttonize(4, 45, 75, 0, 0);}
+.red-disabled{ 			@include buttonize(4, 58, 50, 0, 0);}
+
+.yellow{ 				@include buttonize(49, 65, 95, 0, 1);}
+.yellow-background{		@include buttonize(49, 50, 75, 0, 0);}
+.yellow-disabled{ 		@include buttonize(49, 65, 45, 0, 0);}
+
+.dark-red{ 				@include buttonize(353, 100, 20, 0, 1);}
+.dark-red-background{ 	@include buttonize(353, 80, 30, 0, 0);}
+.dark-red-disabled{ 	@include buttonize(353, 100, 10, 0, 0);}
+
+.dark-blue{ 			@include buttonize(199, 100, 20, 0, 1);}
+.dark-blue-background{	@include buttonize(199, 80, 30, 0, 0);}
+.dark-blue-disabled{ 	@include buttonize(199, 100, 10, 0, 0);}
+
+.dark-grey{ 			@include buttonize(0, 0, 40, 0, 1);}
+.dark-grey-background{ 	@include buttonize(0, 0, 20, 0, 0);}
+.dark-grey-disabled{ 	@include buttonize(0, 0, 10, 0, 0);}
+
+
+.button .fa{ float: left; font-size: 14px; line-height: 20px; margin: -1px 8px 0 -4px; vertical-align: top;}
+
+
+select {
+	outline: none;
+	border-radius: 3px !important; 
+	
+	cursor: pointer; 
+	display: inline-block; 
+	font-family: Verdana, sans-serif; 
+	font-size: 0.9em; 
+	font-weight: 400;
+	line-height: 20px;
+	padding: 5px;
+	max-width: 300px;
+	transition: all 20ms ease-out; 
+	vertical-align: top;
+	width: 100%;
+	max-width: 400px;
+	text-align: center;
+	font-size: 1.2em;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+    margin-bottom: 0;
+} 
+
+option {
+	@include buttonize(0, 0, 95, 1, 0);
+	font-size: 0.8em;
+}
+
+
+input[type=number], input[type=text] {
+	box-sizing: border-box;
+	display: block; 
+	padding: 5px 0px 5px 13px !important; 
+	max-width: 100%;
+	width: 100%;
+	height: auto !important; 
+	border-radius: 3px; 
+	font-size: 1.1em; 
+	&:focus { 
+		outline: none;
+	}
+}
+
+input[type=range] {
+	box-sizing: border-box;
+	-webkit-appearance: none;
+	width: 100%;
+	max-width: 500px;
+	background-color: transparent;
+	height: 25px !important;
+}
+
+input[type=range]:focus {
+	outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+	@include buttonize(0, 0, 95, 1);
+	display: block; 
+	max-width: 100%;
+	width: 100%;
+	height: auto !important; 
+	border: 1px solid darken(#e3e3e3, 10%); 
+	border-radius: 3px; 
+	background-color: #fff; 
+	color: #444444; 
+	font-size: 1.1em; 
+	cursor: pointer;
+}
+
+input[type=range]::-webkit-slider-thumb {
+	height: 25px;
+	width: 25px;
+	border-radius: 3px;
+	background: hsb(199, 65, 89);
+	cursor: pointer;
+	-webkit-appearance: none;
+
+	&:hover {
+		background: lighten(hsb(199, 65, 89), 5%);
+	}
+
+	&:active {
+		background: darken(hsb(199, 65, 89), 5%);
+	}
+}
+
+input[type="radio"] {
+	box-sizing: border-box;
+	display: none;
+}
+
+input[type="radio"]+label {
+	@include buttonize(0, 0, 95, 1, 1);
+	box-sizing: border-box;
+	outline: none;
+	border-radius: 0 !important; 
+	cursor: pointer; 
+	display: inline-block; 
+	font-family: Verdana, sans-serif; 
+	font-size: 0.9em; 
+	font-weight: 400;
+	line-height: 20px;
+	padding: 16px;
+	max-width: 300px;
+	transition: all 20ms ease-out; 
+	vertical-align: top;
+	width: 100%;
+	max-width: 400px;
+	text-align: center;
+}
+
+
+input[type="radio"]:checked+label{
+	@include buttonize(199, 65, 89, 0, 1);
+}
