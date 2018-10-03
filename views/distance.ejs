@@ -1,0 +1,39 @@
+<span class="calculator-title">{{ title }}</span>
+
+<span class="calculator-hr"></span>
+
+<span class="calculator-description">
+    <p ng-repeat="line in description">{{ line }}</p>
+</span>
+       
+<div class="calculator-inputs">
+    <span class="calculator-input">
+        <span class="calculator-input-title">Point 1</span>
+        <input type="text" ng-change="calculate()" ng-model="point1" class="{{colorScheme}}">
+    </span>
+
+    <span class="calculator-input">
+        <span class="calculator-input-title">Point 2</span>
+        <input type="text" ng-change="calculate()" ng-model="point2" class="{{colorScheme}}">
+    </span> 
+</div>
+
+<div class="calculator-outputs">
+    <span class="calculator-output"> 
+        <span class="calculator-output-title">Manhatten (L1) Distance</span>
+        <input type="text" ng-model="manhattanDistance" class="{{colorScheme}}-disabled" readonly>
+    </span>
+
+    <span class="calculator-output"> 
+        <span class="calculator-output-title">Euclidean (L2) Distance</span>
+        <input type="text" ng-model="euclideanDistance" class="{{colorScheme}}-disabled" readonly>
+    </span>
+</div>
+
+<span class="calculator-error">
+    <p class="error" readonly>{{ errors[0] }}</p>    
+</span>
+
+<span class="calculator-button">
+    <button ng-click="reset()" class="button red">Reset</button>
+</span>

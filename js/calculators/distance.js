@@ -28,22 +28,13 @@ angular.module('calculatorApp').controller('distance', ['$scope', function($scop
 			return;
 		}
 
-		// Manhattan (L1)
 		for (let i = 0; i < point1.length; i++) {
 			let p1 = parseFloat(point1[i]);
 			let p2 = parseFloat(point2[i]);
 			$scope.manhattanDistance += Math.abs(p1 - p2);
-		}
-
-		// Euclidean (L2)
-		for (let i = 0; i < point1.length; i++) {
-			let p1 = parseFloat(point1[i]);
-			let p2 = parseFloat(point2[i]);
 			$scope.euclideanDistance += Math.pow(p1 - p2, 2);
 		}
 		$scope.euclideanDistance = Math.sqrt($scope.euclideanDistance);
-
-		// Max
 
 		$scope.errors = [];
 	};

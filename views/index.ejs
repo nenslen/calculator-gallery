@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator Website</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.4/angular.min.js"></script>
+    <script src="js/app-controller.js"></script>
+    <script src="js/calculators/square.js"></script>
+    <script src="js/calculators/distance.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body ng-app="calculatorApp" ng-controller="app-controller">
+
+    <select ng-init="colorScheme = colors[0]" ng-model="colorScheme" ng-options="x for x in colors" ng-change="changeColorScheme()" class="{{colorScheme}}"></select>
+    
+    <div class="calculators">
+
+        <% calculators.forEach(function(calculator) { %>
+
+            <div class="calculator-outer">
+                <div ng-controller="<%= calculator %>" class="calculator {{colorScheme}}-background">
+                    <div class="calculator-inner">
+                        <%- include(calculator); %>
+                    </div>
+                </div>
+            </div>
+
+        <% }); %>
+
+    </div>
+
+</body>
+</html>
