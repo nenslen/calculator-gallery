@@ -22,8 +22,6 @@ app.use('/html', express.static(__dirname + '/html'));
 
 
 app.get('/', function(req, res) {
-	res.clearCookie('favorites');
-	//console.log(req.cookies);
 	let favorites = getFavorites(req);
 
     res.render('index', {
@@ -39,15 +37,25 @@ app.get('/favorites', function(req, res) {
 });
 
 
-app.post('/favorite-calculator', function(req, res) {
-	let favorite = req.body.newFavorite;
+app.post('/favorites/add', function(req, res) {
+	let calculator = req.body.calculator;
 	let favorites = getFavorites(req);
 
-	saveFavorite(favorite, favorites, res);	
+	saveFavorite(calculator, favorites, res);	
 
-	// TODO: Remove this, and 
-	res.render('index', {allCalculators: allCalculators});
+	res.redirect('/');
 });
+
+
+app.post('/favorites/delete', function(req, res) {
+	let calculator = req.body.calculator;
+	let favorites = getFavorites(req);
+
+	removeFavorite(calculator, favorites, res);	
+
+	res.redirect('/');
+});
+
 
 server.listen(8081, function() {
     console.log('Listening on ' + server.address().port);
@@ -69,21 +77,37 @@ function getFavorites(req) {
  * will be created, and initialized with the new favorite. This function also ensures that a 
  * favorite is only added once to the favorites cookie.
  *
- * @param favorite: The name of the calculator a user wants to favorite
+ * @param calculator: The name of the calculator a user wants to favorite
  * @param favorites: The user's current favorites (stored in a cookie)
  * @param res: The response object
  */
-function saveFavorite(favorite, favorites, res) {
+function saveFavorite(calculator, favorites, res) {
 	if(favorites != undefined) {
-		if (!favorites.includes(favorite)) {
-			console.log('adding favorite...');
-			favorites.push(favorite);
+		if (!favorites.includes(calculator)) {
+			favorites.push(calculator);
 			res.cookie('favorites', favorites);
-		} else {
-			console.log('favorite is already added!');
 		}
 	} else {
-		console.log('creating new cookie...');
-		res.cookie('favorites', [favorite]);
+		res.cookie('favorites', [calculator]);
+	}
+}
+
+/**
+ * Removes a calculator from the user's favorites cookie. If the favorites cookie doesn't exist, no 
+ * action will be taken.
+ * 
+ * @param calculator: The name of the calculator a user wants to favorite
+ * @param favorites: The user's current favorites (stored in a cookie)
+ * @param res: The response object
+ */
+function removeFavorite(calculator, favorites, res) {
+	if(favorites != undefined) {
+		let index = favorites.indexOf(calculator);
+		
+		if (index !== -1) {
+			favorites.splice(index, 1);
+		}
+
+		res.cookie('favorites', favorites);
 	}
 }

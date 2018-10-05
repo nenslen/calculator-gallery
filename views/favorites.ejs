@@ -19,9 +19,9 @@
             <div class="calculator-outer">
                 <div ng-controller="<%= calculator %>" class="calculator {{colorScheme}}-background">
                     <div class="calculator-inner">
-                        <form action="/favorite-calculator" method="POST">
-                            <input type="hidden" name="newFavorite" value="<%= calculator %>">
-                            <button class="button green">Favorite</button>
+                        <form action="/favorites/delete" method="POST">
+                            <input type="hidden" name="calculator" value="<%= calculator %>">
+                            <button class="button orange">Unfavorite</button>
                         </form>
                         <%- include(calculator); %>
                     </div>
