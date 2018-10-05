@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Calculator Website</title>
+    <title>Calculator Website - Favorites</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.4/angular.min.js"></script>
     <script src="js/app-controller.js"></script>
     <script src="js/calculators/square.js"></script>
@@ -14,7 +14,7 @@
     
     <div class="calculators">
 
-        <% allCalculators.forEach(function(calculator) { %>
+        <% favorites.forEach(function(calculator) { %>
 
             <div class="calculator-outer">
                 <div ng-controller="<%= calculator %>" class="calculator {{colorScheme}}-background">
@@ -30,6 +30,10 @@
 
         <% }); %>
 
+        <% if(favorites.length === 0) { %>
+            <h3>You don't have any favorites!</h3>
+            <p>Click the 'Favorite' button on a calculator to add it to your favorites.</p>
+        <% } %>
     </div>
 
 </body>
