@@ -1,50 +1,44 @@
 angular.module('calculatorApp').controller('distance', ['$scope', function($scope) {
-	let DEFAULT_CALC_TYPE = 'Euclidean';
-	let DEFAULT_POINT1 = '';
-	let DEFAULT_POINT2 = '';
-	let DEFAULT_DISTANCE = 0;
-
-	$scope.title = 'Distance Calculator';
-	$scope.description = [
+	let title = 'Distance Calculator';
+	let name = 'distance';
+	let description = [
 		'Calculates the distance between 2 points. Points must be entered as a list of numbers separated by a comma.',
 		'eg) 3,6,7'
 	];
+	let inputs = {
+		point1: new Input('Point 1', ''),
+		point2: new Input('Point 2', '')
+	};
+	let outputs = {
+		manhattanDistance: new Output('Manhattan (L1)', 0),
+		euclideanDistance: new Output('Euclidean (L2)', 0)
+	};
 
-	$scope.point1 = DEFAULT_POINT1;
-	$scope.point2 = DEFAULT_POINT2;
-	$scope.euclideanDistance = DEFAULT_DISTANCE;
-	$scope.manhattanDistance = DEFAULT_DISTANCE;
+	$scope.calc = new Calculator(title, name, description, inputs, outputs);
 
 	$scope.calculate = function() {
-		let point1 = $scope.point1.split(',');
-		let point2 = $scope.point2.split(',');
+		let point1 = $scope.calc.inputs.point1.value.split(',');
+		let point2 = $scope.calc.inputs.point2.value.split(',');
+		console.log(point1);
+		console.log(point2);
 		point1 = cleanArray(point1);
 		point2 = cleanArray(point2);
-		$scope.euclideanDistance = 0;
-		$scope.manhattanDistance = 0;
+		$scope.calc.outputs.euclideanDistance.value = 0;
+		$scope.calc.outputs.manhattanDistance.value = 0;
 
 		if (point1.length !== point2.length) {
-			$scope.errors = ['Points must have the same number of coordinates'];
+			$scope.calc.errors = ['Points must have the same number of coordinates'];
 			return;
 		}
 
 		for (let i = 0; i < point1.length; i++) {
 			let p1 = parseFloat(point1[i]);
 			let p2 = parseFloat(point2[i]);
-			$scope.manhattanDistance += Math.abs(p1 - p2);
-			$scope.euclideanDistance += Math.pow(p1 - p2, 2);
+			$scope.calc.outputs.manhattanDistance.value += Math.abs(p1 - p2);
+			$scope.calc.outputs.euclideanDistance.value += Math.pow(p1 - p2, 2);
 		}
-		$scope.euclideanDistance = Math.sqrt($scope.euclideanDistance);
+		$scope.calc.outputs.euclideanDistance.value = Math.sqrt($scope.calc.outputs.euclideanDistance.value);
 
-		$scope.errors = [];
-	};
-
-	$scope.reset = function() {
-		$scope.calcType = DEFAULT_CALC_TYPE;
-		$scope.point1 = DEFAULT_POINT1;
-		$scope.point2 = DEFAULT_POINT2;
-		$scope.euclideanDistance = DEFAULT_DISTANCE;
-		$scope.manhattanDistance = DEFAULT_DISTANCE;
-		$scope.errors = [];
+		$scope.calc.errors = [];
 	};
 }]);

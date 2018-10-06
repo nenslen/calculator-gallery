@@ -1,39 +1,46 @@
-<span class="calculator-title">{{ title }}</span>
+<div class="calculator {{ calc.color }}-background">
+    <div class="calculator-inner">
+        <span class="calculator-title">{{ calc.title }}</span>
 
-<span class="calculator-hr"></span>
+        <span class="calculator-hr"></span>
 
-<span class="calculator-description">
-    <p ng-repeat="line in description">{{ line }}</p>
-</span>
-       
-<div class="calculator-inputs">
-    <span class="calculator-input">
-        <span class="calculator-input-title">Point 1</span>
-        <input type="text" ng-change="calculate()" ng-model="point1" class="{{colorScheme}}">
-    </span>
+        <span class="calculator-description">
+            <p ng-repeat="line in calc.description">{{ line }}</p>
+        </span>
+               
+        <div class="calculator-inputs">
+            <span class="calculator-input">
+                <span class="calculator-input-title">{{ calc.inputs.point1.name }}</span>
+                <input type="text" ng-change="calculate()" ng-model="calc.inputs.point1.value" class="{{ calc.color }}">
+            </span>
 
-    <span class="calculator-input">
-        <span class="calculator-input-title">Point 2</span>
-        <input type="text" ng-change="calculate()" ng-model="point2" class="{{colorScheme}}">
-    </span> 
+            <span class="calculator-input">
+                <span class="calculator-input-title">{{ calc.inputs.point2.name }}</span>
+                <input type="text" ng-change="calculate()" ng-model="calc.inputs.point2.value" class="{{ calc.color }}">
+            </span>
+        </div>
+
+        <div class="calculator-outputs">
+            <span class="calculator-output">
+                <span class="calculator-output-title">{{ calc.outputs.manhattanDistance.name }}</span>
+                <input type="text" ng-model="calc.outputs.manhattanDistance.value" class="{{ calc.color }}-disabled" readonly>
+            </span>
+
+            <span class="calculator-output"> 
+                <span class="calculator-output-title">{{ calc.outputs.euclideanDistance.name }}</span>
+                <input type="text" ng-model="calc.outputs.euclideanDistance.value" class="{{ calc.color }}-disabled" readonly>
+            </span>
+        </div>
+
+        <span class="calculator-error" ng-show="true">
+            <p class="error">{{ calc.errors[0] }}</p>    
+        </span>
+
+        <span class="calculator-button">
+            <button ng-click="calc.reset()" class="button red">Reset</button>
+        </span>
+
+        <%- include('favorite-button', {favorited: favorited, calcName: 'distance'}); %>
+        <%- include('color-picker') %>
+    </div>
 </div>
-
-<div class="calculator-outputs">
-    <span class="calculator-output"> 
-        <span class="calculator-output-title">Manhatten (L1) Distance</span>
-        <input type="text" ng-model="manhattanDistance" class="{{colorScheme}}-disabled" readonly>
-    </span>
-
-    <span class="calculator-output"> 
-        <span class="calculator-output-title">Euclidean (L2) Distance</span>
-        <input type="text" ng-model="euclideanDistance" class="{{colorScheme}}-disabled" readonly>
-    </span>
-</div>
-
-<span class="calculator-error">
-    <p class="error" readonly>{{ errors[0] }}</p>    
-</span>
-
-<span class="calculator-button">
-    <button ng-click="reset()" class="button red">Reset</button>
-</span>

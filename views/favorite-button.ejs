@@ -1,0 +1,11 @@
+<% if(favorited) { %>
+    <form action="/favorites/delete" method="POST">
+        <input type="hidden" name="calculator" value="<%- calcName %>">
+        <button class="button orange">Unfavorite</button>
+    </form>
+<% } else { %>
+    <form action="/favorites/add" method="POST">
+        <input type="hidden" name="calculator" value="<%- calcName %>">
+        <button class="button green">Favorite</button>
+    </form>
+<% } %>

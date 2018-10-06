@@ -10,7 +10,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-let allCalculators = [
+const allCalculators = [
 	'square',
 	'distance'
 ];

@@ -9,13 +9,9 @@ angular.module('calculatorApp', []).controller('app-controller', ['$scope', func
 		'dark-blue',
 		'green',
 		'purple',
-		'yellow',
-		'dark-cyan',
+		'yellow'
 		'orange'
 	];
-	$scope.colorScheme = 'default';
-	$scope.selectColorScheme = 'blue';
-	$scope.errors = [];
 
 	$scope.changeColorScheme = function() {
 		if ($scope.colorScheme !== 'default') {
