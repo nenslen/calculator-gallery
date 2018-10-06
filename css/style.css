@@ -176,7 +176,7 @@ label {
   background-color: #97cc76;
   background-image: linear-gradient(to bottom, #97cc76, #8bcc62);
   border: 1px solid #5f993a;
-  box-shadow: inset 0 1px 0 #c6e6b3, inset 0 -1px 0 #79b356, inset 0 0 0 1px #a4cc8b, 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 1px 0 #c6e5b3, inset 0 -1px 0 #79b356, inset 0 0 0 1px #a4cc8b, 0 2px 4px rgba(0, 0, 0, 0.2);
   color: #eee;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
   .green:hover {
@@ -244,12 +244,12 @@ label {
 .purple-disabled {
   background-color: #36324d;
   background-image: linear-gradient(to bottom, #36324d, #302b4d);
-  border: 1px solid #0e0c1a;
+  border: 1px solid #0e0c19;
   box-shadow: inset 0 1px 0 #5a5866, inset 0 -1px 0 #201d33, inset 0 0 0 1px #3d3a4d, 0 2px 4px rgba(0, 0, 0, 0.2);
   color: #eee;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
   .purple-disabled .fa {
-    color: #0e0c1a;
+    color: #0e0c19;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3); }
 
 .orange {
@@ -322,8 +322,8 @@ label {
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3); }
 
 .red-disabled {
-  background-color: #803a36;
-  background-image: linear-gradient(to bottom, #803a36, #802f29);
+  background-color: #7f3a36;
+  background-image: linear-gradient(to bottom, #7f3a36, #7f2f29);
   border: 1px solid #4d1511;
   box-shadow: inset 0 1px 0 #99635f, inset 0 -1px 0 #662521, inset 0 0 0 1px #804642, 0 2px 4px rgba(0, 0, 0, 0.2);
   color: #eee;
@@ -405,7 +405,7 @@ label {
   background-color: #1a0003;
   background-image: linear-gradient(to bottom, #1a0003, #170003);
   border: 1px solid black;
-  box-shadow: inset 0 1px 0 #330a0f, inset 0 -1px 0 black, inset 0 0 0 1px #1a0305, 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 1px 0 #330a0f, inset 0 -1px 0 black, inset 0 0 0 1px #190305, 0 2px 4px rgba(0, 0, 0, 0.2);
   color: #eee;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
   .dark-red-disabled .fa {
@@ -445,7 +445,7 @@ label {
   background-color: #00111a;
   background-image: linear-gradient(to bottom, #00111a, #001017);
   border: 1px solid black;
-  box-shadow: inset 0 1px 0 #0a2633, inset 0 -1px 0 black, inset 0 0 0 1px #03121a, 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 1px 0 #0a2633, inset 0 -1px 0 black, inset 0 0 0 1px #031219, 0 2px 4px rgba(0, 0, 0, 0.2);
   color: #eee;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
   .dark-blue-disabled .fa {

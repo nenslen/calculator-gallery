@@ -1,31 +1,29 @@
 angular.module('calculatorApp', []).controller('app-controller', ['$scope', function($scope) {
-	$scope.colors = [
+	$scope.colorThemeNames = [
 		'default',
-		'blue',
+		//'blue',
 		'red',
-		'white',
-		'dark-grey',
-		'dark-red',
-		'dark-blue',
-		'green',
-		'purple',
-		'yellow',
-		'dark-cyan',
-		'orange'
+		//'white',
+		//'dark-grey',
+		//'dark-red',
+		//'dark-blue',
+		//'green',
+		'purple'
+		//'yellow',
+		//'orange'
 	];
-	$scope.colorScheme = 'default';
-	$scope.selectColorScheme = 'blue';
-	$scope.errors = [];
+	
+	$scope.colorThemes = {
+		default: new ColorTheme('default'),
+		red: new ColorTheme('red', 'red', 'red', 'red'),
+		purple: new ColorTheme('purple', 'purple', 'purple', 'purple'),
+	}
 
-	$scope.changeColorScheme = function() {
-		if ($scope.colorScheme !== 'default') {
-			$scope.selectColorScheme = $scope.colorScheme;
-			$scope.disabledColorScheme = $scope.colorScheme;
-		} else {
-			$scope.selectColorScheme = 'blue';
-			$scope.disabledColorScheme = '';
-		}
-	};
+	$scope.changeColorTheme = function(names) {
+		console.log($scope);
+		console.log(names);
+		names = new ColorTheme()
+	}
 }]);
 
 function cleanArray(array) {

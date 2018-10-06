@@ -8,8 +8,9 @@ angular.module('calculatorApp').controller('square', ['$scope', function($scope)
 	let outputs = {
 		y: new Output('Y', 0)
 	};
+	let colorTheme = $scope.colorThemes.purple;
 
-	$scope.calc = new Calculator(title, name, description, inputs, outputs);
+	$scope.calc = new Calculator(title, name, description, inputs, outputs, colorTheme);
 
 	$scope.calculate = function() {
 		let x = $scope.calc.inputs.x.value;

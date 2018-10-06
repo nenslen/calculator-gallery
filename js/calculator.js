@@ -16,7 +16,7 @@ function Calculator(
 	description = '',
 	inputs = [],
 	outputs = [],
-	color = 'default',
+	colorTheme = new ColorTheme('default'),
 	errors = []
 ) {
 	this.title = title;
@@ -24,7 +24,7 @@ function Calculator(
 	this.description = description;
 	this.inputs = inputs;
 	this.outputs = outputs;
-	this.color = color;
+	this.colorTheme = colorTheme; 
 	this.errors = errors;
 
 	/**

@@ -13,8 +13,9 @@ angular.module('calculatorApp').controller('distance', ['$scope', function($scop
 		manhattanDistance: new Output('Manhattan (L1)', 0),
 		euclideanDistance: new Output('Euclidean (L2)', 0)
 	};
+	let colorTheme = $scope.colorThemes.red;
 
-	$scope.calc = new Calculator(title, name, description, inputs, outputs);
+	$scope.calc = new Calculator(title, name, description, inputs, outputs, colorTheme);
 
 	$scope.calculate = function() {
 		let point1 = $scope.calc.inputs.point1.value.split(',');
@@ -41,4 +42,6 @@ angular.module('calculatorApp').controller('distance', ['$scope', function($scop
 
 		$scope.calc.errors = [];
 	};
+
+
 }]);
