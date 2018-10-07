@@ -1,12 +1,6 @@
 <div class="calculator {{ calc.colorTheme.backgroundColor }}-background">
 	<div class="calculator-inner">
-		<span class="calculator-title">{{ calc.title }}</span>
-
-		<span class="calculator-hr"></span>
-
-		<span class="calculator-description">
-		    <p ng-repeat="line in calc.description">{{ line }}</p>
-		</span>
+		<%- include('calculator-top'); %>
 
 		<div class="calculator-inputs">
 			<span class="calculator-input">
@@ -17,21 +11,14 @@
 
 		<div class="calculator-outputs">
 			<span class="calculator-output">
-			    <span class="calculator-input-title">{{ calc.outputs.y.name }}</span>
+			    <span class="calculator-output-title">{{ calc.outputs.y.name }}</span>
 			    <input type="number" ng-model="calc.outputs.y.value" class="{{ calc.colorTheme.outputColor }}-disabled" readonly>
 			</span>
 		</div>
 
-		<!--<span class="calculator-error" ng-show="{{ calc.errors.length > 0 }}">-->
-		<span class="calculator-error" ng-show="true">
-		    <p class="error">{{ calc.errors[0] }}</p>    
-		</span>
-
-		<span class="calculator-button">
-		    <button ng-click="calc.reset()" class="button red">Reset</button>
-		</span>
-
-		<%- include('favorite-button', {favorited: favorited, calcName: 'square'}); %>
-		<%- include('color-picker') %>
+		<%- include('errors'); %>
+		<%- include('reset-button'); %>
+		<%- //include('favorite-button', {favorited: favorited, calcName: 'square'}); %>
+		<%- //include('color-picker'); %>
 	</div>
 </div>

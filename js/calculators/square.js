@@ -22,4 +22,8 @@ angular.module('calculatorApp').controller('square', ['$scope', function($scope)
 			$scope.calc.errors = [];
 		}
 	};
+
+	$scope.changeColorTheme = function(colorTheme)  {
+		$scope.calc.colorTheme = colorTheme;
+	};
 }]);

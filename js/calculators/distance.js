@@ -6,8 +6,8 @@ angular.module('calculatorApp').controller('distance', ['$scope', function($scop
 		'eg) 3,6,7'
 	];
 	let inputs = {
-		point1: new Input('Point 1', ''),
-		point2: new Input('Point 2', '')
+		point1: new Input('Point 1', '', 'eg) 1,2,3'),
+		point2: new Input('Point 2', '', 'eg) 4,5,6')
 	};
 	let outputs = {
 		manhattanDistance: new Output('Manhattan (L1)', 0),
@@ -43,5 +43,7 @@ angular.module('calculatorApp').controller('distance', ['$scope', function($scop
 		$scope.calc.errors = [];
 	};
 
-
+	$scope.changeColorTheme = function(colorTheme)  {
+		$scope.calc.colorTheme = colorTheme;
+	};
 }]);

@@ -45,13 +45,15 @@ function Calculator(
 /**
  * Used for holding calculator inputs. The default value is set to the initial value given.
  * 
- * @param name: The name of the input, which is shown to the user eg) 'Point 1'
+ * @param name: The name of the input, which is shown to the user. eg) 'Point 1'
  * @param value: The initial value of the input. eg) 5
+ * @param hint: The placeholder text used for the input. eg) 'eg) 1,2,3'
  */
-function Input(name, value) {
+function Input(name, value, hint) {
 	this.name = name;
 	this.value = value;
 	this.defaultValue = value;
+	this.hint = hint;
 }
 
 /**

@@ -1,22 +1,16 @@
 <div class="calculator {{ calc.colorTheme.backgroundColor }}-background">
     <div class="calculator-inner">
-        <span class="calculator-title">{{ calc.title }}</span>
-
-        <span class="calculator-hr"></span>
-
-        <span class="calculator-description">
-            <p ng-repeat="line in calc.description">{{ line }}</p>
-        </span>
+        <%- include('calculator-top', {favorited: favorited}); %>
                
         <div class="calculator-inputs">
             <span class="calculator-input">
                 <span class="calculator-input-title">{{ calc.inputs.point1.name }}</span>
-                <input type="text" ng-change="calculate()" ng-model="calc.inputs.point1.value" class="{{ calc.colorTheme.inputColor }}">
+                <input type="text" ng-change="calculate()" ng-model="calc.inputs.point1.value" class="{{ calc.colorTheme.inputColor }}" placeholder="{{ calc.inputs.point1.hint }}">
             </span>
 
             <span class="calculator-input">
                 <span class="calculator-input-title">{{ calc.inputs.point2.name }}</span>
-                <input type="text" ng-change="calculate()" ng-model="calc.inputs.point2.value" class="{{ calc.colorTheme.inputColor }}">
+                <input type="text" ng-change="calculate()" ng-model="calc.inputs.point2.value" class="{{ calc.colorTheme.inputColor }}" placeholder="{{ calc.inputs.point2.hint }}">
             </span>
         </div>
 
@@ -31,16 +25,8 @@
                 <input type="text" ng-model="calc.outputs.euclideanDistance.value" class="{{ calc.colorTheme.outputColor }}-disabled" readonly>
             </span>
         </div>
-
-        <span class="calculator-error" ng-show="true">
-            <p class="error">{{ calc.errors[0] }}</p>    
-        </span>
-
-        <span class="calculator-button">
-            <button ng-click="calc.reset()" class="button red">Reset</button>
-        </span>
-
-        <%- include('favorite-button', {favorited: favorited, calcName: 'distance'}); %>
-        <%- include('color-picker') %>
+        
+        <%- include('errors'); %>
+        <%- include('reset-button'); %>
     </div>
 </div>
