@@ -153,9 +153,10 @@ label {
   color: #eee;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
   .blue:hover {
-    color: rgba(255, 255, 255, 0.9); }
+    color: rgba(255, 255, 255, 0.9);
+    background-image: linear-gradient(to bottom, #65bee6, #39ade3); }
   .blue:active {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.7);
     background: #39ade3;
     background-image: linear-gradient(to top, #4fb4e3, #39ade3);
     box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.2); }
@@ -193,9 +194,10 @@ label {
   color: #eee;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
   .green:hover {
-    color: rgba(255, 255, 255, 0.9); }
+    color: rgba(255, 255, 255, 0.9);
+    background-image: linear-gradient(to bottom, #a5d389, #8bcc62); }
   .green:active {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.7);
     background: #8bcc62;
     background-image: linear-gradient(to top, #97cc76, #8bcc62);
     box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.2); }
@@ -233,9 +235,10 @@ label {
   color: #eee;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
   .purple:hover {
-    color: rgba(255, 255, 255, 0.9); }
+    color: rgba(255, 255, 255, 0.9);
+    background-image: linear-gradient(to bottom, #948cc3, #7568ba); }
   .purple:active {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.7);
     background: #7568ba;
     background-image: linear-gradient(to top, #847bba, #7568ba);
     box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.2); }
@@ -273,9 +276,10 @@ label {
   color: #eee;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
   .orange:hover {
-    color: rgba(255, 255, 255, 0.9); }
+    color: rgba(255, 255, 255, 0.9);
+    background-image: linear-gradient(to bottom, #f69851, #f57c20); }
   .orange:active {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.7);
     background: #f57c20;
     background-image: linear-gradient(to top, #f58a38, #f57c20);
     box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.2); }
@@ -313,9 +317,10 @@ label {
   color: #eee;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
   .red:hover {
-    color: rgba(255, 255, 255, 0.9); }
+    color: rgba(255, 255, 255, 0.9);
+    background-image: linear-gradient(to bottom, #f0827a, #ed574c); }
   .red:active {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.7);
     background: #ed574c;
     background-image: linear-gradient(to top, #ed6d64, #ed574c);
     box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.2); }
@@ -353,9 +358,10 @@ label {
   color: #eee;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
   .yellow:hover {
-    color: rgba(255, 255, 255, 0.9); }
+    color: rgba(255, 255, 255, 0.9);
+    background-image: linear-gradient(to bottom, #f4db6d, #f2d13d); }
   .yellow:active {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.7);
     background: #f2d13d;
     background-image: linear-gradient(to top, #f2d555, #f2d13d);
     box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.2); }
@@ -393,9 +399,10 @@ label {
   color: #eee;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
   .dark-red:hover {
-    color: rgba(255, 255, 255, 0.9); }
+    color: rgba(255, 255, 255, 0.9);
+    background-image: linear-gradient(to bottom, #4d0009, #2e0005); }
   .dark-red:active {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.7);
     background: #2e0005;
     background-image: linear-gradient(to top, #330006, #2e0005);
     box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.2); }
@@ -433,9 +440,10 @@ label {
   color: #eee;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
   .dark-blue:hover {
-    color: rgba(255, 255, 255, 0.9); }
+    color: rgba(255, 255, 255, 0.9);
+    background-image: linear-gradient(to bottom, #00344d, #001f2e); }
   .dark-blue:active {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.7);
     background: #001f2e;
     background-image: linear-gradient(to top, #002333, #001f2e);
     box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.2); }
@@ -473,9 +481,10 @@ label {
   color: #eee;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
   .dark-grey:hover {
-    color: rgba(255, 255, 255, 0.9); }
+    color: rgba(255, 255, 255, 0.9);
+    background-image: linear-gradient(to bottom, #737373, #666666); }
   .dark-grey:active {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.7);
     background: #666666;
     background-image: linear-gradient(to top, #666666, #666666);
     box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.2); }
@@ -628,9 +637,10 @@ input[type="radio"] + label {
   max-width: 400px;
   text-align: center; }
   input[type="radio"] + label:hover {
-    color: rgba(255, 255, 255, 0.9); }
+    color: rgba(255, 255, 255, 0.9);
+    background-image: linear-gradient(to bottom, white, #f2f2f2); }
   input[type="radio"] + label:active {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.7);
     background: #f2f2f2;
     background-image: linear-gradient(to top, #f2f2f2, #f2f2f2);
     box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.2); }
@@ -653,9 +663,10 @@ input[type="radio"]:checked + label {
   color: #eee;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
   input[type="radio"]:checked + label:hover {
-    color: rgba(255, 255, 255, 0.9); }
+    color: rgba(255, 255, 255, 0.9);
+    background-image: linear-gradient(to bottom, #65bee6, #39ade3); }
   input[type="radio"]:checked + label:active {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.7);
     background: #39ade3;
     background-image: linear-gradient(to top, #4fb4e3, #39ade3);
     box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.2); }

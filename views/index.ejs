@@ -18,7 +18,7 @@
         <% allCalculators.forEach(function(calculator) { %>
             <div ng-controller="<%= calculator %>">
                 <div class="calc {{ calc.colorTheme.backgroundColor }}-background">                
-                    <%- include('calculators/' + calculator, {favorited: favorites.includes(calculator)}); %>
+                    <%- include('calculators/calc', {calculator: calculator, favorited: favorites.includes(calculator)}); %>
                 </div>
             </div>
         <% }); %>
