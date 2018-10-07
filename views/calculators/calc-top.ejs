@@ -1,0 +1,23 @@
+<div class="calc-section calc-top">
+	<span class="calc-title">{{ calc.title }}</span>
+	<span class="calc-hr"></span>
+
+	<span class="calc-preferences">
+		<span class="calc-icon">
+			<i class="fas fa-palette fa-lg"></i>
+		</span>
+		<span class="calc-icon">
+			<% if(favorited) { %>
+				<form action="/favorites/delete" method="POST">
+			        <input type="hidden" name="calculator" value="{{ calc.name }}">
+			        <i class="fas fa-star fa-lg" onclick="this.parentNode.submit()"></i>
+			    </form>
+			<% } else { %>
+				<form action="/favorites/add" method="POST">
+			        <input type="hidden" name="calculator" value="{{ calc.name }}">
+			        <i class="far fa-star fa-lg" onclick="this.parentNode.submit()"></i>
+			    </form>
+			<% } %>
+		</span>
+	</span>
+</div>

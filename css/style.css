@@ -21,11 +21,6 @@ p {
 label {
   color: #123; }
 
-.calculator-outer {
-  width: 100%;
-  margin-top: 50px;
-  margin-bottom: 25px; }
-
 ::placeholder {
   color: #ccc;
   opacity: 0.5;
@@ -41,77 +36,70 @@ label {
   color: #eee;
   text-shadow: none; }
 
-.calculator {
-  margin-left: auto;
-  margin-right: auto;
-  background-color: #f6f6f6;
-  border: 1px solid gainsboro;
-  border-radius: 3px;
-  box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.7), 3px 0px 6px rgba(0, 0, 0, 0.7), -3px 0px 6px rgba(0, 0, 0, 0.7);
-  transition: all 0.2s ease-in-out;
-  height: auto;
-  color: #111111;
-  text-align: left;
-  padding: 25px;
-  margin-top: 25px;
-  max-width: 400px; }
-  .calculator .calculator-inner {
-    position: relative; }
-    .calculator .calculator-inner .calculator-title {
+.calc {
+  padding: 25px; }
+  .calc .calc-content .calc-section {
+    margin-top: 50px;
+    margin-bottom: 50px; }
+  .calc .calc-content .calc-top {
+    position: relative;
+    margin-top: 0;
+    margin-bottom: 0; }
+    .calc .calc-content .calc-top .calc-title {
       border-bottom: 1px solid gainsboro;
       line-height: 1.5em;
       transition: all 0.2s ease-in-out;
       font-size: 140%; }
-    .calculator .calculator-inner .calculator-description {
-      line-height: 1.7em;
-      margin-bottom: 50px;
-      display: block; }
-    .calculator .calculator-inner .calculator-actions {
+    .calc .calc-content .calc-top .calc-preferences {
       position: absolute;
       top: 0;
       right: 0; }
-      .calculator .calculator-inner .calculator-actions .calculator-action {
+      .calc .calc-content .calc-top .calc-preferences .calc-icon {
         display: inline-block;
         margin: 5px;
         cursor: pointer; }
-    .calculator .calculator-inner .calculator-input-title {
-      transition: all 0.2s ease-in-out;
-      font-size: 110%;
-      margin-bottom: 5px;
-      display: block; }
-    .calculator .calculator-inner .calculator-output-title {
-      transition: all 0.2s ease-in-out;
-      font-size: 110%;
-      margin-bottom: 5px;
-      display: block;
-      font-weight: bold; }
-    .calculator .calculator-inner .calculator-input, .calculator .calculator-inner .calculator-output {
-      transition: all 0.2s ease-in-out;
-      display: block;
-      margin-top: 15px;
-      margin-bottom: 5px; }
-    .calculator .calculator-inner .calculator-inputs {
-      margin-bottom: 25px; }
-    .calculator .calculator-inner .calculator-outputs {
-      margin-top: 50px; }
-    .calculator .calculator-inner .calculator-error {
-      display: block;
-      margin-top: 25px; }
-      .calculator .calculator-inner .calculator-error .error {
-        color: #a94442;
-        background-color: #f2dede;
-        border-color: #ebccd1;
-        padding: 15px;
-        border-radius: 4px;
-        border: 1px solid transparent;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        text-shadow: none; }
-    .calculator .calculator-inner .calculator-button {
-      transition: all 0.2s ease-in-out;
-      display: block;
-      margin-top: 50px;
-      margin-bottom: 5px; }
+  .calc .calc-content .calc-description {
+    line-height: 1.7em;
+    display: block;
+    margin-top: 0; }
+  .calc .calc-content .calc-inputs .calc-input {
+    transition: all 0.2s ease-in-out;
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px; }
+  .calc .calc-content .calc-inputs .calc-input-title {
+    transition: all 0.2s ease-in-out;
+    font-size: 110%;
+    margin-bottom: 5px;
+    display: block; }
+  .calc .calc-content .calc-outputs .calc-output {
+    transition: all 0.2s ease-in-out;
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px; }
+  .calc .calc-content .calc-outputs .calc-output-title {
+    transition: all 0.2s ease-in-out;
+    font-size: 110%;
+    margin-bottom: 5px;
+    display: block;
+    font-weight: bold; }
+  .calc .calc-content .calc-errors {
+    margin-top: 0;
+    margin-bottom: 0; }
+    .calc .calc-content .calc-errors .calc-error {
+      color: #a94442;
+      background-color: #f2dede;
+      border-color: #ebccd1;
+      padding: 15px;
+      border-radius: 4px;
+      border: 1px solid transparent;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      text-shadow: none; }
+  .calc .calc-content .calc-bottom {
+    transition: all 0.2s ease-in-out;
+    display: block;
+    margin-bottom: 0; }
 
 .button {
   background-color: #f2f2f2;

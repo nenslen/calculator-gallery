@@ -1,0 +1,31 @@
+<div class="calc-content">
+    <%- include('calc-top'); %>
+    <%- include('calc-description'); %>
+               
+    <div class="calc-section calc-inputs">
+        <span class="calc-input">
+            <span class="calc-input-title">{{ calc.inputs.point1.name }}</span>
+            <input type="text" ng-change="calculate()" ng-model="calc.inputs.point1.value" class="{{ calc.colorTheme.inputColor }}" placeholder="{{ calc.inputs.point1.hint }}">
+        </span>
+
+        <span class="calc-input">
+            <span class="calc-input-title">{{ calc.inputs.point2.name }}</span>
+            <input type="text" ng-change="calculate()" ng-model="calc.inputs.point2.value" class="{{ calc.colorTheme.inputColor }}" placeholder="{{ calc.inputs.point2.hint }}">
+        </span>
+    </div>
+
+    <div class="calc-section calc-outputs">
+        <span class="calc-output">
+            <span class="calc-output-title">{{ calc.outputs.manhattanDistance.name }}</span>
+            <input type="text" ng-model="calc.outputs.manhattanDistance.value" class="{{ calc.colorTheme.outputColor }}-disabled" readonly>
+        </span>
+
+        <span class="calc-output"> 
+            <span class="calc-output-title">{{ calc.outputs.euclideanDistance.name }}</span>
+            <input type="text" ng-model="calc.outputs.euclideanDistance.value" class="{{ calc.colorTheme.outputColor }}-disabled" readonly>
+        </span>
+    </div>
+
+    <%- include('calc-errors'); %>
+    <%- include('calc-bottom'); %>
+</div>
