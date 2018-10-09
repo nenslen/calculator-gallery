@@ -136,7 +136,7 @@ label {
 }
 
 .button{
-	@include buttonize(0, 0, 95, 1, 0);
+	@include colorize(0, 0, 95, 1, 0);
 	outline: none; 
 	border-radius: 3px; 
 	cursor: pointer; 
@@ -150,48 +150,52 @@ label {
 	vertical-align: top;
 }
 
-.default{ } 
-.default-background{ }
-.default-disabled{ 		@include buttonize(0, 0, 75, 1, 0); }
+.default{ 				@include colorize(0, 0, 5, 1, 1); } 
+.default-input{ 		@include colorize(0, 0, 85, 1, 0, 1); } 
+.default-background{    @include colorize(0, 0, 99, 1); }
+.default-disabled{ 		@include colorize(0, 0, 65, 1); }
 
 .white{ 				}
-.white-disabled{ 		@include buttonize(0, 0, 75, 1, 0);}
+.white-disabled{ 		@include colorize(0, 0, 75, 1); }
 
-.blue{ 					@include buttonize(199, 65, 89, 0, 1);}
-.blue-background{		@include buttonize(199, 54, 65, 0, 0);}
-.blue-disabled{ 		@include buttonize(199, 65, 45, 0, 0);}
+.blue{ 					@include colorize(199, 65, 89, 0, 1); }
+.blue-input{			@include colorize(199, 65, 89, 0, 0, 1); }
+.blue-background{		@include colorize(199, 54, 65, 0); }
+.blue-disabled{ 		@include colorize(199, 65, 45, 0); }
 
-.green{ 				@include buttonize(97, 42, 80, 0, 1);}
-.green-background{ 		@include buttonize(97, 30, 60, 0, 0);}
-.green-disabled{ 		@include buttonize(97, 42, 40, 0, 0);}
+.green{ 				@include colorize(97, 42, 80, 0, 1); }
+.green-background{ 		@include colorize(97, 30, 60, 0); }
+.green-disabled{ 		@include colorize(97, 42, 40, 0); }
 
-.purple{ 				@include buttonize(249, 34, 73, 0, 1);}
-.purple-background{		@include buttonize(249, 23, 50, 0, 0);}
-.purple-disabled{ 		@include buttonize(249, 34, 30, 0, 0);}
+.purple{ 				@include colorize(249, 34, 73, 0, 1); }
+.purple-background{		@include colorize(249, 23, 50, 0); }
+.purple-disabled{ 		@include colorize(249, 34, 30, 0); }
 
-.orange{ 				@include buttonize(26, 77, 96, 0, 1);}
-.orange-background{		@include buttonize(26, 55, 75, 0, 0);}
-.orange-disabled{ 		@include buttonize(26, 77, 45, 0, 0);}
+.orange{ 				@include colorize(26, 77, 96, 0, 1); }
+.orange-background{		@include colorize(26, 55, 75, 0); }
+.orange-disabled{ 		@include colorize(26, 77, 45, 0); }
 
-.red{ 					@include buttonize(4, 58, 93, 0, 1);}
-.red-background{ 		@include buttonize(4, 45, 75, 0, 0);}
-.red-disabled{ 			@include buttonize(4, 58, 50, 0, 0);}
+.red{ 					@include colorize(4, 58, 93, 0, 1); }
+.red-input{ 			@include colorize(4, 58, 93, 0, 0, 1); }
+.red-background{ 		@include colorize(4, 45, 75, 0); }
+.red-disabled{ 			@include colorize(4, 58, 50, 0); }
 
-.yellow{ 				@include buttonize(49, 65, 95, 0, 1);}
-.yellow-background{		@include buttonize(49, 50, 75, 0, 0);}
-.yellow-disabled{ 		@include buttonize(49, 65, 45, 0, 0);}
+.yellow{ 				@include colorize(49, 65, 95, 0, 1); }
+.yellow-background{		@include colorize(49, 50, 75, 0); }
+.yellow-disabled{ 		@include colorize(49, 65, 45, 0); }
 
-.dark-red{ 				@include buttonize(353, 100, 20, 0, 1);}
-.dark-red-background{ 	@include buttonize(353, 80, 30, 0, 0);}
-.dark-red-disabled{ 	@include buttonize(353, 100, 10, 0, 0);}
+.dark-red{ 				@include colorize(353, 100, 20, 0, 1); }
+.dark-red-background{ 	@include colorize(353, 80, 30, 0); }
+.dark-red-disabled{ 	@include colorize(353, 100, 10, 0); }
 
-.dark-blue{ 			@include buttonize(199, 100, 20, 0, 1);}
-.dark-blue-background{	@include buttonize(199, 80, 30, 0, 0);}
-.dark-blue-disabled{ 	@include buttonize(199, 100, 10, 0, 0);}
+.dark-blue{ 			@include colorize(199, 100, 20, 0, 1); }
+.dark-blue-background{	@include colorize(199, 80, 30, 0); }
+.dark-blue-disabled{ 	@include colorize(199, 100, 10, 0); }
 
-.dark-grey{ 			@include buttonize(0, 0, 40, 0, 1);}
-.dark-grey-background{ 	@include buttonize(0, 0, 20, 0, 0);}
-.dark-grey-disabled{ 	@include buttonize(0, 0, 10, 0, 0);}
+.dark-grey{ 			@include colorize(0, 0, 40, 0, 1); }
+.dark-grey-input{ 		@include colorize(0, 0, 40, 0, 0, 1); }
+.dark-grey-background{ 	@include colorize(0, 0, 20, 0); }
+.dark-grey-disabled{ 	@include colorize(0, 0, 10, 0); }
 
 
 .button .fa{ float: left; font-size: 14px; line-height: 20px; margin: -1px 8px 0 -4px; vertical-align: top;}
@@ -220,7 +224,7 @@ select {
 } 
 
 option {
-	@include buttonize(0, 0, 95, 1, 0);
+	@include colorize(0, 0, 95, 1, 0);
 	font-size: 0.8em;
 }
 
@@ -253,7 +257,7 @@ input[type=range]:focus {
 }
 
 input[type=range]::-webkit-slider-runnable-track {
-	@include buttonize(0, 0, 95, 1);
+	@include colorize(0, 0, 95, 1);
 	display: block; 
 	max-width: 100%;
 	width: 100%;
@@ -289,7 +293,7 @@ input[type="radio"] {
 }
 
 input[type="radio"]+label {
-	@include buttonize(0, 0, 95, 1, 1);
+	@include colorize(0, 0, 95, 1, 1);
 	box-sizing: border-box;
 	outline: none;
 	border-radius: 0 !important; 
@@ -310,5 +314,5 @@ input[type="radio"]+label {
 
 
 input[type="radio"]:checked+label{
-	@include buttonize(199, 65, 89, 0, 1);
+	@include colorize(199, 65, 89, 0, 1);
 }

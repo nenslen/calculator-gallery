@@ -1,5 +1,5 @@
 angular.module('calculatorApp').controller('square', ['$scope', function($scope) {
-	let title = 'Square Calculator';
+	let title = 'Square';
 	let name = 'square';
 	let description = ['This calculator takes a number, and returns its square.'];
 	let inputs = {
@@ -8,7 +8,7 @@ angular.module('calculatorApp').controller('square', ['$scope', function($scope)
 	let outputs = {
 		y: new Output('Y', 0)
 	};
-	let colorTheme = $scope.colorThemes.purple;
+	let colorTheme = $scope.colorThemes.dark;
 
 	$scope.calc = new Calculator(title, name, description, inputs, outputs, colorTheme);
 

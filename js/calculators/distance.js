@@ -1,5 +1,5 @@
 angular.module('calculatorApp').controller('distance', ['$scope', function($scope) {
-	let title = 'Distance Calculator';
+	let title = 'Distance';
 	let name = 'distance';
 	let description = [
 		'Calculates the distance between 2 points. Points must be entered as a list of numbers separated by a comma.',
@@ -13,7 +13,7 @@ angular.module('calculatorApp').controller('distance', ['$scope', function($scop
 		manhattanDistance: new Output('Manhattan (L1)', 0),
 		euclideanDistance: new Output('Euclidean (L2)', 0)
 	};
-	let colorTheme = $scope.colorThemes.red;
+	let colorTheme = $scope.colorThemes.dark;
 
 	$scope.calc = new Calculator(title, name, description, inputs, outputs, colorTheme);
 
