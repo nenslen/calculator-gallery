@@ -7,7 +7,7 @@ angular.module('calculatorApp', []).controller('app-controller', ['$scope', func
 		//'white',
 		//'green',
 		'purple',
-		//'yellow',
+		'yellow',
 		//'orange',
 		'america',
 		'dark',
@@ -25,7 +25,8 @@ angular.module('calculatorApp', []).controller('app-controller', ['$scope', func
 		dark: new ColorTheme('dark', 'dark-grey', 'dark-grey', 'dark-grey'),
 		darkRed: new ColorTheme('darkRed', 'dark-red', 'dark-red', 'dark-red'),
 		darkBlue: new ColorTheme('darkBlue', 'dark-blue', 'dark-blue', 'dark-blue'),
-		juicy: new ColorTheme('juicy', 'red', 'red', 'blue')
+		juicy: new ColorTheme('juicy', 'red', 'red', 'blue'),
+		yellow: new ColorTheme('yellow', 'yellow', 'yellow', 'yellow')
 	}
 }]);
 

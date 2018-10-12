@@ -1,5 +1,6 @@
 @import "variables";
 @import "functions";
+@import "colors";
 
 ul, body {
 	padding: 0;
@@ -75,6 +76,24 @@ label {
 			    	margin: 5px;
 			    	cursor: pointer;
 			    }
+
+			    #settings-icon {
+		    		&:hover {
+		    			color: #666666;
+		    		}
+		    	}
+
+		    	#info-icon {
+		    		&:hover {
+		    			color: #4c89a6;
+		    		}
+		    	}
+
+		    	#favorite-icon {
+		    		&:hover {
+		    			color: #bfae60;
+		    		}
+		    	}
 			}
 		}
 		.calc-description {
@@ -136,7 +155,6 @@ label {
 }
 
 .button{
-	@include colorize(0, 0, 95, 1, 0);
 	outline: none; 
 	border-radius: 3px; 
 	cursor: pointer; 
@@ -149,57 +167,6 @@ label {
 	transition: all 20ms ease-out; 
 	vertical-align: top;
 }
-
-.default{ 				@include colorize(0, 0, 5, 1, 1); } 
-.default-input{ 		@include colorize(0, 0, 85, 1, 0, 1); } 
-.default-background{    @include colorize(0, 0, 99, 1); }
-.default-disabled{ 		@include colorize(0, 0, 65, 1); }
-
-.white{ 				}
-.white-disabled{ 		@include colorize(0, 0, 75, 1); }
-
-.blue{ 					@include colorize(199, 65, 89, 0, 1); }
-.blue-input{			@include colorize(199, 65, 89, 0, 0, 1); }
-.blue-background{		@include colorize(199, 54, 65, 0); }
-.blue-disabled{ 		@include colorize(199, 65, 45, 0); }
-
-.green{ 				@include colorize(97, 42, 80, 0, 1); }
-.green-background{ 		@include colorize(97, 30, 60, 0); }
-.green-disabled{ 		@include colorize(97, 42, 40, 0); }
-
-.purple{ 				@include colorize(249, 34, 73, 0, 1); }
-.purple-background{		@include colorize(249, 23, 50, 0); }
-.purple-disabled{ 		@include colorize(249, 34, 30, 0); }
-
-.orange{ 				@include colorize(26, 77, 96, 0, 1); }
-.orange-background{		@include colorize(26, 55, 75, 0); }
-.orange-disabled{ 		@include colorize(26, 77, 45, 0); }
-
-.red{ 					@include colorize(4, 58, 93, 0, 1); }
-.red-input{ 			@include colorize(4, 58, 93, 0, 0, 1); }
-.red-background{ 		@include colorize(4, 45, 75, 0); }
-.red-disabled{ 			@include colorize(4, 58, 50, 0); }
-
-.yellow{ 				@include colorize(49, 65, 95, 0, 1); }
-.yellow-background{		@include colorize(49, 50, 75, 0); }
-.yellow-disabled{ 		@include colorize(49, 65, 45, 0); }
-
-.dark-red{ 				@include colorize(353, 100, 20, 0, 1); }
-.dark-red-background{ 	@include colorize(353, 80, 30, 0); }
-.dark-red-disabled{ 	@include colorize(353, 100, 10, 0); }
-
-.dark-blue{ 			@include colorize(199, 100, 20, 0, 1); }
-.dark-blue-background{	@include colorize(199, 80, 30, 0); }
-.dark-blue-disabled{ 	@include colorize(199, 100, 10, 0); }
-
-.dark-grey{ 			@include colorize(0, 0, 40, 0, 1); }
-.dark-grey-input{ 		@include colorize(0, 0, 40, 0, 0, 1); }
-.dark-grey-background{ 	@include colorize(0, 0, 20, 0); }
-.dark-grey-disabled{ 	@include colorize(0, 0, 10, 0); }
-
-
-.button .fa{ float: left; font-size: 14px; line-height: 20px; margin: -1px 8px 0 -4px; vertical-align: top;}
-
 
 select {
 	outline: none;
@@ -227,7 +194,6 @@ option {
 	@include colorize(0, 0, 95, 1, 0);
 	font-size: 0.8em;
 }
-
 
 input[type=number], input[type=text] {
 	box-sizing: border-box;
@@ -311,7 +277,6 @@ input[type="radio"]+label {
 	max-width: 400px;
 	text-align: center;
 }
-
 
 input[type="radio"]:checked+label{
 	@include colorize(199, 65, 89, 0, 1);

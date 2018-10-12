@@ -6,135 +6,6 @@
  * @param $events: If the element should respond to mouse events (hover, etc). False by default
  * @param $input: If the element is an input element. False by default
  */
-ul, body {
-  padding: 0;
-  margin: 0; }
-
-body {
-  background-color: #111111;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("/media/bg.png");
-  font-size: 115%;
-  font-family: Century Gothic, sans-serif; }
-
-a {
-  text-decoration: none;
-  color: #56A3DF; }
-
-a:hover {
-  color: #c1ddf3; }
-
-p {
-  line-height: 1.5em; }
-
-label {
-  color: #123; }
-
-::placeholder {
-  color: #ccc;
-  opacity: 0.5;
-  text-shadow: none; }
-
-:-ms-input-placeholder {
-  /* Internet Explorer 10-11 */
-  color: #eee;
-  text-shadow: none; }
-
-::-ms-input-placeholder {
-  /* Microsoft Edge */
-  color: #eee;
-  text-shadow: none; }
-
-.calc {
-  padding: 25px; }
-  .calc .calc-content .calc-section {
-    margin-top: 50px;
-    margin-bottom: 50px; }
-  .calc .calc-content .calc-top {
-    position: relative;
-    margin-top: 0;
-    margin-bottom: 0; }
-    .calc .calc-content .calc-top .calc-title {
-      border-bottom: 1px solid gainsboro;
-      line-height: 1.5em;
-      transition: all 0.2s ease-in-out;
-      font-size: 140%; }
-    .calc .calc-content .calc-top .calc-preferences {
-      position: absolute;
-      top: 0;
-      right: 0; }
-      .calc .calc-content .calc-top .calc-preferences .calc-icon {
-        display: inline-block;
-        margin: 5px;
-        cursor: pointer; }
-  .calc .calc-content .calc-description {
-    line-height: 1.7em;
-    display: block;
-    margin-top: 0; }
-  .calc .calc-content .calc-inputs .calc-input {
-    transition: all 0.2s ease-in-out;
-    display: block;
-    margin-top: 15px;
-    margin-bottom: 5px; }
-  .calc .calc-content .calc-inputs .calc-input-title {
-    transition: all 0.2s ease-in-out;
-    font-size: 110%;
-    margin-bottom: 5px;
-    display: block; }
-  .calc .calc-content .calc-outputs .calc-output {
-    transition: all 0.2s ease-in-out;
-    display: block;
-    margin-top: 15px;
-    margin-bottom: 5px; }
-  .calc .calc-content .calc-outputs .calc-output-title {
-    transition: all 0.2s ease-in-out;
-    font-size: 110%;
-    margin-bottom: 5px;
-    display: block;
-    font-weight: bold; }
-  .calc .calc-content .calc-errors {
-    margin-top: 0;
-    margin-bottom: 0; }
-    .calc .calc-content .calc-errors .calc-error {
-      color: #a94442;
-      background-color: #f2dede;
-      border-color: #ebccd1;
-      padding: 15px;
-      border-radius: 4px;
-      border: 1px solid transparent;
-      margin-top: 10px;
-      margin-bottom: 10px;
-      text-shadow: none; }
-  .calc .calc-content .calc-bottom {
-    transition: all 0.2s ease-in-out;
-    display: block;
-    margin-bottom: 0; }
-
-.button {
-  background-color: #f2f2f2;
-  background-image: linear-gradient(to bottom, #f2f2f2, #f2f2f2);
-  border: 1px solid #bfbfbf;
-  box-shadow: inset 0 1px 0 white, inset 0 -1px 0 #d9d9d9, inset 0 0 0 1px #f2f2f2, 0 2px 4px rgba(0, 0, 0, 0.2);
-  color: #0d0d0d;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-  outline: none;
-  border-radius: 3px;
-  cursor: pointer;
-  display: inline-block;
-  font-family: Verdana, sans-serif;
-  font-size: 1.2em;
-  font-weight: 400;
-  line-height: 20px;
-  padding: 16px;
-  transition: all 20ms ease-out;
-  vertical-align: top; }
-  .button ::placeholder {
-    color: #000;
-    opacity: 0.5;
-    text-shadow: none; }
-  .button .fa {
-    color: #bfbfbf;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3); }
-
 .default {
   background-color: #0d0d0d;
   background-image: linear-gradient(to bottom, #0d0d0d, #0d0d0d);
@@ -639,11 +510,126 @@ label {
     color: black;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3); }
 
-.button .fa {
-  float: left;
-  font-size: 14px;
+ul, body {
+  padding: 0;
+  margin: 0; }
+
+body {
+  background-color: #111111;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("/media/bg.png");
+  font-size: 115%;
+  font-family: Century Gothic, sans-serif; }
+
+a {
+  text-decoration: none;
+  color: #56A3DF; }
+
+a:hover {
+  color: #c1ddf3; }
+
+p {
+  line-height: 1.5em; }
+
+label {
+  color: #123; }
+
+::placeholder {
+  color: #ccc;
+  opacity: 0.5;
+  text-shadow: none; }
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #eee;
+  text-shadow: none; }
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #eee;
+  text-shadow: none; }
+
+.calc {
+  padding: 25px; }
+  .calc .calc-content .calc-section {
+    margin-top: 50px;
+    margin-bottom: 50px; }
+  .calc .calc-content .calc-top {
+    position: relative;
+    margin-top: 0;
+    margin-bottom: 0; }
+    .calc .calc-content .calc-top .calc-title {
+      border-bottom: 1px solid gainsboro;
+      line-height: 1.5em;
+      transition: all 0.2s ease-in-out;
+      font-size: 140%; }
+    .calc .calc-content .calc-top .calc-preferences {
+      position: absolute;
+      top: 0;
+      right: 0; }
+      .calc .calc-content .calc-top .calc-preferences .calc-icon {
+        display: inline-block;
+        margin: 5px;
+        cursor: pointer; }
+      .calc .calc-content .calc-top .calc-preferences #settings-icon:hover {
+        color: #666666; }
+      .calc .calc-content .calc-top .calc-preferences #info-icon:hover {
+        color: #4c89a6; }
+      .calc .calc-content .calc-top .calc-preferences #favorite-icon:hover {
+        color: #bfae60; }
+  .calc .calc-content .calc-description {
+    line-height: 1.7em;
+    display: block;
+    margin-top: 0; }
+  .calc .calc-content .calc-inputs .calc-input {
+    transition: all 0.2s ease-in-out;
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px; }
+  .calc .calc-content .calc-inputs .calc-input-title {
+    transition: all 0.2s ease-in-out;
+    font-size: 110%;
+    margin-bottom: 5px;
+    display: block; }
+  .calc .calc-content .calc-outputs .calc-output {
+    transition: all 0.2s ease-in-out;
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px; }
+  .calc .calc-content .calc-outputs .calc-output-title {
+    transition: all 0.2s ease-in-out;
+    font-size: 110%;
+    margin-bottom: 5px;
+    display: block;
+    font-weight: bold; }
+  .calc .calc-content .calc-errors {
+    margin-top: 0;
+    margin-bottom: 0; }
+    .calc .calc-content .calc-errors .calc-error {
+      color: #a94442;
+      background-color: #f2dede;
+      border-color: #ebccd1;
+      padding: 15px;
+      border-radius: 4px;
+      border: 1px solid transparent;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      text-shadow: none; }
+  .calc .calc-content .calc-bottom {
+    transition: all 0.2s ease-in-out;
+    display: block;
+    margin-bottom: 0; }
+
+.button {
+  outline: none;
+  border-radius: 3px;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Verdana, sans-serif;
+  font-size: 1.2em;
+  font-weight: 400;
   line-height: 20px;
-  margin: -1px 8px 0 -4px;
+  padding: 16px;
+  transition: all 20ms ease-out;
   vertical-align: top; }
 
 select {

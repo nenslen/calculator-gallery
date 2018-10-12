@@ -3,19 +3,26 @@
 	<span class="calc-hr"></span>
 
 	<span class="calc-preferences">
-		<span class="calc-icon">
-			<i class="fas fa-palette fa-lg"></i>
+		<span class="calc-icon" id="settings-icon">
+			<i class="fas fa-cog fa-lg"></i>
+		</span>
+		<span class="calc-icon" id="info-icon">
+			<i class="fas fa-info-circle fa-lg"></i>
 		</span>
 		<span class="calc-icon">
 			<% if(favorited) { %>
 				<form action="/favorites/delete" method="POST">
 			        <input type="hidden" name="calculator" value="{{ calc.name }}">
-			        <i class="fas fa-star fa-lg" onclick="this.parentNode.submit()"></i>
+			        <span class="calc-icon" id="favorite-icon">
+			        	<i class="fas fa-star fa-lg" onclick="this.parentNode.submit()"></i>
+			        </span>
 			    </form>
 			<% } else { %>
 				<form action="/favorites/add" method="POST">
 			        <input type="hidden" name="calculator" value="{{ calc.name }}">
-			        <i class="far fa-star fa-lg" onclick="this.parentNode.submit()"></i>
+			        <span class="calc-icon" id="favorite-icon">
+			        	<i class="far fa-star fa-lg" onclick="this.parentNode.submit()"></i>
+			        </span>
 			    </form>
 			<% } %>
 		</span>
