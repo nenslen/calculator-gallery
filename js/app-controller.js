@@ -28,6 +28,42 @@ angular.module('calculatorApp', []).controller('app-controller', ['$scope', func
 		juicy: new ColorTheme('juicy', 'red', 'red', 'blue'),
 		yellow: new ColorTheme('yellow', 'yellow', 'yellow', 'yellow')
 	}
+
+	/**
+	 * This array is populated by each calculator when it is loaded. For example, if the
+	 * distance calculator is loaded on the page, distance.js creates the distance calculator and
+	 * adds it to this array, accessible by $scope.calculators['distance']
+	 */
+	$scope.calculators = [];
+	$scope.currentCalcName = '';
+	$scope.currentCalcColorTheme = '';
+
+	$scope.openSettings = function(calcName) {
+		let modal = document.getElementById('settings-modal');
+		modal.style.display = 'block';
+
+		let calc = $scope.calculators[calcName];
+		$scope.currentCalcName = calcName;
+		$scope.currentCalcColorTheme = calc.colorTheme.name;
+	}
+
+	$scope.changeColorTheme = function(colorThemeName) {
+		let calcName = $scope.currentCalcName;
+		let calc = $scope.calculators[calcName];
+
+		calc.colorTheme = $scope.colorThemes[colorThemeName];
+	};
+
+	// Close modal
+	window.onclick = function(event) {
+		let modal = document.getElementById('settings-modal');
+
+	    if (event.target == modal) {
+	        modal.style.display = 'none';
+	        $scope.currentCalcName = '';
+	        $scope.currentCalcColorTheme = '';
+	    }
+	}
 }]);
 
 function cleanArray(array) {

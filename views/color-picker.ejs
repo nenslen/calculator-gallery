@@ -1,0 +1,7 @@
+<select 
+	ng-model="currentCalcColorTheme"
+	ng-options="x for x in colorThemeNames"
+	ng-change="changeColorTheme(currentCalcColorTheme)"
+	id="color-picker"
+	class="{{ currentCalcColorTheme }}">
+</select>

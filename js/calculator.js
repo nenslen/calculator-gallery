@@ -1,22 +1,23 @@
 /**
  * A base calculator object
  *
- * @param title: The title displayed at the top of the calculator. eg) 'Distance Calculator'
- * @param name: The name used for binding a calculator to its controller. eg) 'distance'
- * @param description: An array of strings used to describe the calculator
- * @param inputs: An array of Input objects representing the inputs to the calculator
- * @param outputs: An array of Output objects representing the outputs to the calculator
- * @param color: The color scheme for the calculator. eg) 'red'
- * @param errors: An array of strings representing the errors (if any) currently happening for the
- * 	calcuator. eg) ['X cannot be negative', 'X cannot be greater than 50']
+ * @param title (string): The title displayed at the top of the calculator. eg) 'Distance Calculator'
+ * @param name (string): The name used for binding a calculator to its controller. eg) 'distance'
+ * @param description (string[]): The calculator's description displayed at the top of the calculator
+ * @param decimalPlaces (int): How many digits to display after the decimal. eg) 3
+ * @param inputs (Input[]): The calculator's inputs
+ * @param outputs (Output[]): The calculator's outputs
+ * @param color (ColorTheme): The calculator's color theme. eg) new ColorTheme('red')
+ * @param errors (string[]): The calculator's errors (if any) currently happening. eg) ['X cannot be negative', 'X cannot be greater than 50']
  */
 function Calculator(
 	title = '',
 	name = '',
-	description = '',
+	description = [],
 	inputs = [],
 	outputs = [],
 	colorTheme = new ColorTheme('default'),
+	decimalPlaces = 'auto',
 	errors = []
 ) {
 	this.title = title;
@@ -24,7 +25,8 @@ function Calculator(
 	this.description = description;
 	this.inputs = inputs;
 	this.outputs = outputs;
-	this.colorTheme = colorTheme; 
+	this.colorTheme = colorTheme;
+	this.decimalPlaces = decimalPlaces;
 	this.errors = errors;
 
 	/**
@@ -43,11 +45,11 @@ function Calculator(
 }
 
 /**
- * Used for holding calculator inputs. The default value is set to the initial value given.
+ * Represents a calculator input. The default value is set to the initial value given.
  * 
- * @param name: The name of the input, which is shown to the user. eg) 'Point 1'
- * @param value: The initial value of the input. eg) 5
- * @param hint: The placeholder text used for the input. eg) 'eg) 1,2,3'
+ * @param name (string): The name of the input, which is shown to the user. eg) 'Point 1'
+ * @param value (mixed): The initial value of the input. eg) 5
+ * @param hint (string): The placeholder text used for the input. eg) 'eg) 1,2,3'
  */
 function Input(name, value, hint) {
 	this.name = name;
@@ -57,10 +59,10 @@ function Input(name, value, hint) {
 }
 
 /**
- * Used for holding calculator outputs. The default value is set to the initial value given.
+ * Represents a calculator output. The default value is set to the initial value given.
  * 
- * @param name: The name of the output, which is shown to the user. eg) 'Total'
- * @param value: The initial value of the output. eg) 0
+ * @param name (string): The name of the output, which is shown to the user. eg) 'Total'
+ * @param value (mixed): The initial value of the output. eg) 0
  */
 function Output(name, value) {
 	this.name = name;

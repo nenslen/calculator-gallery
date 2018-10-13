@@ -16,12 +16,11 @@ angular.module('calculatorApp').controller('distance', ['$scope', function($scop
 	let colorTheme = $scope.colorThemes.dark;
 
 	$scope.calc = new Calculator(title, name, description, inputs, outputs, colorTheme);
+	$scope.calculators['distance'] = $scope.calc;
 
 	$scope.calculate = function() {
 		let point1 = $scope.calc.inputs.point1.value.split(',');
 		let point2 = $scope.calc.inputs.point2.value.split(',');
-		console.log(point1);
-		console.log(point2);
 		point1 = cleanArray(point1);
 		point2 = cleanArray(point2);
 		$scope.calc.outputs.euclideanDistance.value = 0;
@@ -41,9 +40,5 @@ angular.module('calculatorApp').controller('distance', ['$scope', function($scop
 		$scope.calc.outputs.euclideanDistance.value = Math.sqrt($scope.calc.outputs.euclideanDistance.value);
 
 		$scope.calc.errors = [];
-	};
-
-	$scope.changeColorTheme = function(colorTheme)  {
-		$scope.calc.colorTheme = colorTheme;
 	};
 }]);

@@ -11,6 +11,7 @@ angular.module('calculatorApp').controller('square', ['$scope', function($scope)
 	let colorTheme = $scope.colorThemes.yellow;
 
 	$scope.calc = new Calculator(title, name, description, inputs, outputs, colorTheme);
+	$scope.calculators['square'] = $scope.calc;
 
 	$scope.calculate = function() {
 		let x = $scope.calc.inputs.x.value;
@@ -21,9 +22,6 @@ angular.module('calculatorApp').controller('square', ['$scope', function($scope)
 		} else {
 			$scope.calc.errors = [];
 		}
-	};
-
-	$scope.changeColorTheme = function(colorTheme)  {
-		$scope.calc.colorTheme = colorTheme;
+		console.log($scope.calculators)
 	};
 }]);
