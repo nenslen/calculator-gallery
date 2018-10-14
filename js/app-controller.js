@@ -1,17 +1,21 @@
 angular.module('calculatorApp', []).controller('app-controller', ['$scope', function($scope) {
 	
+	// (name, input, output, background)
 	$scope.colorThemes = {
 		default: new ColorTheme('default'),
 		red: new ColorTheme('red', 'red', 'red', 'red'),
 		blue: new ColorTheme('blue', 'blue', 'blue', 'blue'),
 		purple: new ColorTheme('purple', 'purple', 'purple', 'purple'),
-		america: new ColorTheme('america', 'blue', 'default', 'red'),
+		canada: new ColorTheme('canada', 'red', 'red', 'default'),
 		dark: new ColorTheme('dark', 'dark-grey', 'dark-grey', 'dark-grey'),
 		darkRed: new ColorTheme('darkRed', 'dark-red', 'dark-red', 'dark-red'),
 		darkBlue: new ColorTheme('darkBlue', 'dark-blue', 'dark-blue', 'dark-blue'),
 		juicy: new ColorTheme('juicy', 'red', 'red', 'blue'),
 		yellow: new ColorTheme('yellow', 'yellow', 'yellow', 'yellow'),
-
+		halloween: new ColorTheme('halloween', 'orange', 'dark-grey', 'dark-grey'),
+		highContrast: new ColorTheme('highContrast', 'dark-grey', 'dark-grey', 'default'),
+		christmas: new ColorTheme('christmas', 'red', 'red', 'green'),
+		magenta: new ColorTheme('magenta', 'magenta', 'magenta', 'magenta'),
 	};
 
 	$scope.colorThemeNames = [];

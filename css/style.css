@@ -84,6 +84,61 @@
     color: #737373;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3); }
 
+.magenta {
+  background-color: #a8489d;
+  background-image: linear-gradient(to bottom, #a8489d, #a8389b);
+  border: 1px solid #751b6b;
+  box-shadow: inset 0 1px 0 #c27ab9, inset 0 -1px 0 #8f2f84, inset 0 0 0 1px #a8599f, 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: #eee;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
+  .magenta:hover {
+    color: rgba(255, 255, 255, 0.9);
+    background-image: linear-gradient(to bottom, #b654aa, #a8389b); }
+  .magenta:active {
+    color: rgba(255, 255, 255, 0.7);
+    background: #a8389b;
+    background-image: linear-gradient(to top, #a8489d, #a8389b);
+    box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.2); }
+  .magenta .fa {
+    color: #751b6b;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3); }
+
+.magenta-input {
+  background-color: #a8489d;
+  background-image: linear-gradient(to bottom, #a8489d, #a8389b);
+  border: 1px solid #751b6b;
+  box-shadow: inset 0 1px 0 #c27ab9, inset 0 -1px 0 #8f2f84, inset 0 0 0 1px #a8599f, 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: rgba(255, 255, 255, 0.7);
+  background: #a8389b;
+  box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.2);
+  color: #eee;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
+  .magenta-input .fa {
+    color: #751b6b;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3); }
+
+.magenta-background {
+  background-color: #804679;
+  background-image: linear-gradient(to bottom, #804679, #803977);
+  border: 1px solid #4d1b47;
+  box-shadow: inset 0 1px 0 #997395, inset 0 -1px 0 #662e5f, inset 0 0 0 1px #80537a, 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: #eee;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
+  .magenta-background .fa {
+    color: #4d1b47;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3); }
+
+.magenta-disabled {
+  background-color: #a8489d;
+  background-image: linear-gradient(to bottom, #a8489d, #a8389b);
+  border: 1px solid #751b6b;
+  box-shadow: inset 0 1px 0 #c27ab9, inset 0 -1px 0 #8f2f84, inset 0 0 0 1px #a8599f, 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: #eee;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
+  .magenta-disabled .fa {
+    color: #751b6b;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3); }
+
 .white-disabled {
   background-color: #bfbfbf;
   background-image: linear-gradient(to bottom, #bfbfbf, #bfbfbf);

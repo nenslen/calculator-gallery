@@ -3,6 +3,11 @@
 .default-background{    @include colorize(0, 0, 99, 1); }
 .default-disabled{ 		@include colorize(0, 0, 65, 1); }
 
+.magenta{ 				@include colorize(307, 57, 66, 0, 1); } 
+.magenta-input{ 		@include colorize(307, 57, 66, 0, 0, 1); } 
+.magenta-background{    @include colorize(307, 45, 50, 0); }
+.magenta-disabled{ 		@include colorize(307, 57, 66, 0); }
+
 .white{ 				}
 .white-disabled{ 		@include colorize(0, 0, 75, 1); }
 
