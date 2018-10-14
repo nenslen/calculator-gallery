@@ -28,13 +28,15 @@ angular.module('calculatorApp', []).controller('app-controller', ['$scope', func
 	 * adds it to this array, accessible by $scope.calculators['distance']
 	 */
 	$scope.calculators = [];
+	$scope.currentColorTheme = '';
 	$scope.currentCalc = 0;
 
 	$scope.openSettings = function(calcName) {
 		let modal = document.getElementById('settings-modal');
 		modal.style.display = 'block';
-console.log(calcName);
+
 		$scope.currentCalc = $scope.calculators[calcName];
+		$scope.currentColorTheme = $scope.currentCalc.colorTheme.name;
 	}
 
 	$scope.changeColorTheme = function(colorThemeName) {
