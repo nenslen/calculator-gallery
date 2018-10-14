@@ -27,7 +27,21 @@ angular.module('calculatorApp', []).controller('app-controller', ['$scope', func
 		darkBlue: new ColorTheme('darkBlue', 'dark-blue', 'dark-blue', 'dark-blue'),
 		juicy: new ColorTheme('juicy', 'red', 'red', 'blue'),
 		yellow: new ColorTheme('yellow', 'yellow', 'yellow', 'yellow')
-	}
+	};
+
+	$scope.decimalPlacesOptions = [
+		'auto',
+		'0',
+		'1',
+		'2',
+		'3',
+		'4',
+		'5',
+		'6',
+		'7',
+		'8',
+		'9'
+	];
 
 	/**
 	 * This array is populated by each calculator when it is loaded. For example, if the
@@ -37,6 +51,7 @@ angular.module('calculatorApp', []).controller('app-controller', ['$scope', func
 	$scope.calculators = [];
 	$scope.currentCalcName = '';
 	$scope.currentCalcColorTheme = '';
+	$scope.currentCalcDecimalPlaces = 'auto';
 
 	$scope.openSettings = function(calcName) {
 		let modal = document.getElementById('settings-modal');
@@ -45,6 +60,7 @@ angular.module('calculatorApp', []).controller('app-controller', ['$scope', func
 		let calc = $scope.calculators[calcName];
 		$scope.currentCalcName = calcName;
 		$scope.currentCalcColorTheme = calc.colorTheme.name;
+		$scope.currentCalcDecimalPlaces = calc.decimalPlaces;
 	}
 
 	$scope.changeColorTheme = function(colorThemeName) {
@@ -52,6 +68,19 @@ angular.module('calculatorApp', []).controller('app-controller', ['$scope', func
 		let calc = $scope.calculators[calcName];
 
 		calc.colorTheme = $scope.colorThemes[colorThemeName];
+	};
+
+	$scope.changeDecimalPlaces = function(places) {
+		let calcName = $scope.currentCalcName;
+		let calc = $scope.calculators[calcName];
+
+		if(places === 'auto') {
+			calc.decimalPlaces = places;
+		} else {
+			calc.decimalPlaces = parseInt(places);
+		}
+		
+		calc.calculate();
 	};
 
 	// Close modal

@@ -16,6 +16,7 @@ function Calculator(
 	description = [],
 	inputs = [],
 	outputs = [],
+	calculate = function() { return undefined; },
 	colorTheme = new ColorTheme('default'),
 	decimalPlaces = 'auto',
 	errors = []
@@ -25,6 +26,7 @@ function Calculator(
 	this.description = description;
 	this.inputs = inputs;
 	this.outputs = outputs;
+	this.calculate = calculate;
 	this.colorTheme = colorTheme;
 	this.decimalPlaces = decimalPlaces;
 	this.errors = errors;
@@ -41,6 +43,20 @@ function Calculator(
 		}
 
 		this.errors = [];
+	}
+
+	/**
+	 * Truncates the outputs of type 'number' so they only contain a certain number of digits after
+	 * the decimal
+	 */
+	this.truncateOutputs = function() {
+		if(this.decimalPlaces === 'auto') { return; }
+
+		for (let key in this.outputs) {
+			if(this.outputs[key].type === 'number') {
+				this.outputs[key].value = parseFloat(this.outputs[key].value.toFixed(this.decimalPlaces));
+			}
+		}
 	}
 }
 
@@ -63,9 +79,11 @@ function Input(name, value, hint) {
  * 
  * @param name (string): The name of the output, which is shown to the user. eg) 'Total'
  * @param value (mixed): The initial value of the output. eg) 0
+ * @param type (string): The type of the output. eg) 'number'
  */
-function Output(name, value) {
+function Output(name, value, type) {
 	this.name = name;
 	this.value = value;
 	this.defaultValue = value;
+	this.type = type;
 }
