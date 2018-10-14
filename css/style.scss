@@ -32,8 +32,8 @@ label {
 }
 
 ::placeholder {
-    color: #ccc;
-    opacity: 0.5;
+    color: #eee;
+    opacity: 0.85;
     text-shadow: none;
 }
 
@@ -75,7 +75,7 @@ label {
 			.calc-title {
 				border-bottom: 1px solid $calculator-border-color;
 				line-height: 1.5em;
-				transition: all 0.2s ease-in-out;
+				//transition: all 0.2s ease-in-out;
 				font-size: 140%;
 			}
 			.calc-preferences {
@@ -115,13 +115,13 @@ label {
 		}
 		.calc-inputs {
 			.calc-input {
-				transition: all 0.2s ease-in-out;
+				//transition: all 0.2s ease-in-out;
 				display: block;
 				margin-top: 15px;
 				margin-bottom: 5px;
 			}
 			.calc-input-title {
-				transition: all 0.2s ease-in-out;
+				//transition: all 0.2s ease-in-out;
 				font-size: 110%;
 				margin-bottom: 5px;
 				display: block;
@@ -129,13 +129,13 @@ label {
 		}
 		.calc-outputs {
 			.calc-output {
-				transition: all 0.2s ease-in-out;
+				//transition: all 0.2s ease-in-out;
 				display: block;
 				margin-top: 15px;
 				margin-bottom: 5px;
 			}
 			.calc-output-title {
-				transition: all 0.2s ease-in-out;
+				//transition: all 0.2s ease-in-out;
 				font-size: 110%;
 				margin-bottom: 5px;
 				display: block;
@@ -159,7 +159,7 @@ label {
 			}
 		}
 		.calc-bottom {
-			transition: all 0.2s ease-in-out;
+			//transition: all 0.2s ease-in-out;
 			display: block;
 			margin-bottom: 0;
 		}
@@ -176,7 +176,7 @@ label {
 	font-weight: 400;
 	line-height: 20px;
 	padding: 16px;
-	transition: all 20ms ease-out; 
+	//transition: all 20ms ease-out; 
 	vertical-align: top;
 }
 
@@ -192,13 +192,13 @@ select {
 	line-height: 20px;
 	padding: 5px;
 	//max-width: 300px;
-	transition: all 20ms ease-out; 
+	//transition: all 20ms ease-out; 
 	vertical-align: top;
 	width: 100%;
 	//max-width: 400px;
 	text-align: center;
 	font-size: 1.2em;
-	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+	//text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
     margin-bottom: 0;
 } 
 
@@ -283,7 +283,7 @@ input[type="radio"]+label {
 	line-height: 20px;
 	padding: 16px;
 	max-width: 300px;
-	transition: all 20ms ease-out; 
+	//transition: all 20ms ease-out; 
 	vertical-align: top;
 	width: 100%;
 	max-width: 400px;
@@ -403,7 +403,7 @@ input[type="radio"]:checked+label{
 				.modal-title {
 					border-bottom: 1px solid $calculator-border-color;
 					line-height: 1.5em;
-					transition: all 0.2s ease-in-out;
+					//transition: all 0.2s ease-in-out;
 					font-size: 140%;
 				}
 			}
@@ -415,14 +415,14 @@ input[type="radio"]:checked+label{
 					margin-top: 25px;
 
 					.modal-section-title {
-						transition: all 0.2s ease-in-out;
+						//transition: all 0.2s ease-in-out;
 						font-size: 110%;
 						margin-bottom: 5px;
 						display: block;
 					}
 					.modal-input {
 						width: 100%;
-						transition: all 0.2s ease-in-out;
+						//transition: all 0.2s ease-in-out;
 						display: block;
 						margin-top: 15px;
 						margin-bottom: 5px;

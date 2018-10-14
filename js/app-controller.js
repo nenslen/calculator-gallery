@@ -1,20 +1,4 @@
 angular.module('calculatorApp', []).controller('app-controller', ['$scope', function($scope) {
-	$scope.colorThemeNames = [
-		'default',
-		//'blue',
-		'red',
-		'blue',
-		//'white',
-		//'green',
-		'purple',
-		'yellow',
-		//'orange',
-		'america',
-		'dark',
-		'darkRed',
-		'darkBlue',
-		'juicy'
-	];
 	
 	$scope.colorThemes = {
 		default: new ColorTheme('default'),
@@ -26,22 +10,17 @@ angular.module('calculatorApp', []).controller('app-controller', ['$scope', func
 		darkRed: new ColorTheme('darkRed', 'dark-red', 'dark-red', 'dark-red'),
 		darkBlue: new ColorTheme('darkBlue', 'dark-blue', 'dark-blue', 'dark-blue'),
 		juicy: new ColorTheme('juicy', 'red', 'red', 'blue'),
-		yellow: new ColorTheme('yellow', 'yellow', 'yellow', 'yellow')
+		yellow: new ColorTheme('yellow', 'yellow', 'yellow', 'yellow'),
+
 	};
 
-	$scope.decimalPlacesOptions = [
-		'auto',
-		0,
-		1,
-		2,
-		3,
-		4,
-		5,
-		6,
-		7,
-		8,
-		9
-	];
+	$scope.colorThemeNames = [];
+	for (let key in $scope.colorThemes) {
+		$scope.colorThemeNames.push(key);
+	}
+
+	$scope.decimalPlacesOptions = ['auto', 0, 1, 2, 3, 4, 5, 6, 7 , 8, 9];
+
 
 	/**
 	 * This array is populated by each calculator when it is loaded. For example, if the
@@ -49,38 +28,29 @@ angular.module('calculatorApp', []).controller('app-controller', ['$scope', func
 	 * adds it to this array, accessible by $scope.calculators['distance']
 	 */
 	$scope.calculators = [];
-	$scope.currentCalcName = '';
-	$scope.currentCalcColorTheme = '';
-	$scope.currentCalcDecimalPlaces = 'auto';
+	$scope.currentCalc = 0;
 
 	$scope.openSettings = function(calcName) {
 		let modal = document.getElementById('settings-modal');
 		modal.style.display = 'block';
-
-		let calc = $scope.calculators[calcName];
-		$scope.currentCalcName = calcName;
-		$scope.currentCalcColorTheme = calc.colorTheme.name;
-		$scope.currentCalcDecimalPlaces = calc.decimalPlaces;
+console.log(calcName);
+		$scope.currentCalc = $scope.calculators[calcName];
 	}
 
 	$scope.changeColorTheme = function(colorThemeName) {
-		let calcName = $scope.currentCalcName;
-		let calc = $scope.calculators[calcName];
-
-		calc.colorTheme = $scope.colorThemes[colorThemeName];
+		$scope.currentCalc.colorTheme = $scope.colorThemes[colorThemeName];
 	};
 
-	$scope.changeDecimalPlaces = function(places) {
-		let calcName = $scope.currentCalcName;
-		let calc = $scope.calculators[calcName];
-
-		if(places === 'auto') {
-			calc.decimalPlaces = places;
+	$scope.changeDecimalPlaces = function(decimalPlaces) {
+		/*
+		if(decimalPlaces === 'auto') {
+			currentCalc.decimalPlaces = decimalPlaces;
 		} else {
-			calc.decimalPlaces = parseInt(places);
+			currentCalc.decimalPlaces = parseInt(decimalPlaces);
 		}
-		
-		calc.calculate();
+		*/
+		$scope.currentCalc.decimalPlaces = decimalPlaces;
+		$scope.currentCalc.calculate();
 	};
 
 	// Close modal
@@ -91,8 +61,7 @@ angular.module('calculatorApp', []).controller('app-controller', ['$scope', func
 
 	    if (event.target == modal || event.target == exitIcon || event.target == modalInner) {
 	        modal.style.display = 'none';
-	        $scope.currentCalcName = '';
-	        $scope.currentCalcColorTheme = '';
+	        $scope.currentCalc = 0;
 	    }
 	}
 }]);

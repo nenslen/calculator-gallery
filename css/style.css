@@ -173,6 +173,20 @@
     color: #5f993a;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3); }
 
+.green-input {
+  background-color: #97cc76;
+  background-image: linear-gradient(to bottom, #97cc76, #8bcc62);
+  border: 1px solid #5f993a;
+  box-shadow: inset 0 1px 0 #c6e6b3, inset 0 -1px 0 #79b356, inset 0 0 0 1px #a4cc8b, 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: rgba(255, 255, 255, 0.7);
+  background: #8bcc62;
+  box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.2);
+  color: #eee;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
+  .green-input .fa {
+    color: #5f993a;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3); }
+
 .green-background {
   background-color: #7d996b;
   background-image: linear-gradient(to bottom, #7d996b, #73995c);
@@ -214,6 +228,20 @@
     color: #493e87;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3); }
 
+.purple-input {
+  background-color: #847bba;
+  background-image: linear-gradient(to bottom, #847bba, #7568ba);
+  border: 1px solid #493e87;
+  box-shadow: inset 0 1px 0 #bab6d4, inset 0 -1px 0 #655aa1, inset 0 0 0 1px #948dba, 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: rgba(255, 255, 255, 0.7);
+  background: #7568ba;
+  box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.2);
+  color: #eee;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
+  .purple-input .fa {
+    color: #493e87;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3); }
+
 .purple-background {
   background-color: #676280;
   background-image: linear-gradient(to bottom, #676280, #5c5580);
@@ -252,6 +280,20 @@
     background-image: linear-gradient(to top, #f58a38, #f57c20);
     box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.2); }
   .orange .fa {
+    color: #c25706;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3); }
+
+.orange-input {
+  background-color: #f58a38;
+  background-image: linear-gradient(to bottom, #f58a38, #f57c20);
+  border: 1px solid #c25706;
+  box-shadow: inset 0 1px 0 #ffb984, inset 0 -1px 0 #db6f1d, inset 0 0 0 1px #f59851, 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: rgba(255, 255, 255, 0.7);
+  background: #f57c20;
+  box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.2);
+  color: #eee;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
+  .orange-input .fa {
     color: #c25706;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3); }
 
@@ -351,6 +393,20 @@
     color: #bfa11d;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3); }
 
+.yellow-input {
+  background-color: #f2d555;
+  background-image: linear-gradient(to bottom, #f2d555, #f2d13d);
+  border: 1px solid #bfa11d;
+  box-shadow: inset 0 1px 0 #ffeea0, inset 0 -1px 0 #d9bb36, inset 0 0 0 1px #f2da6d, 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: rgba(255, 255, 255, 0.7);
+  background: #f2d13d;
+  box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.2);
+  color: #eee;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
+  .yellow-input .fa {
+    color: #bfa11d;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3); }
+
 .yellow-background {
   background-color: #bfae60;
   background-image: linear-gradient(to bottom, #bfae60, #bfaa4d);
@@ -444,6 +500,20 @@
     background-image: linear-gradient(to top, #002333, #001f2e);
     box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.2); }
   .dark-blue .fa {
+    color: black;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3); }
+
+.dark-blue-input {
+  background-color: #002333;
+  background-image: linear-gradient(to bottom, #002333, #001f2e);
+  border: 1px solid black;
+  box-shadow: inset 0 1px 0 #0f394d, inset 0 -1px 0 #001017, inset 0 0 0 1px #052433, 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: rgba(255, 255, 255, 0.7);
+  background: #001f2e;
+  box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.2);
+  color: #eee;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
+  .dark-blue-input .fa {
     color: black;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3); }
 
@@ -548,8 +618,8 @@ label {
   color: #123; }
 
 ::placeholder {
-  color: #ccc;
-  opacity: 0.5;
+  color: #eee;
+  opacity: 0.85;
   text-shadow: none; }
 
 :-ms-input-placeholder {
@@ -584,7 +654,6 @@ label {
     .calc .calc-content .calc-top .calc-title {
       border-bottom: 1px solid gainsboro;
       line-height: 1.5em;
-      transition: all 0.2s ease-in-out;
       font-size: 140%; }
     .calc .calc-content .calc-top .calc-preferences {
       position: absolute;
@@ -605,22 +674,18 @@ label {
     display: block;
     margin-top: 0; }
   .calc .calc-content .calc-inputs .calc-input {
-    transition: all 0.2s ease-in-out;
     display: block;
     margin-top: 15px;
     margin-bottom: 5px; }
   .calc .calc-content .calc-inputs .calc-input-title {
-    transition: all 0.2s ease-in-out;
     font-size: 110%;
     margin-bottom: 5px;
     display: block; }
   .calc .calc-content .calc-outputs .calc-output {
-    transition: all 0.2s ease-in-out;
     display: block;
     margin-top: 15px;
     margin-bottom: 5px; }
   .calc .calc-content .calc-outputs .calc-output-title {
-    transition: all 0.2s ease-in-out;
     font-size: 110%;
     margin-bottom: 5px;
     display: block;
@@ -639,7 +704,6 @@ label {
       margin-bottom: 10px;
       text-shadow: none; }
   .calc .calc-content .calc-bottom {
-    transition: all 0.2s ease-in-out;
     display: block;
     margin-bottom: 0; }
 
@@ -653,7 +717,6 @@ label {
   font-weight: 400;
   line-height: 20px;
   padding: 16px;
-  transition: all 20ms ease-out;
   vertical-align: top; }
 
 select {
@@ -666,12 +729,10 @@ select {
   font-weight: 400;
   line-height: 20px;
   padding: 5px;
-  transition: all 20ms ease-out;
   vertical-align: top;
   width: 100%;
   text-align: center;
   font-size: 1.2em;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
   margin-bottom: 0; }
 
 option {
@@ -772,7 +833,6 @@ input[type="radio"] + label {
   line-height: 20px;
   padding: 16px;
   max-width: 300px;
-  transition: all 20ms ease-out;
   vertical-align: top;
   width: 100%;
   max-width: 400px;
@@ -885,20 +945,17 @@ input[type="radio"]:checked + label {
         .modal .modal-inner .modal-content .modal-header .modal-title {
           border-bottom: 1px solid gainsboro;
           line-height: 1.5em;
-          transition: all 0.2s ease-in-out;
           font-size: 140%; }
       .modal .modal-inner .modal-content .modal-body {
         margin-top: 50px; }
         .modal .modal-inner .modal-content .modal-body .modal-body-section {
           margin-top: 25px; }
           .modal .modal-inner .modal-content .modal-body .modal-body-section .modal-section-title {
-            transition: all 0.2s ease-in-out;
             font-size: 110%;
             margin-bottom: 5px;
             display: block; }
           .modal .modal-inner .modal-content .modal-body .modal-body-section .modal-input {
             width: 100%;
-            transition: all 0.2s ease-in-out;
             display: block;
             margin-top: 15px;
             margin-bottom: 5px; }

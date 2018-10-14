@@ -1,6 +1,6 @@
 <div id="settings-modal" class="modal" ng-click="closeModal()">
     <div class="modal-inner">
-        <div class="modal-content dark-grey-background">
+        <div class="modal-content {{ currentCalc.colorTheme.backgroundColor }}-background">
             <div class="modal-header">
                 <!--<span class="close">&times;</span>-->
                 <span class="modal-title">Settings</span>
@@ -12,31 +12,6 @@
                 <div class="modal-body-section">
                     <%- include('decimal-places'); %>
                 </div>
-                <div class="modal-body-section">
-                    <%- include('decimal-places'); %>
-                </div>
-                <div class="modal-body-section">
-                    <%- include('decimal-places'); %>
-                </div>
-                <div class="modal-body-section">
-                    <%- include('decimal-places'); %>
-                </div>
-                <div class="modal-body-section">
-                    <%- include('decimal-places'); %>
-                </div>
-                <div class="modal-body-section">
-                    <%- include('decimal-places'); %>
-                </div>
-                <div class="modal-body-section">
-                    <%- include('decimal-places'); %>
-                </div>
-                <div class="modal-body-section">
-                    <%- include('decimal-places'); %>
-                </div>
-                <div class="modal-body-section">
-                    <%- include('decimal-places'); %>
-                </div>
-                
             </div>
             <span class="modal-icon">
                 <i class="exit-icon far fa-times-circle fa-2x"></i>
