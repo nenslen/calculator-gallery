@@ -47,7 +47,19 @@ label {
     text-shadow: none;
 }
 
+.wrapper {
+	padding: 25px;
+}
+
+.calculators {
+	max-width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .calc {
+	margin-top: 25px;
+	margin-bottom: 25px;
 	padding: 25px;
 
 	.calc-content {
@@ -179,11 +191,11 @@ select {
 	font-weight: 400;
 	line-height: 20px;
 	padding: 5px;
-	max-width: 300px;
+	//max-width: 300px;
 	transition: all 20ms ease-out; 
 	vertical-align: top;
 	width: 100%;
-	max-width: 400px;
+	//max-width: 400px;
 	text-align: center;
 	font-size: 1.2em;
 	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
@@ -291,23 +303,23 @@ input[type="radio"]:checked+label{
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
+    //overflow: auto;
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.4);
 }
 
 .modal-content {
-    position: relative;
-    background-color: #fefefe;
-    margin: auto;
-    padding: 0;
-    border: 1px solid #888;
-    width: 80%;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    //position: relative;
+    //background-color: #fefefe;
+    //margin: auto;
+    //padding: 0;
+    //border: 1px solid #888;
+    //width: 80%;
+    //box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     -webkit-animation-name: animatetop;
-    -webkit-animation-duration: 0.4s;
+    -webkit-animation-duration: 0.1s;
     animation-name: animatetop;
-    animation-duration: 0.4s
+    animation-duration: 0.1s
 }
 
 @-webkit-keyframes animatetop {
@@ -335,11 +347,96 @@ input[type="radio"]:checked+label{
 }
 
 .modal-header {
-    padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
+    //padding: 2px 16px;
+    //background-color: #5cb85c;
+    //color: white;
 }
 
 .modal-body {
-	padding: 2px 16px;
+	//padding: 2px 16px;
+}
+
+
+
+
+
+
+
+
+
+
+
+.modal {
+	overflow-y: auto;
+	cursor: pointer;
+	//padding: 25px;
+    //align-items: center;
+    //justify-content: center;
+
+	.modal-inner {
+		overflow-y: auto;
+		max-width: 1000px;
+		//width: 100%;
+		padding: 25px;
+		margin-left: auto;
+		margin-right: auto;
+
+		.modal-content {
+			overflow-y: auto;
+			max-width: 600px;
+			//display: inline-block;
+			margin-left: auto;
+			margin-right: auto;
+			cursor: default;
+			padding: 25px;
+			//width: 100%;
+			//min-width: 250px;
+			position: relative;
+			//margin-top: 0;
+			//margin-bottom: 0;
+			clear: both;
+
+			.modal-header {
+				//width: 100%;
+				margin-top: 25px;
+
+				.modal-title {
+					border-bottom: 1px solid $calculator-border-color;
+					line-height: 1.5em;
+					transition: all 0.2s ease-in-out;
+					font-size: 140%;
+				}
+			}
+			.modal-body {
+				margin-top: 50px;
+				//margin-bottom: 25px;
+
+				.modal-body-section {
+					margin-top: 25px;
+
+					.modal-section-title {
+						transition: all 0.2s ease-in-out;
+						font-size: 110%;
+						margin-bottom: 5px;
+						display: block;
+					}
+					.modal-input {
+						width: 100%;
+						transition: all 0.2s ease-in-out;
+						display: block;
+						margin-top: 15px;
+						margin-bottom: 5px;
+					}
+				}
+			}
+			.modal-icon {
+				position: absolute;
+			    top: 0;
+			    right: 0;
+				display: inline-block;
+				margin: 25px;
+				cursor: pointer;
+			}
+		}
+	}
 }

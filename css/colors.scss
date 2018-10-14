@@ -33,6 +33,7 @@
 .yellow-disabled{ 		@include colorize(49, 65, 45, 0); }
 
 .dark-red{ 				@include colorize(353, 100, 20, 0, 1); }
+.dark-red-input{ 		@include colorize(353, 100, 20, 0, 0, 1); }
 .dark-red-background{ 	@include colorize(353, 80, 30, 0); }
 .dark-red-disabled{ 	@include colorize(353, 100, 10, 0); }
 

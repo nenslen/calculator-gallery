@@ -86,8 +86,10 @@ angular.module('calculatorApp', []).controller('app-controller', ['$scope', func
 	// Close modal
 	window.onclick = function(event) {
 		let modal = document.getElementById('settings-modal');
+		let modalInner = document.getElementsByClassName('modal-inner')[0];
+		let exitIcon = document.getElementsByClassName('exit-icon')[0];
 
-	    if (event.target == modal) {
+	    if (event.target == modal || event.target == exitIcon || event.target == modalInner) {
 	        modal.style.display = 'none';
 	        $scope.currentCalcName = '';
 	        $scope.currentCalcColorTheme = '';
