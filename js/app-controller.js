@@ -43,32 +43,38 @@ angular.module('calculatorApp', []).controller('app-controller', ['$scope', func
 		$scope.currentColorTheme = $scope.currentCalc.colorTheme.name;
 	}
 
+	$scope.openInfo = function(calcName) {
+		let modal = document.getElementById('info-modal');
+		modal.style.display = 'block';
+
+		$scope.currentCalc = $scope.calculators[calcName];
+		$scope.currentColorTheme = $scope.currentCalc.colorTheme.name;
+	}
+
 	$scope.changeColorTheme = function(colorThemeName) {
 		$scope.currentCalc.colorTheme = $scope.colorThemes[colorThemeName];
 	};
 
 	$scope.changeDecimalPlaces = function(decimalPlaces) {
-		/*
-		if(decimalPlaces === 'auto') {
-			currentCalc.decimalPlaces = decimalPlaces;
-		} else {
-			currentCalc.decimalPlaces = parseInt(decimalPlaces);
-		}
-		*/
 		$scope.currentCalc.decimalPlaces = decimalPlaces;
 		$scope.currentCalc.calculate();
 	};
 
 	// Close modal
 	window.onclick = function(event) {
-		let modal = document.getElementById('settings-modal');
-		let modalInner = document.getElementsByClassName('modal-inner')[0];
-		let exitIcon = document.getElementsByClassName('exit-icon')[0];
+		let modals = [
+			document.getElementById('settings-modal'),
+			document.getElementById('info-modal'),
+		];
+		let modalInners = document.getElementsByClassName('modal-inner');
+		let exitIcons = document.getElementsByClassName('exit-icon');
 
-	    if (event.target == modal || event.target == exitIcon || event.target == modalInner) {
-	        modal.style.display = 'none';
-	        $scope.currentCalc = 0;
-	    }
+		for (let i = 0; i < modals.length; i++) {
+			if (event.target == modals[i] || event.target == exitIcons[i] || event.target == modalInners[i]) {
+		        modals[i].style.display = 'none';
+		        $scope.currentCalc = 0;
+		    }	
+		}
 	}
 }]);
 

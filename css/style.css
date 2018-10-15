@@ -688,7 +688,7 @@ label {
   text-shadow: none; }
 
 .wrapper {
-  padding: 25px; }
+  padding: 10px; }
 
 .calculators {
   max-width: 800px;
@@ -718,12 +718,8 @@ label {
         display: inline-block;
         margin: 5px;
         cursor: pointer; }
-      .calc .calc-content .calc-top .calc-preferences #settings-icon:hover {
-        color: #666666; }
-      .calc .calc-content .calc-top .calc-preferences #info-icon:hover {
-        color: #4c89a6; }
-      .calc .calc-content .calc-top .calc-preferences #favorite-icon:hover {
-        color: #bfae60; }
+        .calc .calc-content .calc-top .calc-preferences .calc-icon:hover {
+          opacity: 0.8; }
   .calc .calc-content .calc-description {
     line-height: 1.7em;
     display: block;
@@ -934,23 +930,6 @@ input[type="radio"]:checked + label {
     color: #1a81b0;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3); }
 
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: black;
-  background-color: rgba(0, 0, 0, 0.4); }
-
-.modal-content {
-  -webkit-animation-name: animatetop;
-  -webkit-animation-duration: 0.1s;
-  animation-name: animatetop;
-  animation-duration: 0.1s; }
-
 @-webkit-keyframes animatetop {
   from {
     top: -300px;
@@ -978,12 +957,23 @@ input[type="radio"]:checked + label {
   cursor: pointer; }
 
 .modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.4);
   overflow-y: auto;
   cursor: pointer; }
   .modal .modal-inner {
     overflow-y: auto;
     max-width: 1000px;
-    padding: 25px;
+    padding-top: 50px;
+    padding-left: 2px;
+    padding-right: 2px;
     margin-left: auto;
     margin-right: auto; }
     .modal .modal-inner .modal-content {
@@ -992,28 +982,33 @@ input[type="radio"]:checked + label {
       margin-left: auto;
       margin-right: auto;
       cursor: default;
-      padding: 25px;
+      padding: 15px;
       position: relative;
-      clear: both; }
-      .modal .modal-inner .modal-content .modal-header {
+      clear: both;
+      -webkit-animation-name: animatetop;
+      -webkit-animation-duration: 0.1s;
+      animation-name: animatetop;
+      animation-duration: 0.1s; }
+      .modal .modal-inner .modal-content .modal-header .modal-title {
+        border-bottom: 1px solid gainsboro;
+        line-height: 1.5em;
+        font-size: 140%; }
+      .modal .modal-inner .modal-content .modal-body .modal-body-section {
         margin-top: 25px; }
-        .modal .modal-inner .modal-content .modal-header .modal-title {
-          border-bottom: 1px solid gainsboro;
-          line-height: 1.5em;
-          font-size: 140%; }
-      .modal .modal-inner .modal-content .modal-body {
-        margin-top: 50px; }
-        .modal .modal-inner .modal-content .modal-body .modal-body-section {
-          margin-top: 25px; }
-          .modal .modal-inner .modal-content .modal-body .modal-body-section .modal-section-title {
-            font-size: 110%;
-            margin-bottom: 5px;
-            display: block; }
-          .modal .modal-inner .modal-content .modal-body .modal-body-section .modal-input {
-            width: 100%;
-            display: block;
-            margin-top: 15px;
-            margin-bottom: 5px; }
+        .modal .modal-inner .modal-content .modal-body .modal-body-section .modal-section-title {
+          font-size: 110%;
+          margin-bottom: 5px;
+          display: block; }
+        .modal .modal-inner .modal-content .modal-body .modal-body-section .modal-description-title {
+          font-weight: bold;
+          font-size: 110%;
+          margin-bottom: 5px;
+          display: block; }
+        .modal .modal-inner .modal-content .modal-body .modal-body-section .modal-input {
+          width: 100%;
+          display: block;
+          margin-top: 15px;
+          margin-bottom: 5px; }
       .modal .modal-inner .modal-content .modal-icon {
         position: absolute;
         top: 0;
@@ -1021,5 +1016,9 @@ input[type="radio"]:checked + label {
         display: inline-block;
         margin: 25px;
         cursor: pointer; }
+        .modal .modal-inner .modal-content .modal-icon:hover {
+          opacity: 0.7; }
+        .modal .modal-inner .modal-content .modal-icon:active {
+          opacity: 0.85; }
 
 /*# sourceMappingURL=style.css.map */
