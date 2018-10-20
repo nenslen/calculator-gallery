@@ -720,6 +720,8 @@ label {
         cursor: pointer; }
         .calc .calc-content .calc-top .calc-preferences .calc-icon:hover {
           opacity: 0.8; }
+        .calc .calc-content .calc-top .calc-preferences .calc-icon:active {
+          opacity: 0.65; }
   .calc .calc-content .calc-description {
     line-height: 1.7em;
     display: block;

@@ -2,28 +2,32 @@ angular.module('calculatorApp', []).controller('app-controller', ['$scope', '$ht
 	
 	// (name, input, output, background)
 	$scope.colorThemes = {
-		default: new ColorTheme('default'),
-		red: new ColorTheme('red', 'red', 'red', 'red'),
-		blue: new ColorTheme('blue', 'blue', 'blue', 'blue'),
-		purple: new ColorTheme('purple', 'purple', 'purple', 'purple'),
-		canada: new ColorTheme('canada', 'red', 'red', 'default'),
-		dark: new ColorTheme('dark', 'dark-grey', 'dark-grey', 'dark-grey'),
-		darkRed: new ColorTheme('darkRed', 'dark-red', 'dark-red', 'dark-red'),
-		darkBlue: new ColorTheme('darkBlue', 'dark-blue', 'dark-blue', 'dark-blue'),
-		juicy: new ColorTheme('juicy', 'red', 'red', 'blue'),
-		yellow: new ColorTheme('yellow', 'yellow', 'yellow', 'yellow'),
-		halloween: new ColorTheme('halloween', 'orange', 'dark-grey', 'dark-grey'),
-		highContrast: new ColorTheme('highContrast', 'dark-grey', 'dark-grey', 'default'),
-		christmas: new ColorTheme('christmas', 'red', 'red', 'green'),
-		magenta: new ColorTheme('magenta', 'magenta', 'magenta', 'magenta'),
+		default: new ColorTheme('default', 'Default'),
+		red: new ColorTheme('red', 'Red', 'red', 'red', 'red'),
+		blue: new ColorTheme('blue', 'Blue', 'blue', 'blue', 'blue'),
+		purple: new ColorTheme('purple', 'Purple', 'purple', 'purple', 'purple'),
+		canada: new ColorTheme('canada', 'Canada', 'red', 'red', 'default'),
+		dark: new ColorTheme('dark', 'Dark', 'dark-grey', 'dark-grey', 'dark-grey'),
+		darkRed: new ColorTheme('darkRed', 'Dark Red', 'dark-red', 'dark-red', 'dark-red'),
+		darkBlue: new ColorTheme('darkBlue', 'Dark Blue', 'dark-blue', 'dark-blue', 'dark-blue'),
+		juicy: new ColorTheme('juicy', 'Juicy', 'red', 'red', 'blue'),
+		yellow: new ColorTheme('yellow', 'Yellow', 'yellow', 'yellow', 'yellow'),
+		halloween: new ColorTheme('halloween', 'Halloween', 'orange', 'dark-grey', 'dark-grey'),
+		highContrast: new ColorTheme('highContrast', 'High Contrast', 'dark-grey', 'dark-grey', 'default'),
+		christmas: new ColorTheme('christmas', 'Christmas', 'red', 'red', 'green'),
+		magenta: new ColorTheme('magenta', 'Magenta', 'magenta', 'magenta', 'magenta'),
 	};
 
-	$scope.colorThemeNames = [];
+	$scope.colorThemeOptions = [];
 	for (let key in $scope.colorThemes) {
-		$scope.colorThemeNames.push(key);
+		let newTheme = {
+			'value': key,
+			'text': $scope.colorThemes[key].name
+		};
+		$scope.colorThemeOptions.push(newTheme);
 	}
 
-	$scope.decimalPlacesOptions = ['auto', 0, 1, 2, 3, 4, 5, 6, 7 , 8, 9];
+	$scope.decimalPlacesOptions = ['auto', 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 
 	/**
@@ -37,9 +41,15 @@ angular.module('calculatorApp', []).controller('app-controller', ['$scope', '$ht
 
 	$scope.openSettings = function(calcName) {
 		let modal = document.getElementById('settings-modal');
+		$scope.setCurrentCalc(calcName);
 		modal.style.display = 'block';
 
-		$scope.setCurrentCalc(calcName);
+		// Initialize selected item in color theme dropdown
+		let key = $scope.currentColorTheme.value;
+		$scope.currentColorTheme = {
+			'value': $scope.currentCalc.colorTheme.id,
+			'text': $scope.currentCalc.colorTheme.name
+		};
 	}
 
 	$scope.openInfo = function(calcName) {
@@ -92,8 +102,10 @@ angular.module('calculatorApp', []).controller('app-controller', ['$scope', '$ht
         });
 	}
 
-	$scope.changeColorTheme = function(colorThemeName) {
-		$scope.currentCalc.colorTheme = $scope.colorThemes[colorThemeName];
+	$scope.changeColorTheme = function(newColorTheme) {
+		$scope.currentCalc.colorTheme = $scope.colorThemes[newColorTheme.value];
+		console.log($scope.currentCalc.colorTheme);
+		console.log($scope.currentColorTheme);
 	};
 
 	$scope.changeDecimalPlaces = function(decimalPlaces) {
@@ -103,7 +115,7 @@ angular.module('calculatorApp', []).controller('app-controller', ['$scope', '$ht
 
 	$scope.setCurrentCalc = function(calcName) {
 		$scope.currentCalc = $scope.calculators[calcName];
-		$scope.currentColorTheme = $scope.currentCalc.colorTheme.name;
+		$scope.currentColorTheme = $scope.currentCalc.colorTheme;
 	};
 
 	// Close modal

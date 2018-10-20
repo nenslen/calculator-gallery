@@ -8,7 +8,8 @@
  * @param outputs (string): The color of the output elements. eg) 'blue'
  * @param backgroundColor (string): The color of the background element. eg) 'green'
  */
-function ColorTheme(name, inputColor = 'default', outputColor = 'default', backgroundColor = 'default') {
+function ColorTheme(id, name, inputColor = 'default', outputColor = 'default', backgroundColor = 'default') {
+	this.id = id;
 	this.name = name;
 	this.inputColor = inputColor;
 	this.outputColor = outputColor;
