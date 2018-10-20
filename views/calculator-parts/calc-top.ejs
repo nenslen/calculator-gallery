@@ -9,14 +9,12 @@
 		<span class="calc-icon" id="info-icon" ng-click="openInfo(calc.name)">
 			<i class="fas fa-info-circle fa-lg"></i>
 		</span>
-		<span class="calc-icon">
-	        <span class="calc-icon" id="favorite-icon">
-	    		<% if(favorited) { %>
-	        		<i class="fas fa-star fa-lg" ng-click="toggleFavoriteStatus(calc.name)" data-favorited="true"></i>
-	    		<% } else { %>
-	    			<i class="far fa-star fa-lg" ng-click="toggleFavoriteStatus(calc.name)" data-favorited="false"></i>
-	    		<% } %>
-	        </span>
+		<span class="calc-icon" id="favorite-icon">
+    		<% if(favorited) { %>
+        		<i class="fas fa-star fa-lg" ng-click="toggleFavoriteStatus(calc.name)" data-favorited="true"></i>
+    		<% } else { %>
+    			<i class="far fa-star fa-lg" ng-click="toggleFavoriteStatus(calc.name)" data-favorited="false"></i>
+    		<% } %>
 		</span>
 	</span>
 </div>

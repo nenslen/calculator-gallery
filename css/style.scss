@@ -323,9 +323,9 @@ input[type="radio"]:checked+label{
 			position: relative;
 			clear: both;
 			-webkit-animation-name: animatetop;
-			-webkit-animation-duration: 0.1s;
+			-webkit-animation-duration: 0.2s;
 			animation-name: animatetop;
-			animation-duration: 0.1s; 
+			animation-duration: 0.2s; 
 
 			.modal-header {
 				.modal-title {
@@ -335,6 +335,9 @@ input[type="radio"]:checked+label{
 				}
 			}
 			.modal-body {
+				p {
+					line-height: normal;
+				}
 				.modal-body-section {
 					margin-top: 25px;
 
