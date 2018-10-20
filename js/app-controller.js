@@ -27,7 +27,7 @@ angular.module('calculatorApp', []).controller('app-controller', ['$scope', '$ht
 		$scope.colorThemeOptions.push(newTheme);
 	}
 
-	$scope.decimalPlacesOptions = ['auto', 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+	$scope.decimalPlacesOptions = ['Auto', 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 
 	/**
@@ -37,6 +37,7 @@ angular.module('calculatorApp', []).controller('app-controller', ['$scope', '$ht
 	 */
 	$scope.calculators = [];
 	$scope.currentColorTheme = '';
+	$scope.currentDecimalPlaces = '';
 	$scope.currentCalc = 0;
 
 	$scope.openSettings = function(calcName) {
@@ -50,11 +51,14 @@ angular.module('calculatorApp', []).controller('app-controller', ['$scope', '$ht
 			'value': $scope.currentCalc.colorTheme.id,
 			'text': $scope.currentCalc.colorTheme.name
 		};
+		$scope.currentDecimalPlaces = $scope.currentCalc.decimalPlaces;
+		//document.querySelector('#decimal-places').value = $scope.currentDecimalPlaces;
 	}
 
 	$scope.openInfo = function(calcName) {
 		let modal = document.getElementById('info-modal');
 		let modalBody = document.getElementById('info-modal-body');
+		$scope.setCurrentCalc(calcName);
 		modal.style.display = 'block';
 
 		// Clone the calculator's info section and insert into modal
@@ -62,8 +66,6 @@ angular.module('calculatorApp', []).controller('app-controller', ['$scope', '$ht
 		calcInfoElement.setAttribute('ng-hide', 'false');
 		calcInfoElement.setAttribute('class', '');
 		modalBody.innerHTML = calcInfoElement.innerHTML;
-
-		$scope.setCurrentCalc(calcName);
 	}
 
 	/**
@@ -104,8 +106,6 @@ angular.module('calculatorApp', []).controller('app-controller', ['$scope', '$ht
 
 	$scope.changeColorTheme = function(newColorTheme) {
 		$scope.currentCalc.colorTheme = $scope.colorThemes[newColorTheme.value];
-		console.log($scope.currentCalc.colorTheme);
-		console.log($scope.currentColorTheme);
 	};
 
 	$scope.changeDecimalPlaces = function(decimalPlaces) {
@@ -116,6 +116,7 @@ angular.module('calculatorApp', []).controller('app-controller', ['$scope', '$ht
 	$scope.setCurrentCalc = function(calcName) {
 		$scope.currentCalc = $scope.calculators[calcName];
 		$scope.currentColorTheme = $scope.currentCalc.colorTheme;
+		$scope.currentDecimalPlaces = $scope.currentCalc.decimalPlaces;
 	};
 
 	// Close modal

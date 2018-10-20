@@ -1,7 +1,8 @@
 <span class="modal-section-title">Decimal places</span>
-<select 
-	ng-model="currentCalc.decimalPlaces"
+
+<select
+	ng-model="currentDecimalPlaces"
 	ng-options="x for x in decimalPlacesOptions"
-	ng-change="changeDecimalPlaces(currentCalc.decimalPlaces)"
+	ng-change="changeDecimalPlaces(currentDecimalPlaces)"
 	id="decimal-places" class="{{ currentCalc.colorTheme.inputColor }}-disabled">
 </select>

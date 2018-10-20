@@ -18,7 +18,7 @@ function Calculator(
 	outputs = [],
 	calculate = function() { return undefined; },
 	colorTheme = new ColorTheme('default'),
-	decimalPlaces = 'auto',
+	decimalPlaces = 'Auto',
 	errors = []
 ) {
 	this.title = title;
@@ -50,7 +50,7 @@ function Calculator(
 	 * the decimal
 	 */
 	this.truncateOutputs = function() {
-		if(this.decimalPlaces === 'auto') { return; }
+		if(this.decimalPlaces === 'Auto') { return; }
 
 		for (let key in this.outputs) {
 			if(this.outputs[key].type === 'number') {
