@@ -10,21 +10,13 @@
 			<i class="fas fa-info-circle fa-lg"></i>
 		</span>
 		<span class="calc-icon">
-			<% if(favorited) { %>
-				<form action="/favorites/delete" method="POST">
-			        <input type="hidden" name="calculator" value="{{ calc.name }}">
-			        <span class="calc-icon" id="favorite-icon">
-			        	<i class="fas fa-star fa-lg" onclick="this.parentNode.submit()"></i>
-			        </span>
-			    </form>
-			<% } else { %>
-				<form action="/favorites/add" method="POST">
-			        <input type="hidden" name="calculator" value="{{ calc.name }}">
-			        <span class="calc-icon" id="favorite-icon">
-			        	<i class="far fa-star fa-lg" onclick="this.parentNode.submit()"></i>
-			        </span>
-			    </form>
-			<% } %>
+	        <span class="calc-icon" id="favorite-icon">
+	    		<% if(favorited) { %>
+	        		<i class="fas fa-star fa-lg" ng-click="toggleFavoriteStatus(calc.name)" data-favorited="true"></i>
+	    		<% } else { %>
+	    			<i class="far fa-star fa-lg" ng-click="toggleFavoriteStatus(calc.name)" data-favorited="false"></i>
+	    		<% } %>
+	        </span>
 		</span>
 	</span>
 </div>

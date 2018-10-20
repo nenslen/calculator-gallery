@@ -23,7 +23,7 @@ app.use('/html', express.static(__dirname + '/html'));
 
 app.get('/', function(req, res) {
 	let favorites = getFavorites(req);
-
+//res.cookie('favorites', []);
     res.render('index', {
     	calculators: allCalculators,
     	favorites: favorites
@@ -38,22 +38,22 @@ app.get('/favorites', function(req, res) {
 
 
 app.post('/favorites/add', function(req, res) {
-	let calculator = req.body.calculator;
+	let calcName = req.body.calcName;
 	let favorites = getFavorites(req);
 
-	saveFavorite(calculator, favorites, res);	
+	saveFavorite(calcName, favorites, res);
 
-	res.redirect('/');
+	res.send(generateResponse(true, 'Calculator added to favorites!'));
 });
 
 
-app.post('/favorites/delete', function(req, res) {
-	let calculator = req.body.calculator;
+app.post('/favorites/remove', function(req, res) {
+	let calcName = req.body.calcName;
 	let favorites = getFavorites(req);
 
-	removeFavorite(calculator, favorites, res);	
+	removeFavorite(calcName, favorites, res);	
 
-	res.redirect('/');
+	res.send(generateResponse(true, 'Calculator removed from favorites!'));
 });
 
 
@@ -110,4 +110,11 @@ function removeFavorite(calculator, favorites, res) {
 
 		res.cookie('favorites', favorites);
 	}
+}
+
+function generateResponse(success, message) {
+	return JSON.stringify({
+		success: success,
+		message: message
+	});
 }

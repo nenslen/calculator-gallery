@@ -1,4 +1,4 @@
-angular.module('calculatorApp', []).controller('app-controller', ['$scope', function($scope) {
+angular.module('calculatorApp', []).controller('app-controller', ['$scope', '$http', function($scope, $http) {
 	
 	// (name, input, output, background)
 	$scope.colorThemes = {
@@ -54,6 +54,42 @@ angular.module('calculatorApp', []).controller('app-controller', ['$scope', func
 		modalBody.innerHTML = calcInfoElement.innerHTML;
 
 		$scope.setCurrentCalc(calcName);
+	}
+
+	/**
+	 * Tells the server to favorite/unfavorite a calculator based on its current favorited status.
+	 * This method also updates the UI to reflect the new favorited status. (no I probably shouldn't
+	 * be updating the DOM from within a controller, oh well!)
+	 */
+	$scope.toggleFavoriteStatus = function(calcName) {
+		let calcTopElement = document.querySelector('#' + calcName + '-calculator .calc-top');
+		let starIconElement = calcTopElement.querySelector('#favorite-icon i');
+		
+		let favorited = starIconElement.getAttribute('data-favorited') === 'true';
+		let url = (favorited) ? '/favorites/remove' : '/favorites/add';
+		let params = { calcName: calcName };
+
+		$http({
+            url: url,
+            method: "POST",
+            data: params
+        })
+        .then(function (data) {
+            if(data.data.success) {
+            	console.log(data.data.message);
+            	starIconElement.classList.remove('fas');
+            	starIconElement.classList.remove('far');
+
+            	// If favorited is true, then we just unfavorited a calc, so set its favorited status to false
+            	if(favorited) {
+            		starIconElement.classList.add('far');
+            		starIconElement.setAttribute('data-favorited', 'false');
+            	} else {
+            		starIconElement.classList.add('fas');
+            		starIconElement.setAttribute('data-favorited', 'true');
+            	}
+            }
+        });
 	}
 
 	$scope.changeColorTheme = function(colorThemeName) {
