@@ -1,0 +1,16 @@
+<head>
+    <title><%- title %></title>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'> 
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.4/angular.min.js"></script>
+    <script src="js/app-controller.js"></script>
+    <script src="js/calculator.js"></script>
+    <script src="js/color-theme.js"></script>
+
+    <% calculators.forEach(function(calculator) { %>
+        <%- '<script src="js/calculators/' + calculator + '.js"></script>' %>
+    <% }); %>
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+</head>

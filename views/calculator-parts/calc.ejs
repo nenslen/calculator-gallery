@@ -1,5 +1,5 @@
 <div class="calc-content">
-	<%- include('calc-top'); %>
+	<%- include('calc-top', {favorited: favorited}); %>
 	<%- include('calc-description'); %>
 	<%- include('../calculators/' + calculator); %>
 	<%- include('calc-errors'); %>

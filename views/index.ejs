@@ -1,23 +1,12 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Calculator Website</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'> 
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.4/angular.min.js"></script>
-    <script src="js/app-controller.js"></script>
-    <script src="js/calculator.js"></script>
-    <script src="js/color-theme.js"></script>
-    <script src="js/calculators/square.js"></script>
-    <script src="js/calculators/distance.js"></script>
-    
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-</head>
+
+<%- include('head-section', {title: 'Calculator Website', calculators: calculators}); %>
+
 <body ng-app="calculatorApp" ng-controller="app-controller">
     <div class="wrapper">
         <div class="calculators">
-            <% allCalculators.forEach(function(calculator) { %>
+            <% calculators.forEach(function(calculator) { %>
                 <div ng-controller="<%= calculator %>">
                     <div class="calc {{ calc.colorTheme.backgroundColor }}-background">                
                         <%- include('calculator-parts/calc', {calculator: calculator, favorited: favorites.includes(calculator)}); %>

@@ -25,7 +25,7 @@ app.get('/', function(req, res) {
 	let favorites = getFavorites(req);
 
     res.render('index', {
-    	allCalculators: allCalculators,
+    	calculators: allCalculators,
     	favorites: favorites
     }); 
 });
