@@ -20,13 +20,13 @@
             <% allCalculators.forEach(function(calculator) { %>
                 <div ng-controller="<%= calculator %>">
                     <div class="calc {{ calc.colorTheme.backgroundColor }}-background">                
-                        <%- include('calculators/calc', {calculator: calculator, favorited: favorites.includes(calculator)}); %>
+                        <%- include('calculator-parts/calc', {calculator: calculator, favorited: favorites.includes(calculator)}); %>
                     </div>
                 </div>
             <% }); %>
         </div>    
     </div>
-    <%- include('settings-modal'); %>
-    <%- include('info-modal'); %>
+    <%- include('calculator-parts/settings-modal'); %>
+    <%- include('calculator-parts/info-modal'); %>
 </body>
 </html>
