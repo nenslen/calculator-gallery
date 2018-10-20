@@ -1,28 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Calculator Website - Favorites</title>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.4/angular.min.js"></script>
-    <script src="js/app-controller.js"></script>
-    <script src="js/calculator.js"></script>
-    <script src="js/color-theme.js"></script>
-    <script src="js/calculators/square.js"></script>
-    <script src="js/calculators/distance.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-</head>
+<%- include('head-section', {title: 'Favorites - Calculator Website', calculators: calculators}); %>
+
 <body ng-app="calculatorApp" ng-controller="app-controller">
-    <div class="calculators">
-        <% favorites.forEach(function(calculator) { %>
-            <div ng-controller="<%= calculator %>" class="calculator-outer">                
-                <%- include(calculator, {favorited: true}); %>
-            </div>
-        <% }); %>
-    </div>
+    <%- include('nav-section'); %>
 
-    <% if(favorites.length === 0) { %>
-        <h3>You don't have any favorites!</h3>
-        <p>Click the 'Favorite' button on a calculator to add it to your favorites.</p>
-    <% } %>
+    <div class="wrapper">
+        <div class="calculators">
+            <% calculators.forEach(function(calculator) { %>
+                <div ng-controller="<%= calculator %>" id="<%= calculator %>-calculator">
+                    <div class="calc {{ calc.colorTheme.backgroundColor }}-background">                
+                        <%- include('calculator-parts/calc', {calculator: calculator, favorited: true}); %>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+
+        <% if(calculators.length === 0) { %>
+            <h3>You don't have any favorites!</h3>
+            <p>Click the 'Favorite' button on a calculator to add it to your favorites.</p>
+        <% } %>
+    </div>
+    
+    <%- include('calculator-parts/settings-modal'); %>
+    <%- include('calculator-parts/info-modal'); %>
 </body>
 </html>

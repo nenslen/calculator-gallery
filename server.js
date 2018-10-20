@@ -32,8 +32,8 @@ app.get('/', function(req, res) {
 
 
 app.get('/favorites', function(req, res) {
-	let favorites = getFavorites(req);
-	res.render('favorites', { favorites: favorites });
+	let calculators = getFavorites(req);
+	res.render('favorites', { calculators: calculators });
 });
 
 
