@@ -21,3 +21,17 @@
         <input type="text" ng-model="calc.outputs.euclideanDistance.value" class="{{ calc.colorTheme.outputColor }}-disabled" readonly>
     </span>
 </div>
+
+
+<div id="distance-info" ng-hide="true">
+    <div class="modal-body-section">
+        <span class="modal-description-title">Manhattan</span>
+        <p>The manhattan distance (L1 distance) between two points is calculated as if we are only allowed to move in straight lines, and turn 90 degrees at a time.</p>
+        <p>Here's a fancy-looking equation that describes this.</p>
+    </div>
+    <div class="modal-body-section">
+        <span class="modal-description-title">Euclidean</span>
+        <p>The euclidean distance (L2 distance) between two points is the length of the 'direct' path from one point to the other.</p>
+        <p>Here's a fancy-looking equation that describes this type of distance as well.</p>
+    </div>
+</div>

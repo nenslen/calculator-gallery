@@ -27,9 +27,9 @@ angular.module('calculatorApp', []).controller('app-controller', ['$scope', func
 
 
 	/**
-	 * This array is populated by each calculator when it is loaded. For example, if the
-	 * distance calculator is loaded on the page, distance.js creates the distance calculator and
-	 * adds it to this array, accessible by $scope.calculators['distance']
+	 * This array is populated by each calculator when they are loaded. For example, if the
+	 * distance calculator is loaded on the page, the distance.js controller creates the distance
+	 * calculator and adds it to this array, accessible by $scope.calculators['distance']
 	 */
 	$scope.calculators = [];
 	$scope.currentColorTheme = '';
@@ -39,16 +39,21 @@ angular.module('calculatorApp', []).controller('app-controller', ['$scope', func
 		let modal = document.getElementById('settings-modal');
 		modal.style.display = 'block';
 
-		$scope.currentCalc = $scope.calculators[calcName];
-		$scope.currentColorTheme = $scope.currentCalc.colorTheme.name;
+		$scope.setCurrentCalc(calcName);
 	}
 
 	$scope.openInfo = function(calcName) {
 		let modal = document.getElementById('info-modal');
+		let modalBody = document.getElementById('info-modal-body');
 		modal.style.display = 'block';
 
-		$scope.currentCalc = $scope.calculators[calcName];
-		$scope.currentColorTheme = $scope.currentCalc.colorTheme.name;
+		// Clone the calculator's info section and insert into modal
+		let calcInfoElement = document.getElementById(calcName + '-info').cloneNode(true);
+		calcInfoElement.setAttribute('ng-hide', 'false');
+		calcInfoElement.setAttribute('class', '');
+		modalBody.innerHTML = calcInfoElement.innerHTML;
+
+		$scope.setCurrentCalc(calcName);
 	}
 
 	$scope.changeColorTheme = function(colorThemeName) {
@@ -58,6 +63,11 @@ angular.module('calculatorApp', []).controller('app-controller', ['$scope', func
 	$scope.changeDecimalPlaces = function(decimalPlaces) {
 		$scope.currentCalc.decimalPlaces = decimalPlaces;
 		$scope.currentCalc.calculate();
+	};
+
+	$scope.setCurrentCalc = function(calcName) {
+		$scope.currentCalc = $scope.calculators[calcName];
+		$scope.currentColorTheme = $scope.currentCalc.colorTheme.name;
 	};
 
 	// Close modal
