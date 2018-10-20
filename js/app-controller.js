@@ -1,6 +1,6 @@
 angular.module('calculatorApp', []).controller('app-controller', ['$scope', '$http', function($scope, $http) {
 	
-	// (name, input, output, background)
+	// (id, name, input, output, background)
 	$scope.colorThemes = {
 		default: new ColorTheme('default', 'Default'),
 		red: new ColorTheme('red', 'Red', 'red', 'red', 'red'),
@@ -52,7 +52,6 @@ angular.module('calculatorApp', []).controller('app-controller', ['$scope', '$ht
 			'text': $scope.currentCalc.colorTheme.name
 		};
 		$scope.currentDecimalPlaces = $scope.currentCalc.decimalPlaces;
-		//document.querySelector('#decimal-places').value = $scope.currentDecimalPlaces;
 	}
 
 	$scope.openInfo = function(calcName) {
