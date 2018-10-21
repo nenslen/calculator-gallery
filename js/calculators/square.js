@@ -19,5 +19,5 @@ angular.module('calculatorApp').controller('square', ['$scope', function($scope)
 	};
 
 	$scope.calc = new Calculator(title, name, description, inputs, outputs, calculate);
-	$scope.calculators['square'] = $scope.calc;
+	$scope.initializeCalculator($scope.calc);
 }]);

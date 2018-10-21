@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 
 const allCalculators = [
 	'square',
-	'distance'
+	'distance',
 ];
 
 app.use('/css', express.static(__dirname + '/css'));
@@ -22,18 +22,42 @@ app.use('/html', express.static(__dirname + '/html'));
 
 
 app.get('/', function(req, res) {
-	let favorites = getFavorites(req);
-//res.cookie('favorites', []);
+	let settings = {
+		square: {
+			colorTheme: {
+				backgroundColor: "red",
+				id: "red",
+				inputColor: "red",
+				name: "Red",
+				outputColor: "red"
+			},
+			decimalPlaces: 3
+		},
+		distance: {
+			colorTheme: {
+				backgroundColor: "blue",
+				id: "blue",
+				inputColor: "blue",
+				name: "Blue",
+				outputColor: "blue"
+			}
+		}
+	};
+	res.cookie('calculatorSettings', settings);
+
     res.render('index', {
     	calculators: allCalculators,
-    	favorites: favorites
+    	favorites: getFavorites(req),
+    	calculatorSettings: getCalculatorSettings(req)
     }); 
 });
 
 
 app.get('/favorites', function(req, res) {
-	let calculators = getFavorites(req);
-	res.render('favorites', { calculators: calculators });
+	res.render('favorites', {
+		calculators: getFavorites(req),
+		calculatorSettings: getCalculatorSettings(req)
+	});
 });
 
 
@@ -61,6 +85,16 @@ server.listen(8081, function() {
     console.log('Listening on ' + server.address().port);
 });
 
+
+/**
+ * Gets all of the settings for the calculators in calculatorNames
+ *
+ * @param req: The request object
+ * @return: An array of settings for the desired calculators
+ */
+function getCalculatorSettings(req) {
+	return req.cookies.calculatorSettings || [];
+}
 
 /**
  * Gets all of the user's favorited calculators from a cookie.

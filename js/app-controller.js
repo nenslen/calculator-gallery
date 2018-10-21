@@ -18,54 +18,48 @@ angular.module('calculatorApp', []).controller('app-controller', ['$scope', '$ht
 		magenta: new ColorTheme('magenta', 'Magenta', 'magenta', 'magenta', 'magenta'),
 	};
 
-	$scope.colorThemeOptions = [];
-	for (let key in $scope.colorThemes) {
-		let newTheme = {
-			'value': key,
-			'text': $scope.colorThemes[key].name
-		};
-		$scope.colorThemeOptions.push(newTheme);
-	}
-
 	$scope.decimalPlacesOptions = ['Auto', 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+	$scope.calculators = [];
+	$scope.currentCalc = 0;
 
 
 	/**
-	 * This array is populated by each calculator when they are loaded. For example, if the
-	 * distance calculator is loaded on the page, the distance.js controller creates the distance
-	 * calculator and adds it to this array, accessible by $scope.calculators['distance']
+	 * Adds a calculator to the 'calculators' array and applies any custom settings (found in the
+	 * calculatorSettings cookie) to the calculator
+	 *
+	 * @param calculator: The calculator to initialize
 	 */
-	$scope.calculators = [];
-	$scope.currentColorTheme = '';
-	$scope.currentDecimalPlaces = '';
-	$scope.currentCalc = 0;
+	$scope.initializeCalculator = function(calculator) {
+		let calcName = calculator.name;
+		let settings = calculatorSettings[calcName];
+
+		for (let setting in settings) {
+			calculator[setting] = settings[setting];
+		}
+		
+		$scope.calculators[calcName] = calculator;
+	};
 
 	$scope.openSettings = function(calcName) {
 		let modal = document.getElementById('settings-modal');
-		$scope.setCurrentCalc(calcName);
-		modal.style.display = 'block';
 
-		// Initialize selected item in color theme dropdown
-		let key = $scope.currentColorTheme.value;
-		$scope.currentColorTheme = {
-			'value': $scope.currentCalc.colorTheme.id,
-			'text': $scope.currentCalc.colorTheme.name
-		};
-		$scope.currentDecimalPlaces = $scope.currentCalc.decimalPlaces;
-	}
+		modal.style.display = 'block';
+		$scope.setCurrentCalc(calcName);
+	};
 
 	$scope.openInfo = function(calcName) {
 		let modal = document.getElementById('info-modal');
 		let modalBody = document.getElementById('info-modal-body');
-		$scope.setCurrentCalc(calcName);
+		
 		modal.style.display = 'block';
+		$scope.setCurrentCalc(calcName);
 
 		// Clone the calculator's info section and insert into modal
 		let calcInfoElement = document.getElementById(calcName + '-info').cloneNode(true);
 		calcInfoElement.setAttribute('ng-hide', 'false');
 		calcInfoElement.setAttribute('class', '');
 		modalBody.innerHTML = calcInfoElement.innerHTML;
-	}
+	};
 
 	/**
 	 * Tells the server to favorite/unfavorite a calculator based on its current favorited status.
@@ -101,10 +95,10 @@ angular.module('calculatorApp', []).controller('app-controller', ['$scope', '$ht
             	}
             }
         });
-	}
+	};
 
 	$scope.changeColorTheme = function(newColorTheme) {
-		$scope.currentCalc.colorTheme = $scope.colorThemes[newColorTheme.value];
+		$scope.currentCalc.colorTheme = newColorTheme;
 	};
 
 	$scope.changeDecimalPlaces = function(decimalPlaces) {
@@ -114,8 +108,6 @@ angular.module('calculatorApp', []).controller('app-controller', ['$scope', '$ht
 
 	$scope.setCurrentCalc = function(calcName) {
 		$scope.currentCalc = $scope.calculators[calcName];
-		$scope.currentColorTheme = $scope.currentCalc.colorTheme;
-		$scope.currentDecimalPlaces = $scope.currentCalc.decimalPlaces;
 	};
 
 	// Close modal
@@ -133,7 +125,7 @@ angular.module('calculatorApp', []).controller('app-controller', ['$scope', '$ht
 		        $scope.currentCalc = 0;
 		    }	
 		}
-	}
+	};
 }]);
 
 function cleanArray(array) {

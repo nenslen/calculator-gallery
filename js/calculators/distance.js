@@ -42,5 +42,5 @@ angular.module('calculatorApp').controller('distance', ['$scope', function($scop
 	};
 
 	$scope.calc = new Calculator(title, name, description, inputs, outputs, calculate);
-	$scope.calculators['distance'] = $scope.calc;
+	$scope.initializeCalculator($scope.calc);
 }]);
