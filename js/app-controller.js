@@ -36,7 +36,7 @@ angular.module('calculatorApp', []).controller('app-controller', ['$scope', '$ht
 		for (let setting in settings) {
 			calculator[setting] = settings[setting];
 		}
-		
+
 		$scope.calculators[calcName] = calculator;
 	};
 
@@ -97,13 +97,35 @@ angular.module('calculatorApp', []).controller('app-controller', ['$scope', '$ht
         });
 	};
 
+	$scope.saveSetting = function(settingName, settingValue) {
+		let url = '/settings/save';
+		let params = { 
+			calcName: $scope.currentCalc.name,
+			settingName: settingName,
+			settingValue:settingValue
+		};
+
+		$http({
+            url: url,
+            method: "POST",
+            data: params
+        })
+        .then(function (data) {
+            if(data.data.success) {
+            	console.log(data);
+            }
+        });
+	};
+
 	$scope.changeColorTheme = function(newColorTheme) {
 		$scope.currentCalc.colorTheme = newColorTheme;
+		$scope.saveSetting('colorTheme', newColorTheme);
 	};
 
 	$scope.changeDecimalPlaces = function(decimalPlaces) {
 		$scope.currentCalc.decimalPlaces = decimalPlaces;
 		$scope.currentCalc.calculate();
+		$scope.saveSetting('decimalPlaces', decimalPlaces);
 	};
 
 	$scope.setCurrentCalc = function(calcName) {

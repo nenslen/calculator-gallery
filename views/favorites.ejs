@@ -25,5 +25,8 @@
     
     <%- include('calculator-parts/settings-modal'); %>
     <%- include('calculator-parts/info-modal'); %>
+    <script>
+        let calculatorSettings = <%- JSON.stringify(calculatorSettings) %>;
+    </script>
 </body>
 </html>

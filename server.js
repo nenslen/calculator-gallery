@@ -22,6 +22,7 @@ app.use('/html', express.static(__dirname + '/html'));
 
 
 app.get('/', function(req, res) {
+	/*
 	let settings = {
 		square: {
 			colorTheme: {
@@ -44,6 +45,8 @@ app.get('/', function(req, res) {
 		}
 	};
 	res.cookie('calculatorSettings', settings);
+*/
+//res.clearCookie('calculatorSettings');
 
     res.render('index', {
     	calculators: allCalculators,
@@ -65,7 +68,7 @@ app.post('/favorites/add', function(req, res) {
 	let calcName = req.body.calcName;
 	let favorites = getFavorites(req);
 
-	saveFavorite(calcName, favorites, res);
+	addFavorite(calcName, favorites, res);
 
 	res.send(generateResponse(true, 'Calculator added to favorites!'));
 });
@@ -81,6 +84,18 @@ app.post('/favorites/remove', function(req, res) {
 });
 
 
+app.post('/settings/save', function(req, res) {
+	let calcName = req.body.calcName;
+	let settingName = req.body.settingName;
+	let settingValue = req.body.settingValue;
+	let calculatorSettings = getCalculatorSettings(req);
+
+	saveSetting(calcName, settingName, settingValue, calculatorSettings, res);
+
+	res.send(generateResponse(true, 'Setting saved!'));
+});
+
+
 server.listen(8081, function() {
     console.log('Listening on ' + server.address().port);
 });
@@ -93,7 +108,7 @@ server.listen(8081, function() {
  * @return: An array of settings for the desired calculators
  */
 function getCalculatorSettings(req) {
-	return req.cookies.calculatorSettings || [];
+	return req.cookies.calculatorSettings || {};
 }
 
 /**
@@ -115,7 +130,7 @@ function getFavorites(req) {
  * @param favorites: The user's current favorites (stored in a cookie)
  * @param res: The response object
  */
-function saveFavorite(calculator, favorites, res) {
+function addFavorite(calculator, favorites, res) {
 	if(favorites != undefined) {
 		if (!favorites.includes(calculator)) {
 			favorites.push(calculator);
@@ -144,6 +159,23 @@ function removeFavorite(calculator, favorites, res) {
 
 		res.cookie('favorites', favorites);
 	}
+}
+
+function saveSetting(calcName, settingName, settingValue, calculatorSettings, res) {
+	if(calculatorSettings == undefined) {
+		console.log('its undefined!!');
+		calculatorSettings = {};
+	}
+	
+	if(calculatorSettings[calcName] == undefined) {
+		console.log('the other one is undefined!!');
+		calculatorSettings[calcName] = {};
+	}
+
+	calculatorSettings[calcName][settingName] = settingValue;
+	res.cookie('calculatorSettings', calculatorSettings);
+
+	console.log(calculatorSettings);
 }
 
 function generateResponse(success, message) {
