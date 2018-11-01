@@ -12,6 +12,7 @@ body {
 	background-image: $bg-image;
 	font-size: 115%;
 	font-family: Century Gothic, sans-serif;
+	color: $text-color;
 }
 
 a {
@@ -23,27 +24,32 @@ a:hover {
 	color: lighten($link-color, 25%);
 }
 
-p {
-    line-height: 1.5em;
-}
-
-label {
-	color: #123;
+nav {
+	margin-bottom: 50px;
+	
+	h1 {
+	    font-size: 3em;
+	    margin: 0;
+	}
+	a {
+		font-size: 125%;
+		margin: 5px;
+	}
 }
 
 ::placeholder {
-    color: #eee;
+    color: $text-color;
     opacity: 0.85;
     text-shadow: none;
 }
 
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
-    color: #eee;
+    color: $text-color;
     text-shadow: none;
 }
 
 ::-ms-input-placeholder { /* Microsoft Edge */
-    color: #eee;
+    color: $text-color;
     text-shadow: none;
 }
 
@@ -67,8 +73,10 @@ label {
 
 .calc {
 	padding: 25px;
-
+	
 	.calc-content {
+		transition: width 2s, height 4s;
+
 		.calc-section {
 			margin-top: 50px;
 			margin-bottom: 50px;
@@ -104,7 +112,6 @@ label {
 			}
 		}
 		.calc-description {
-			line-height: 1.7em;
 			display: block;
 			margin-top: 0;
 		}
@@ -345,9 +352,6 @@ input[type="radio"]:checked+label{
 				}
 			}
 			.modal-body {
-				p {
-					line-height: normal;
-				}
 				.modal-body-section {
 					margin-top: 25px;
 

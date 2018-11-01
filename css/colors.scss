@@ -1,3 +1,9 @@
+$red: #ed574c;
+$red-light: #ed6d64;
+
+$blue: #285b73;
+$blue-light: #4c89a6;
+
 .default{ 				@include colorize(0, 0, 5, 1, 1); } 
 .default-input{ 		@include colorize(0, 0, 85, 1, 0, 1); } 
 .default-background{    @include colorize(0, 0, 99, 1); }

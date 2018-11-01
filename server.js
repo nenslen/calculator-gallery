@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 
 const allCalculators = [
 	'square',
-	'distance',
+	'distance'
 ];
 
 app.use('/css', express.static(__dirname + '/css'));

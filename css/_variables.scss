@@ -4,8 +4,8 @@ $small-desktop: new-breakpoint(min-width 500px);
 
 // Background
 $bg-color: #111111; // Backup
-$bg-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('/media/bg.png');
-$bg-image-odd: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/media/bg.png');
+$bg-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('/media/bg2.png');
+$bg-image-odd: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/media/bg2.png');
 
 // Page header
 $header-text-color: #444;

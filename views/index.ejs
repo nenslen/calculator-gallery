@@ -4,9 +4,9 @@
 <%- include('head-section', {title: 'Calculator Website', calculators: calculators}); %>
 
 <body ng-app="calculatorApp" ng-controller="app-controller">
-    <%- include('nav-section'); %>
-
     <div class="wrapper">
+        <%- include('nav-section'); %>
+        
         <div class="calculators">
             <% calculators.forEach(function(calculator) { %>
                 <div ng-controller="<%= calculator %>" id="<%= calculator %>-calculator">
