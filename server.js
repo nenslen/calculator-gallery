@@ -12,7 +12,8 @@ app.use(bodyParser.json());
 
 const allCalculators = [
 	'square',
-	'distance'
+	'distance',
+	'base-converter',
 ];
 
 app.use('/css', express.static(__dirname + '/css'));
@@ -22,31 +23,7 @@ app.use('/html', express.static(__dirname + '/html'));
 
 
 app.get('/', function(req, res) {
-	/*
-	let settings = {
-		square: {
-			colorTheme: {
-				backgroundColor: "red",
-				id: "red",
-				inputColor: "red",
-				name: "Red",
-				outputColor: "red"
-			},
-			decimalPlaces: 3
-		},
-		distance: {
-			colorTheme: {
-				backgroundColor: "blue",
-				id: "blue",
-				inputColor: "blue",
-				name: "Blue",
-				outputColor: "blue"
-			}
-		}
-	};
-	res.cookie('calculatorSettings', settings);
-*/
-//res.clearCookie('calculatorSettings');
+	//res.clearCookie('calculatorSettings');
 
     res.render('index', {
     	calculators: allCalculators,
@@ -163,19 +140,15 @@ function removeFavorite(calculator, favorites, res) {
 
 function saveSetting(calcName, settingName, settingValue, calculatorSettings, res) {
 	if(calculatorSettings == undefined) {
-		console.log('its undefined!!');
 		calculatorSettings = {};
 	}
 	
 	if(calculatorSettings[calcName] == undefined) {
-		console.log('the other one is undefined!!');
 		calculatorSettings[calcName] = {};
 	}
 
 	calculatorSettings[calcName][settingName] = settingValue;
 	res.cookie('calculatorSettings', calculatorSettings);
-
-	console.log(calculatorSettings);
 }
 
 function generateResponse(success, message) {

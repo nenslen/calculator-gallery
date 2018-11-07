@@ -41,6 +41,9 @@ function Calculator(
 		for (let key in this.outputs) {
 			this.outputs[key].value = this.outputs[key].defaultValue;
 		}
+		for (let key in this.inputOutputs) {
+			this.inputOutputs[key].value = this.inputOutputs[key].defaultValue;
+		}
 
 		this.errors = [];
 	}
