@@ -27,7 +27,12 @@ angular.module('calculatorApp').controller('base-converter', ['$scope', function
 			if (inputBase == base) { continue; }
 
 			let baseNumber = baseNumbers[base];
-			this.inputs[base].value = convertBase(inputValue, inputBaseNumber, baseNumber);
+			try {
+				this.inputs[base].value = convertBase(inputValue.toLowerCase(), inputBaseNumber, baseNumber);
+			} catch(error) {
+				this.errors.push(error);
+				return;
+			}
 		}
 
 		this.errors = [];

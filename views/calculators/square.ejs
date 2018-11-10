@@ -1,17 +1,5 @@
-<div class="calc-section calc-inputs">
-	<span class="calc-input">
-	    <span class="calc-input-title">{{ calc.inputs.x.name }}</span>
-	    <input type="number" ng-change="calc.calculate()" ng-model="calc.inputs.x.value" class="{{ calc.colorTheme.inputColor }}-input" placeholder="{{ calc.inputs.x.hint }}">
-	</span>
-</div>
-
-<div class="calc-section calc-outputs">
-	<span class="calc-output">
-	    <span class="calc-output-title">{{ calc.outputs.y.name }}</span>
-	    <input type="number" ng-model="calc.outputs.y.value" class="{{ calc.colorTheme.outputColor }}-disabled" readonly>
-	</span>
-</div>
-
+<%- include('../calculator-parts/calc-inputs'); %>
+<%- include('../calculator-parts/calc-outputs'); %>
 
 <div id="square-info" ng-hide="true">
     <div class="modal-body-section">

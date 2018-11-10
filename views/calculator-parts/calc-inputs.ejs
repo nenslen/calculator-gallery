@@ -1,0 +1,11 @@
+<div class="calc-section calc-inputs">
+    <span ng-repeat="(name, input) in calc.inputs" class="calc-input">
+        <span class="calc-input-title">{{ input.name }}</span>
+        <input
+            type="text"
+            ng-change="calc.calculate(name)"
+            ng-model="calc.inputs[name].value"
+            class="{{ calc.colorTheme.inputColor }}-input"
+            placeholder="{{ input.hint }}">
+    </span>
+</div>

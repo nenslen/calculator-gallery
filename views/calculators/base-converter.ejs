@@ -1,19 +1,4 @@
-<div class="calc-section calc-inputs">
-    <span class="calc-input">
-        <span class="calc-input-title">{{ calc.inputs.bin.name }}</span>
-        <input type="text" ng-change="calc.calculate('bin')" ng-model="calc.inputs.bin.value" class="{{ calc.colorTheme.inputColor }}-input" placeholder="{{ calc.inputs.bin.hint }}">
-    </span>
-
-    <span class="calc-input">
-        <span class="calc-input-title">{{ calc.inputs.dec.name }}</span>
-        <input type="text" ng-change="calc.calculate('dec')" ng-model="calc.inputs.dec.value" class="{{ calc.colorTheme.inputColor }}-input" placeholder="{{ calc.inputs.dec.hint }}">
-    </span>
-
-    <span class="calc-input">
-        <span class="calc-input-title">{{ calc.inputs.hex.name }}</span>
-        <input type="text" ng-change="calc.calculate('hex')" ng-model="calc.inputs.hex.value" class="{{ calc.colorTheme.inputColor }}-input" placeholder="{{ calc.inputs.hex.hint }}">
-    </span>
-</div>
+<%- include('../calculator-parts/calc-inputs'); %>
 
 <div id="base-converter-info" ng-hide="true">
     <div class="modal-body-section">
