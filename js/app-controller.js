@@ -21,7 +21,7 @@ angular.module('calculatorApp', []).controller('app-controller', ['$scope', '$ht
 	$scope.decimalPlacesOptions = ['Auto', 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 	$scope.calculators = [];
 	$scope.currentCalc = 0;
-
+	$scope.searchTerm = '';
 
 	/**
 	 * Adds a calculator to the 'calculators' array and applies any custom settings (found in the
@@ -38,6 +38,22 @@ angular.module('calculatorApp', []).controller('app-controller', ['$scope', '$ht
 		}
 
 		$scope.calculators[calcName] = calculator;
+	};
+
+	$scope.filterCalculators = function() {
+		let calculators = document.getElementsByClassName('calc-outer');
+
+		for (let i = 0; i < calculators.length; i++) {
+			let calculator = calculators[i];
+			let found = calculator.innerHTML.toLowerCase().indexOf($scope.searchTerm.toLowerCase());
+			
+			if (found === -1) {
+				calculator.style.display = "none";
+			} else {
+				calculator.style.display = "block";
+			}
+		}
+		
 	};
 
 	$scope.openSettings = function(calcName) {

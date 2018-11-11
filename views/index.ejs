@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
 
-<%- include('head-section', {title: 'Calculator Website', calculators: calculators}); %>
+<%- include('head', {title: 'Calculator Website', calculators: calculators}); %>
 
 <body ng-app="calculatorApp" ng-controller="app-controller">
     <div class="wrapper">
-        <%- include('nav-section'); %>
-        
+        <%- include('nav'); %>
+        <%- include('search'); %>
+
         <div class="calculators">
             <% calculators.forEach(function(calculator) { %>
-                <div ng-controller="<%= calculator %>" id="<%= calculator %>-calculator">
+                <div ng-controller="<%= calculator %>" id="<%= calculator %>-calculator" class="calc-outer">
                     <div class="calc {{ calc.colorTheme.backgroundColor }}-background">                
                         <%- include('calculator-parts/calc', {calculator: calculator, favorited: favorites.includes(calculator)}); %>
                     </div>

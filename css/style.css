@@ -676,6 +676,19 @@ nav {
     font-size: 125%;
     margin: 5px; }
 
+#search {
+  margin-bottom: 50px; }
+  #search input {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 0px 10px 13px !important;
+    font-size: 1.3em; }
+  #search ::placeholder {
+    color: black;
+    opacity: 0.5;
+    text-shadow: none; }
+
 ::placeholder {
   color: #EEEEEE;
   opacity: 0.85;

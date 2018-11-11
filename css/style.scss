@@ -37,6 +37,24 @@ nav {
 	}
 }
 
+#search {
+	margin-bottom: 50px;
+
+	input {
+		max-width: 500px;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 10px 0px 10px 13px !important;
+		font-size: 1.3em;
+	}
+
+	::placeholder {
+    	color: black;
+    	opacity: 0.5;
+    	text-shadow: none;
+	}
+}
+
 ::placeholder {
     color: $text-color;
     opacity: 0.85;
