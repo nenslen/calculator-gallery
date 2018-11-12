@@ -41,7 +41,9 @@ angular.module('calculatorApp', []).controller('app-controller', ['$scope', '$ht
 	};
 
 	$scope.filterCalculators = function() {
+		let searchMessage = document.getElementById('search-message');
 		let calculators = document.getElementsByClassName('calc-outer');
+		let calculatorCount = 0;
 
 		for (let i = 0; i < calculators.length; i++) {
 			let calculator = calculators[i];
@@ -51,7 +53,14 @@ angular.module('calculatorApp', []).controller('app-controller', ['$scope', '$ht
 				calculator.style.display = "none";
 			} else {
 				calculator.style.display = "block";
+				calculatorCount++;
 			}
+		}
+
+		if (calculatorCount <= 0) {
+			searchMessage.innerHTML = 'Sorry! No calculators found :(';
+		} else {
+			searchMessage.innerHTML = ' ';
 		}
 		
 	};

@@ -658,7 +658,8 @@ body {
   background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("/media/bg2.png");
   font-size: 115%;
   font-family: Century Gothic, sans-serif;
-  color: #EEEEEE; }
+  color: #EEEEEE;
+  overflow-y: scroll; }
 
 a {
   text-decoration: none;
@@ -688,6 +689,10 @@ nav {
     color: black;
     opacity: 0.5;
     text-shadow: none; }
+  #search #search-message {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 1.5em; }
 
 ::placeholder {
   color: #EEEEEE;

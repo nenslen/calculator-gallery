@@ -13,6 +13,7 @@ body {
 	font-size: 115%;
 	font-family: Century Gothic, sans-serif;
 	color: $text-color;
+	overflow-y: scroll;
 }
 
 a {
@@ -52,6 +53,12 @@ nav {
     	color: black;
     	opacity: 0.5;
     	text-shadow: none;
+	}
+
+	#search-message {
+		margin-top: 50px;
+		text-align: center;
+		font-size: 1.5em;
 	}
 }
 
