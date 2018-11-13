@@ -765,6 +765,8 @@ nav {
       display: block;
       margin-top: 15px;
       margin-bottom: 5px; }
+      .calc .calc-content .calc-outputs .calc-output input {
+        cursor: pointer; }
     .calc .calc-content .calc-outputs .calc-output-title {
       font-size: 110%;
       margin-bottom: 5px;

@@ -157,6 +157,11 @@ nav {
 				display: block;
 				margin-top: 15px;
 				margin-bottom: 5px;
+				
+				input {
+					cursor: pointer;
+				}
+
 			}
 			.calc-output-title {
 				font-size: 110%;

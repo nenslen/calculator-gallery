@@ -157,6 +157,13 @@ angular.module('calculatorApp', []).controller('app-controller', ['$scope', '$ht
 		$scope.currentCalc = $scope.calculators[calcName];
 	};
 
+	$scope.copyOutput = function($event) {
+		let output = $event.currentTarget;
+		output.select();
+		document.execCommand('copy');
+		//output.selectionStart = output.selectionEnd;
+	};
+
 	// Close modal
 	window.onclick = function(event) {
 		let modals = [
@@ -172,6 +179,10 @@ angular.module('calculatorApp', []).controller('app-controller', ['$scope', '$ht
 		        $scope.currentCalc = 0;
 		    }	
 		}
+	};
+
+	window.onload = function() {
+		document.getElementById('search-input').focus();
 	};
 }]);
 
