@@ -49,5 +49,10 @@ server.listen(8081, function() {
  * @return: An array of strings representing the user's favorites (empty if user has no favorites)
  */
 function getFavorites(req) {
-	return req.cookies.favorites || [];
+	let favorites = req.cookies.favorites;
+	if (favorites === '') {
+		return [];
+	} else {
+		return favorites.split(',');
+	}
 }
