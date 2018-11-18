@@ -20,6 +20,10 @@ angular.module('calculatorApp').controller('base-converter', ['$scope', function
 	};
 
 	let calculate = function(inputBase) {
+		if (!inputBase) {
+			return;
+		}
+
 		let inputValue = inputs[inputBase].value;
 		let inputBaseNumber = baseNumbers[inputBase];
 		
@@ -60,4 +64,3 @@ function convertBase(value, from_base, to_base) {
 	}
 	return new_value || '0';
 }
-

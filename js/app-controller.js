@@ -1,5 +1,6 @@
-angular.module('calculatorApp', []).controller('app-controller', ['$scope', '$http', function($scope, $http) {
-	
+angular.module('calculatorApp', ['ngCookies']).controller('app-controller', ['$scope', '$http', '$cookies', function($scope, $http, $cookies) {
+	let EXPIRATION = {'expires': new Date(2038, 1, 1)};
+
 	// (id, name, input, output, background)
 	$scope.colorThemes = {
 		default: new ColorTheme('default', 'Default'),
@@ -25,13 +26,13 @@ angular.module('calculatorApp', []).controller('app-controller', ['$scope', '$ht
 
 	/**
 	 * Adds a calculator to the 'calculators' array and applies any custom settings (found in the
-	 * calculatorSettings cookie) to the calculator
+	 * settings cookie) to the calculator
 	 *
 	 * @param calculator: The calculator to initialize
 	 */
 	$scope.initializeCalculator = function(calculator) {
 		let calcName = calculator.name;
-		let settings = calculatorSettings[calcName];
+		let settings = $scope.getSettings()[calcName];
 
 		for (let setting in settings) {
 			calculator[setting] = settings[setting];
@@ -62,7 +63,6 @@ angular.module('calculatorApp', []).controller('app-controller', ['$scope', '$ht
 		} else {
 			searchMessage.innerHTML = ' ';
 		}
-		
 	};
 
 	$scope.openSettings = function(calcName) {
@@ -92,54 +92,99 @@ angular.module('calculatorApp', []).controller('app-controller', ['$scope', '$ht
 	 * be updating the DOM from within a controller, oh well!)
 	 */
 	$scope.toggleFavoriteStatus = function(calcName) {
+		let favorited = $scope.calculatorIsFavorited(calcName);
+		
+		// Toggle the favorited status
+		favorited = !favorited;
+
 		let calcTopElement = document.querySelector('#' + calcName + '-calculator .calc-top');
 		let starIconElement = calcTopElement.querySelector('#favorite-icon i');
-		
-		let favorited = starIconElement.getAttribute('data-favorited') === 'true';
-		let url = (favorited) ? '/favorites/remove' : '/favorites/add';
-		let params = { calcName: calcName };
 
-		$http({
-            url: url,
-            method: "POST",
-            data: params
-        })
-        .then(function (data) {
-            if(data.data.success) {
-            	console.log(data.data.message);
-            	starIconElement.classList.remove('fas');
-            	starIconElement.classList.remove('far');
+		starIconElement.classList.remove('fas');
+        starIconElement.classList.remove('far');
 
-            	// If favorited is true, then we just unfavorited a calc, so set its favorited status to false
-            	if(favorited) {
-            		starIconElement.classList.add('far');
-            		starIconElement.setAttribute('data-favorited', 'false');
-            	} else {
-            		starIconElement.classList.add('fas');
-            		starIconElement.setAttribute('data-favorited', 'true');
-            	}
-            }
-        });
+		if (favorited) {
+			starIconElement.classList.add('fas');
+			$scope.addCalcToFavorites(calcName);
+		} else {
+			starIconElement.classList.add('far');
+			$scope.removeCalcFromFavorites(calcName);
+		}
 	};
 
-	$scope.saveSetting = function(settingName, settingValue) {
-		let url = '/settings/save';
-		let params = { 
-			calcName: $scope.currentCalc.name,
-			settingName: settingName,
-			settingValue:settingValue
-		};
+	/**
+	 * Returns the favorites cookie as an array of calculator names if it exists, and
+	 * null otherwise
+	 */
+	$scope.getFavorites = function() {
+		let favorites = $cookies.get('favorites');
 
-		$http({
-            url: url,
-            method: "POST",
-            data: params
-        })
-        .then(function (data) {
-            if(data.data.success) {
-            	console.log(data);
-            }
-        });
+		if (favorites) {
+			return favorites.split(',');
+		} else {
+			return null;
+		}
+	};
+
+	$scope.calculatorIsFavorited = function(calculator) {
+		let favorites = $scope.getFavorites();
+
+		if (favorites) {
+			return favorites.includes(calculator);
+		} else {
+			return false;
+		}
+	};
+
+	$scope.addCalcToFavorites = function(calculator) {
+		let favorites = $scope.getFavorites();
+
+		if (favorites) {
+			if (!favorites.includes(calculator)) {
+				favorites.push(calculator);
+			}	
+		} else {
+			favorites = calculator;
+		}
+
+		$cookies.put('favorites', favorites, EXPIRATION);
+		console.log($scope.getFavorites());
+	};
+
+	$scope.removeCalcFromFavorites = function(calculator) {
+		let favorites = $scope.getFavorites();
+
+		if (favorites) {
+			let index = favorites.indexOf(calculator);
+			
+			if (index !== -1) {
+				favorites.splice(index, 1);
+			}	
+		}
+
+		$cookies.put('favorites', favorites, EXPIRATION);
+		console.log($scope.getFavorites());
+	};
+
+	$scope.getSettings = function() {
+		return $cookies.getObject('settings');
+	};
+
+	$scope.saveSetting = function(setting, value) {
+		let settings = $scope.getSettings();
+		let calculator = $scope.currentCalc.name;
+
+		if (!settings) {
+			settings = {};
+		}
+		
+		if (!settings[calculator]) {
+			settings[calculator] = {};
+		}
+
+		settings[calculator][setting] = value;
+		$cookies.putObject('settings', settings, EXPIRATION);
+		console.log($scope.getSettings());
 	};
 
 	$scope.changeColorTheme = function(newColorTheme) {

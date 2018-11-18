@@ -31,6 +31,10 @@ nav {
 	h1 {
 	    font-size: 3em;
 	    margin: 0;
+
+	    a {
+	    	color: $text-color;
+	    }
 	}
 	a {
 		font-size: 125%;
@@ -193,7 +197,7 @@ nav {
 	}
 }
 
-.button{
+.button {
 	outline: none; 
 	border-radius: 3px; 
 	cursor: pointer; 

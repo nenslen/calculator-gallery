@@ -673,6 +673,8 @@ nav {
   nav h1 {
     font-size: 3em;
     margin: 0; }
+    nav h1 a {
+      color: #EEEEEE; }
   nav a {
     font-size: 125%;
     margin: 5px; }
