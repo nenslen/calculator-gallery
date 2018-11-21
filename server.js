@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 const allCalculators = [
-	'square',
+	'average',
 	'distance',
 	'base-converter',
 ];

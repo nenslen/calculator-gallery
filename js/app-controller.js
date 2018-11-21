@@ -184,7 +184,6 @@ angular.module('calculatorApp', ['ngCookies']).controller('app-controller', ['$s
 
 		settings[calculator][setting] = value;
 		$cookies.putObject('settings', settings, EXPIRATION);
-		console.log($scope.getSettings());
 	};
 
 	$scope.changeColorTheme = function(newColorTheme) {
@@ -232,6 +231,6 @@ angular.module('calculatorApp', ['ngCookies']).controller('app-controller', ['$s
 }]);
 
 function cleanArray(array) {
-	array = array.filter(i=>i!='');
+	array = array.filter(i => i != '');
 	return array;
 }

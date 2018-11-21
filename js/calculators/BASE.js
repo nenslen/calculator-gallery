@@ -1,7 +1,7 @@
 angular.module('calculatorApp').controller('square', ['$scope', function($scope) {
 	let title = 'Square';
 	let name = 'square';
-	let description = ['This calculator takes a number, and returns its square.'];
+	let description = ['line1', 'line2'];
 	
 	let inputs = {
 		x: new Input('X', '', 'eg) 5')
