@@ -726,7 +726,8 @@ nav {
       grid-template-columns: repeat(3, 1fr); } }
 
 .calc {
-  padding: 25px; }
+  padding: 15px;
+  padding-top: 15px; }
   .calc .calc-content {
     transition: width 2s, height 4s; }
     .calc .calc-content .calc-section {

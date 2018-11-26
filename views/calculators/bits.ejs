@@ -1,0 +1,44 @@
+<div class="calc-section calc-inputs">
+    <span class="calc-input">
+        <input
+            type="text"
+            ng-change="calc.calculate()"
+            ng-model="calc.inputs.inputValue.value"
+            class="{{ calc.colorTheme.inputColor }}-input"
+            placeholder="{{ input.hint }}">
+        <select
+			ng-model="conversionOption"
+			ng-options="coption.name for coption in conversionOptions track by coption.id"
+			ng-change="calc.calculate()"
+			id="color-picker" class="{{ calc.colorTheme.inputColor }}-disabled">
+		</select>
+    </span>
+</div>
+
+<div class="calc-section calc-outputs">
+	<table id="output-table">
+		<tr ng-repeat="(name, output) in calc.outputs" class="calc-output conversion-output">
+	    	<td style="width:50%">{{ output.name }}</td>
+	    	<td style="width:50%">
+	        	<input type="text" ng-model="calc.outputs[name].value" ng-click="copyOutput($event)" class="{{ calc.colorTheme.outputColor }}-disabled" readonly>
+	    	</td>
+	    </tr>
+	</table>
+</div>
+
+<div id="square-info" ng-hide="true">
+    <div class="modal-body-section">
+        <span class="modal-description-title">General</span>
+        <p>To square a number, we multiply it by itself.</p>
+    </div>
+</div>
+
+<style>
+	#output-table {
+		width: 100%;
+	}
+
+	.conversion-output {
+		margin: 0 !important;
+	}
+</style>
