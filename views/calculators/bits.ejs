@@ -7,8 +7,8 @@
             class="{{ calc.colorTheme.inputColor }}-input"
             placeholder="{{ input.hint }}">
         <select
-			ng-model="conversionOption"
-			ng-options="coption.name for coption in conversionOptions track by coption.id"
+			ng-model="unit"
+			ng-options="unitOption.name for unitOption in units track by unitOption.id"
 			ng-change="calc.calculate()"
 			id="color-picker" class="{{ calc.colorTheme.inputColor }}-disabled">
 		</select>

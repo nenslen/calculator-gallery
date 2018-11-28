@@ -32,21 +32,26 @@ function Calculator(
 	this.errors = errors;
 
 	/**
-	 * Resets all inputs and outputs to their default values.
+	 * Resets all inputs, outputs, and errors to their default values.
 	 */
 	this.reset = function() {
-		for (let key in this.inputs) {
-			this.inputs[key].value = this.inputs[key].defaultValue;
-		}
-		for (let key in this.outputs) {
-			this.outputs[key].value = this.outputs[key].defaultValue;
-		}
-		for (let key in this.inputOutputs) {
-			this.inputOutputs[key].value = this.inputOutputs[key].defaultValue;
-		}
+		this.resetInputs();
+		this.resetOutputs();
 
 		this.errors = [];
 	}
+
+	this.resetInputs = function() {
+		for (let key in this.inputs) {
+			this.inputs[key].value = this.inputs[key].defaultValue;
+		}
+	}	
+
+	this.resetOutputs = function() {
+		for (let key in this.outputs) {
+			this.outputs[key].value = this.outputs[key].defaultValue;
+		}
+	}	
 
 	/**
 	 * Truncates the outputs of type 'number' so they only contain a certain number of digits after

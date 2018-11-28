@@ -16,9 +16,7 @@ angular.module('calculatorApp').controller('bits', ['$scope', function($scope) {
 		gigabytes: new Output('Gigabytes (GB)', 0, 'number'),
 		terabytes: new Output('Terabytes (TB)', 0, 'number'),
 		petabytes: new Output('Petabytes (PB)', 0, 'number'),
-		extabytes: new Output('Exabytes (EB)', 0, 'number'),
-		zettabytes: new Output('Zettabytes (ZB)', 0, 'number'),
-		yottabytes: new Output('Yottabytes (YB)', 0, 'number'),
+		//exabytes: new Output('Exabytes (EB)', 0, 'number'),
 		bits: new Output('Bits (b)', 0, 'number'),
 		nibbles: new Output('Nibbles', 0, 'number'),
 		kilobits: new Output('Kilobits (kb)', 0, 'number'),
@@ -26,42 +24,65 @@ angular.module('calculatorApp').controller('bits', ['$scope', function($scope) {
 		gigabits: new Output('Gigabits (Gb)', 0, 'number'),
 		terabits: new Output('Terabits (Tb)', 0, 'number'),
 		petabits: new Output('Petabits (Pb)', 0, 'number'),
-		extabits: new Output('Exabits (Eb)', 0, 'number'),
-		zettabits: new Output('Zettabits (Zb)', 0, 'number'),
-		yottabits: new Output('Yottabits (Yb)', 0, 'number'),
+		//exabits: new Output('Exabits (Eb)', 0, 'number'),
 	};
 
-	$scope.conversionOptions = {
-		bytes: new ConversionOption('bytes', 'Bytes (B)', 8),
-		kilobytes: new ConversionOption('kilobytes', 'Kilobytes (kB)', 8000),
-		megabytes: new ConversionOption('megabytes', 'Megabytes (MB)', 8000000),
-		gigabytes: new ConversionOption('gigabytes', 'Gigabytes (GB)', 15),
-		terabytes: new ConversionOption('terabytes', 'Terabytes (TB)', 15),
-		petabytes: new ConversionOption('petabytes', 'Petabytes (PB)', 15),
-		extabytes: new ConversionOption('extabytes', 'Exabytes (EB)', 15),
-		zettabytes: new ConversionOption('zettabytes', 'Zettabytes (ZB)', 15),
-		yottabytes: new ConversionOption('yottabytes', 'Yottabytes (YB)', 15),
-		bits: new ConversionOption('bits', 'Bits (b)', 1),
-		nibbles: new ConversionOption('nibbles', 'Nibbles', 15),
-		kilobits: new ConversionOption('kilobits', 'Kilobits (kb)', 15),
-		megabits: new ConversionOption('megabits', 'Megabits (Mb)', 15),
-		gigabits: new ConversionOption('gigabits', 'Gigabits (Gb)', 15),
-		terabits: new ConversionOption('terabits', 'Terabits (Tb)', 15),
-		petabits: new ConversionOption('petabits', 'Petabits (Pb)', 15),
-		extabits: new ConversionOption('extabits', 'Exabits (Eb)', 15),
-		zettabits: new ConversionOption('zettabits', 'Zettabits (Zb)', 15),
-		yottabits: new ConversionOption('yottabits', 'Yottabits (Yb)', 15),
+	$scope.units = {
+		bytes:     new Unit('bytes',     'Bytes (B)',      8,                   8),
+		kilobytes: new Unit('kilobytes', 'Kilobytes (kB)', 8000,                8192),
+		megabytes: new Unit('megabytes', 'Megabytes (MB)', 8000000,             8388608),
+		gigabytes: new Unit('gigabytes', 'Gigabytes (GB)', 8000000000,          8589934592),
+		terabytes: new Unit('terabytes', 'Terabytes (TB)', 8000000000000,       8796093022208),
+		petabytes: new Unit('petabytes', 'Petabytes (PB)', 8000000000000000,    9007199254740992),
+		//exabytes:  new Unit('exabytes',  'Exabytes (EB)',  8000000000000000000, 9223372036854775808),
+		bits:      new Unit('bits',      'Bits (b)',       1,                   1),
+		nibbles:   new Unit('nibbles',   'Nibbles',        4,                   4),
+		kilobits:  new Unit('kilobits',  'Kilobits (kb)',  1000,                1024),
+		megabits:  new Unit('megabits',  'Megabits (Mb)',  1000000,             1048576),
+		gigabits:  new Unit('gigabits',  'Gigabits (Gb)',  1000000000,          1073741824),
+		terabits:  new Unit('terabits',  'Terabits (Tb)',  1000000000000,       1099511627776),
+		petabits:  new Unit('petabits',  'Petabits (Pb)',  1000000000000000,    1125899906842624),
+		//exabits:   new Unit('exabits',   'Exabits (Eb)',   1000000000000000000, 1152921504606846976),
 	};
-	$scope.conversionOption = new ConversionOption('bytes', 'Bytes (B)', 8);
+	$scope.unit = new Unit('bytes', 'Bytes (B)', 8, 8);
 
 	let calculate = function() {
-		let value = parseInt(this.inputs.inputValue.value);
-		let bitEquivalent = parseInt($scope.conversionOption.bits);
-		let totalBits = value * bitEquivalent;
+        bitEquivalent = 0;
+
+        if (false) {
+            bitEquivalent = math.bignumber($scope.unit.decimal);
+        } else {
+            bitEquivalent = math.bignumber($scope.unit.binary);
+        }
+
+        let value = 0;
+        try {
+            value = math.bignumber(this.inputs.inputValue.value);
+        } catch (error) {
+            this.resetOutputs();
+
+            if (this.inputs.inputValue.value.length !== 0) {    
+                this.errors = [];
+                this.errors.push(error);
+                return;
+            }
+        }
+        let totalBits = math.multiply(value, bitEquivalent);
 
 		for (let key in this.outputs) {
-			let bits = $scope.conversionOptions[key].bits;
-			this.outputs[key].value = totalBits / bits;
+			let bits = 0;
+
+            if (false) {
+                bits = math.bignumber($scope.units[key].decimal);
+            } else {
+                bits = math.bignumber($scope.units[key].binary);
+            }
+
+			bits = math.divide(totalBits, bits);
+            bits = math.format(bits, {exponential:{lower:1e-45,upper:1e45}});
+            bits = math.round(bits, 15);
+
+			this.outputs[key].value = bits;
 		}
 		
 		this.errors = [];
@@ -72,8 +93,14 @@ angular.module('calculatorApp').controller('bits', ['$scope', function($scope) {
 	$scope.initializeCalculator($scope.calc);
 }]);
 
-function ConversionOption(id, name, bits) {
+
+function Unit(id, name, decimal, binary) {
 	this.id = id;
 	this.name = name;
-	this.bits = bits;
+
+	// How many bits this unit has in decimal
+	this.decimal = decimal;
+
+	// How many bits this unit has in binary
+	this.binary = binary;
 }
