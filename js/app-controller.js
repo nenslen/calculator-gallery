@@ -19,7 +19,7 @@ angular.module('calculatorApp', ['ngCookies']).controller('app-controller', ['$s
 		magenta: new ColorTheme('magenta', 'Magenta', 'magenta', 'magenta', 'magenta'),
 	};
 
-	$scope.decimalPlacesOptions = ['Auto', 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+	$scope.decimalPlacesOptions = ['Auto', 'Max', 1, 2, 3, 4, 5, 6, 7, 8, 9];
 	$scope.calculators = [];
 	$scope.currentCalc = 0;
 	$scope.searchTerm = '';

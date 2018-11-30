@@ -45,14 +45,20 @@ angular.module('calculatorApp').controller('bits', ['$scope', function($scope) {
 		//exabits:   new Unit('exabits',   'Exabits (Eb)',   1000000000000000000, 1152921504606846976),
 	};
 	$scope.unit = new Unit('bytes', 'Bytes (B)', 8, 8);
+    
+    $scope.bases = [
+        'Binary (kilobyte = 1024 bytes)',
+        'Decimal (kilobyte = 1000 bytes)',
+    ];
+    $scope.base = 'Binary (kilobyte = 1024 bytes)';
 
 	let calculate = function() {
         bitEquivalent = 0;
 
-        if (false) {
-            bitEquivalent = math.bignumber($scope.unit.decimal);
-        } else {
+        if ($scope.base === 'Binary (kilobyte = 1024 bytes)') {
             bitEquivalent = math.bignumber($scope.unit.binary);
+        } else {
+            bitEquivalent = math.bignumber($scope.unit.decimal);
         }
 
         let value = 0;
@@ -72,15 +78,13 @@ angular.module('calculatorApp').controller('bits', ['$scope', function($scope) {
 		for (let key in this.outputs) {
 			let bits = 0;
 
-            if (false) {
-                bits = math.bignumber($scope.units[key].decimal);
-            } else {
+            if ($scope.base === 'Binary (kilobyte = 1024 bytes)') {
                 bits = math.bignumber($scope.units[key].binary);
+            } else {
+                bits = math.bignumber($scope.units[key].decimal);
             }
 
 			bits = math.divide(totalBits, bits);
-            bits = math.format(bits, {exponential:{lower:1e-45,upper:1e45}});
-            bits = math.round(bits, 15);
 
 			this.outputs[key].value = bits;
 		}

@@ -12,6 +12,12 @@
 			ng-change="calc.calculate()"
 			id="color-picker" class="{{ calc.colorTheme.inputColor }}-disabled">
 		</select>
+		<select
+			ng-model="base"
+			ng-options="b for b in bases"
+			ng-change="calc.calculate()"
+			id="color-picker" class="{{ calc.colorTheme.inputColor }}-disabled">
+		</select>
     </span>
 </div>
 

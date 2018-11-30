@@ -58,11 +58,18 @@ function Calculator(
 	 * the decimal
 	 */
 	this.truncateOutputs = function() {
-		if(this.decimalPlaces === 'Auto') { return; }
-
 		for (let key in this.outputs) {
 			if(this.outputs[key].type === 'number') {
-				this.outputs[key].value = parseFloat(this.outputs[key].value.toFixed(this.decimalPlaces));
+				let value = this.outputs[key].value;
+
+				if(this.decimalPlaces === 'Auto') { 
+					value = math.bignumber(math.format(value, {notation: 'fixed', precision: 17}));
+					this.outputs[key].value = math.format(value, {exponential:{lower:1e-10,upper:1e10}});
+				} else if (this.decimalPlaces === 'Max') {
+					this.outputs[key].value = math.format(value, {notation: 'fixed', precision: 0});
+				} else {
+					this.outputs[key].value = math.format(value, {notation: 'fixed', precision: this.decimalPlaces});
+				}
 			}
 		}
 	}
