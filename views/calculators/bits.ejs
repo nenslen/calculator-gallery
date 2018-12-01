@@ -1,5 +1,6 @@
 <div class="calc-section calc-inputs">
     <span class="calc-input">
+    	<span class="calc-input-title">Input</span>
         <input
             type="text"
             ng-change="calc.calculate()"
@@ -12,6 +13,9 @@
 			ng-change="calc.calculate()"
 			id="color-picker" class="{{ calc.colorTheme.inputColor }}-disabled">
 		</select>
+	</span>
+	<span class="calc-input">
+    	<span class="calc-input-title">Base</span>
 		<select
 			ng-model="base"
 			ng-options="b for b in bases"
@@ -22,14 +26,16 @@
 </div>
 
 <div class="calc-section calc-outputs">
-	<table id="output-table">
-		<tr ng-repeat="(name, output) in calc.outputs" class="calc-output conversion-output">
-	    	<td style="width:50%">{{ output.name }}</td>
-	    	<td style="width:50%">
-	        	<input type="text" ng-model="calc.outputs[name].value" ng-click="copyOutput($event)" class="{{ calc.colorTheme.outputColor }}-disabled" readonly>
-	    	</td>
-	    </tr>
-	</table>
+	<span class="calc-output">
+		<table id="output-table">
+			<tr ng-repeat="(name, output) in calc.outputs" class="calc-output conversion-output">
+		    	<td style="width:50%">{{ output.name }}</td>
+		    	<td style="width:50%">
+		        	<input type="text" ng-model="calc.outputs[name].value" ng-click="copyOutput($event)" class="{{ calc.colorTheme.outputColor }}-disabled" readonly>
+		    	</td>
+		    </tr>
+		</table>
+	</span>
 </div>
 
 <div id="square-info" ng-hide="true">

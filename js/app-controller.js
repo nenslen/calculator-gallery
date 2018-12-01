@@ -32,7 +32,11 @@ angular.module('calculatorApp', ['ngCookies']).controller('app-controller', ['$s
 	 */
 	$scope.initializeCalculator = function(calculator) {
 		let calcName = calculator.name;
-		let settings = $scope.getSettings()[calcName];
+		let settings = $scope.getSettings();
+
+		if (settings !== undefined) {
+			settings = settings[calcName];
+		}
 
 		for (let setting in settings) {
 			calculator[setting] = settings[setting];

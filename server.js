@@ -51,7 +51,7 @@ server.listen(8081, function() {
  */
 function getFavorites(req) {
 	let favorites = req.cookies.favorites;
-	if (favorites === '') {
+	if (favorites === '' || favorites === undefined) {
 		return [];
 	} else {
 		return favorites.split(',');
