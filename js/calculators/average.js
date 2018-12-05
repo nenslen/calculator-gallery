@@ -19,16 +19,23 @@ angular.module('calculatorApp').controller('average', ['$scope', function($scope
 		numbers = cleanArray(numbers);
 		numbers = numbers
 			.map(function(number) {
-		    	return parseFloat(number);
+		    	return math.bignumber(number);
 			})
 			.sort(function(a, b) {
 				return a - b;
 			});
 
-		this.outputs.mean.value = mean(numbers);
-		this.outputs.median.value = median(numbers);
-		this.outputs.mode.value = mode(numbers);
-		this.outputs.range.value = range(numbers);
+		if (numbers != '') {
+			this.outputs.mean.value = math.mean(numbers);
+			this.outputs.median.value = math.median(numbers);
+			this.outputs.mode.value = mode(numbers);
+			this.outputs.range.value = range(numbers);
+		} else {
+			this.outputs.mean.value = 0;
+			this.outputs.median.value = 0;
+			this.outputs.mode.value = 'n/a';
+			this.outputs.range.value = 0;
+		}
 
 		this.errors = [];
 		this.truncateOutputs();
@@ -38,67 +45,21 @@ angular.module('calculatorApp').controller('average', ['$scope', function($scope
 	$scope.initializeCalculator($scope.calc);
 }]);
 
-function mean(numbers) {
-	let count = numbers.length;
-	let sum = 0;
-	let mean = 0;
-
-	if (count > 0) {
-		sum = numbers.reduce(function(total, number) {
-		    return total + number;
-		});
-		mean = sum / count;
-	}
-
-	return mean;
-}
-
-function median(numbers) {
-	let count = numbers.length;
-	let middleIndex = Math.floor(numbers.length / 2);
-	let median = 0;
-	
-	if (count > 0) {
-		if (count % 2 === 1) {
-			median = numbers[middleIndex];
-		} else {
-			median = (numbers[middleIndex - 1] + numbers[middleIndex]) / 2.0;
-		}
-	}
-
-	return median;
-}
-
 function mode(numbers) {
-	let counts = [];
-
-	// Count how many times each number appears
-	for (let i = 0; i < numbers.length; i++) {
-		let number = numbers[i];
-
-		if (counts[number] !== undefined) {
-			counts[number]++;
-		} else {
-			counts[number] = 1;
-		}
-	}
-
-	// Find the number with the highest count
-	let highestCount = 0;
-	let mode = 'n/a';
-
-	for (let number in counts) {
-		if (counts[number] > highestCount) {
-			highestCount = counts[number];
-			mode = number;
-		}
-	}
-
-	if (highestCount <= 1) {
-		return 'n/a';
-	}
+	console.log(numbers == null);
+	let modes = math.mode(numbers);
 	
-	return mode + ' (' + highestCount + ' times)';
+	// Find out how many times the 'first' mode appears in the list of numbers
+	let count = 0;
+	let number = modes[0].d[0];
+
+	for (let i = 0; i < numbers.length; i++) {
+		if (numbers[i] == number) {
+			count++;
+		}
+	}
+
+	return modes  + ' (' + count + ' times)';
 }
 
 function range(numbers) {

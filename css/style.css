@@ -726,8 +726,8 @@ nav {
       grid-template-columns: repeat(3, 1fr); } }
 
 .calc {
-  padding: 15px;
-  padding-top: 15px; }
+  border-radius: 3px;
+  padding: 15px; }
   .calc .calc-content {
     transition: width 2s, height 4s; }
     .calc .calc-content .calc-section {
@@ -1009,6 +1009,7 @@ input[type="radio"]:checked + label {
     margin-left: auto;
     margin-right: auto; }
     .modal .modal-inner .modal-content {
+      border-radius: 3px;
       overflow-y: auto;
       max-width: 600px;
       margin-left: auto;

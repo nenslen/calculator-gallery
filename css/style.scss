@@ -101,8 +101,8 @@ nav {
 }
 
 .calc {
+	border-radius: 3px;
 	padding: 15px;
-	padding-top: 15px;
 	
 	.calc-content {
 		transition: width 2s, height 4s;
@@ -365,6 +365,7 @@ input[type="radio"]:checked+label{
 		margin-right: auto;
 
 		.modal-content {
+			border-radius: 3px;
 			overflow-y: auto;
 			max-width: 600px;
 			margin-left: auto;

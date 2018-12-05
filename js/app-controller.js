@@ -5,6 +5,7 @@ angular.module('calculatorApp', ['ngCookies']).controller('app-controller', ['$s
 	$scope.colorThemes = {
 		default: new ColorTheme('default', 'Default'),
 		red: new ColorTheme('red', 'Red', 'red', 'red', 'red'),
+		green: new ColorTheme('green', 'Green', 'green', 'green', 'green'),
 		blue: new ColorTheme('blue', 'Blue', 'blue', 'blue', 'blue'),
 		purple: new ColorTheme('purple', 'Purple', 'purple', 'purple', 'purple'),
 		canada: new ColorTheme('canada', 'Canada', 'red', 'red', 'default'),

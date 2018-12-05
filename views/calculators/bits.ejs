@@ -6,7 +6,7 @@
             ng-change="calc.calculate()"
             ng-model="calc.inputs.inputValue.value"
             class="{{ calc.colorTheme.inputColor }}-input"
-            placeholder="{{ input.hint }}">
+            placeholder="eg) 2048">
         <select
 			ng-model="unit"
 			ng-options="unitOption.name for unitOption in units track by unitOption.id"
