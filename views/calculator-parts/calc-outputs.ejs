@@ -1,6 +1,6 @@
 <div class="calc-section calc-outputs">
     <span ng-repeat="(name, output) in calc.outputs" class="calc-output">
     	<span class="calc-output-title">{{ output.name }}</span>
-        <input type="text" ng-model="calc.outputs[name].value" ng-click="copyOutput($event)" class="{{ calc.colorTheme.outputColor }}-disabled" readonly>
+        <input type="text" ng-model="calc.outputs[name].value" ng-click="copyOutput($event)" class="{{ calc.colorTheme.outputColor }}-output" readonly>
     </span>
 </div>

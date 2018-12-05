@@ -11,7 +11,7 @@
 			ng-model="unit"
 			ng-options="unitOption.name for unitOption in units track by unitOption.id"
 			ng-change="calc.calculate()"
-			id="color-picker" class="{{ calc.colorTheme.inputColor }}-disabled">
+			id="color-picker" class="{{ calc.colorTheme.inputColor }}-output">
 		</select>
 	</span>
 	<span class="calc-input">
@@ -20,7 +20,7 @@
 			ng-model="base"
 			ng-options="b for b in bases"
 			ng-change="calc.calculate()"
-			id="color-picker" class="{{ calc.colorTheme.inputColor }}-disabled">
+			id="color-picker" class="{{ calc.colorTheme.inputColor }}-output">
 		</select>
     </span>
 </div>
@@ -31,7 +31,7 @@
 			<tr ng-repeat="(name, output) in calc.outputs" class="calc-output conversion-output">
 		    	<td style="width:50%">{{ output.name }}</td>
 		    	<td style="width:50%">
-		        	<input type="text" ng-model="calc.outputs[name].value" ng-click="copyOutput($event)" class="{{ calc.colorTheme.outputColor }}-disabled" readonly>
+		        	<input type="text" ng-model="calc.outputs[name].value" ng-click="copyOutput($event)" class="{{ calc.colorTheme.outputColor }}-output" readonly>
 		    	</td>
 		    </tr>
 		</table>

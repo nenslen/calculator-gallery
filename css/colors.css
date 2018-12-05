@@ -10,10 +10,10 @@ Error: Undefined mixin 'colorize'.
 6: 
 7: .default{ 				@include colorize(0, 0, 5, 1, 1); } 
 8: .default-input{ 		@include colorize(0, 0, 85, 1, 0, 1); } 
-9: .default-background{    @include colorize(0, 0, 99, 1); }
-10: .default-disabled{ 		@include colorize(0, 0, 65, 1); }
+9: .default-output{ 		@include colorize(0, 0, 65, 1, 1); }
+10: .default-background{    @include colorize(0, 0, 99, 1); }
 11: 
-12: .magenta{ 				@include colorize(307, 57, 66, 0, 1); } 
+12: 
 
 Backtrace:
 D:\projects\calculator-website\css\colors.scss:7:in `colorize'
@@ -66,4 +66,4 @@ C:/Program Files (x86)/Koala/bin/sass:22:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined mixin 'colorize'.\A         on line 7 of D:\projects\calculator-website\css\colors.scss, in `colorize'\A         from line 7 of D:\projects\calculator-website\css\colors.scss\A \A 2: $red-light: #ed6d64;\A 3: \A 4: $blue: #285b73;\A 5: $blue-light: #4c89a6;\A 6: \A 7: .default{ 				@include colorize(0, 0, 5, 1, 1); } \A 8: .default-input{ 		@include colorize(0, 0, 85, 1, 0, 1); } \A 9: .default-background{    @include colorize(0, 0, 99, 1); }\A 10: .default-disabled{ 		@include colorize(0, 0, 65, 1); }\A 11: \A 12: .magenta{ 				@include colorize(307, 57, 66, 0, 1); } "; }
+  content: "Error: Undefined mixin 'colorize'.\A         on line 7 of D:\projects\calculator-website\css\colors.scss, in `colorize'\A         from line 7 of D:\projects\calculator-website\css\colors.scss\A \A 2: $red-light: #ed6d64;\A 3: \A 4: $blue: #285b73;\A 5: $blue-light: #4c89a6;\A 6: \A 7: .default{ 				@include colorize(0, 0, 5, 1, 1); } \A 8: .default-input{ 		@include colorize(0, 0, 85, 1, 0, 1); } \A 9: .default-output{ 		@include colorize(0, 0, 65, 1, 1); }\A 10: .default-background{    @include colorize(0, 0, 99, 1); }\A 11: \A 12: "; }

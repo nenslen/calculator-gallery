@@ -4,5 +4,5 @@
 	ng-model="currentCalc.colorTheme"
 	ng-options="color.name for color in colorThemes track by color.id"
 	ng-change="changeColorTheme(currentCalc.colorTheme)"
-	id="color-picker" class="{{ currentCalc.colorTheme.inputColor }}-disabled }}">
+	id="color-picker" class="{{ currentCalc.colorTheme.inputColor }}-output }}">
 </select>

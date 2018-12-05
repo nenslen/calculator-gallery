@@ -8,10 +8,13 @@ angular.module('calculatorApp', ['ngCookies']).controller('app-controller', ['$s
 		green: new ColorTheme('green', 'Green', 'green', 'green', 'green'),
 		blue: new ColorTheme('blue', 'Blue', 'blue', 'blue', 'blue'),
 		purple: new ColorTheme('purple', 'Purple', 'purple', 'purple', 'purple'),
+		darkPurple: new ColorTheme('darkPurple', 'Dark Purple', 'purple', 'purple', 'dark-grey'),
+		darkRed: new ColorTheme('darkRed', 'Dark Red', 'dark-red', 'red', 'dark-grey'),
+		darkBlue: new ColorTheme('darkBlue', 'Dark Blue', 'dark-blue', 'blue', 'dark-grey'),
 		canada: new ColorTheme('canada', 'Canada', 'red', 'red', 'default'),
 		dark: new ColorTheme('dark', 'Dark', 'dark-grey', 'dark-grey', 'dark-grey'),
-		darkRed: new ColorTheme('darkRed', 'Dark Red', 'dark-red', 'dark-red', 'dark-red'),
-		darkBlue: new ColorTheme('darkBlue', 'Dark Blue', 'dark-blue', 'dark-blue', 'dark-blue'),
+		//darkRed: new ColorTheme('darkRed', 'Dark Red', 'dark-red', 'dark-red', 'dark-red'),
+		//darkBlue: new ColorTheme('darkBlue', 'Dark Blue', 'dark-blue', 'dark-blue', 'dark-blue'),
 		juicy: new ColorTheme('juicy', 'Juicy', 'red', 'red', 'blue'),
 		yellow: new ColorTheme('yellow', 'Yellow', 'yellow', 'yellow', 'yellow'),
 		halloween: new ColorTheme('halloween', 'Halloween', 'orange', 'dark-grey', 'dark-grey'),
@@ -47,48 +50,47 @@ angular.module('calculatorApp', ['ngCookies']).controller('app-controller', ['$s
 	};
 
 	$scope.filterCalculators = function() {
-		let searchMessage = document.getElementById('search-message');
-		let calculators = document.getElementsByClassName('calc-outer');
+		let searchMessage = $('#search-message');
+		let calculators = $('.calc-outer');
 		let calculatorCount = 0;
 
-		for (let i = 0; i < calculators.length; i++) {
-			let calculator = calculators[i];
-			let found = calculator.innerHTML.toLowerCase().indexOf($scope.searchTerm.toLowerCase());
-			
-			if (found === -1) {
-				calculator.style.display = "none";
-			} else {
-				calculator.style.display = "block";
-				calculatorCount++;
-			}
-		}
+		calculators.each(function(index) {
+			let calculatorText = this.innerHTML.toLowerCase();
+			let searchTerm = $scope.searchTerm.toLowerCase();
+			let found = calculatorText.indexOf(searchTerm) >= 0;
+			let calculator = $(this);
 
-		if (calculatorCount <= 0) {
-			searchMessage.innerHTML = 'Sorry! No calculators found :(';
+			if (found) {
+				calculator.show();
+				calculatorCount++;
+			} else {
+				calculator.hide();
+			}
+		});
+
+		if (calculatorCount > 0) {
+			searchMessage.text(' ');
 		} else {
-			searchMessage.innerHTML = ' ';
+			searchMessage.text('Sorry! No calculators found :(');
 		}
 	};
 
 	$scope.openSettings = function(calcName) {
-		let modal = document.getElementById('settings-modal');
-
-		modal.style.display = 'block';
+		$('#settings-modal').show();
 		$scope.setCurrentCalc(calcName);
 	};
 
 	$scope.openInfo = function(calcName) {
-		let modal = document.getElementById('info-modal');
-		let modalBody = document.getElementById('info-modal-body');
-		
-		modal.style.display = 'block';
+		$('#info-modal').show();
 		$scope.setCurrentCalc(calcName);
 
 		// Clone the calculator's info section and insert into modal
-		let calcInfoElement = document.getElementById(calcName + '-info').cloneNode(true);
-		calcInfoElement.setAttribute('ng-hide', 'false');
-		calcInfoElement.setAttribute('class', '');
-		modalBody.innerHTML = calcInfoElement.innerHTML;
+		let calcInfoElement = $('#' + calcName + '-info').clone();
+		let modalBody = $('#info-modal-body');
+		
+		calcInfoElement.appendTo(modalBody);
+		calcInfoElement.attr('ng-hide', 'false');
+		calcInfoElement.attr('class', '');
 	};
 
 	/**
@@ -210,7 +212,7 @@ angular.module('calculatorApp', ['ngCookies']).controller('app-controller', ['$s
 		let output = $event.currentTarget;
 		output.select();
 		document.execCommand('copy');
-		//output.selectionStart = output.selectionEnd;
+		output.selectionStart = output.selectionEnd;
 	};
 
 	// Close modal
