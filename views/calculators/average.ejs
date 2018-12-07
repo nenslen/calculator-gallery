@@ -4,6 +4,35 @@
 <div id="average-info" ng-hide="true">
     <div class="modal-body-section">
         <span class="modal-description-title">General</span>
-        <p>To square a number, we multiply it by itself.</p>
+        <p>There are many different 'averages' you can calculate for a group of numbers. This calculator focuses on the most basic ones.</p>
+    </div>
+
+    <div class="modal-body-section">
+        <span class="modal-description-title">Mean</span>
+        <p>The mean is usually what people are talking about when they say average. Simply add the numbers together and divide by how many numbers there are. For example, to calculate the mean of [2, 5, 6.6, 14]:</p>
+        <p>Add them up: 2 + 5 + 6.6 + 14 = 27.6</p>
+        <p>Divide by 4 (because there are 4 numbers): 27.6 / 4 = 6.9</p>
+    </div>
+
+    <div class="modal-body-section">
+        <span class="modal-description-title">Median</span>
+        <p>The median is the "middle" of a group of numbers. To calculate the median, you sort the numbers from smallest to largest, then choose the middle one. If there are an even amount of numbers, choose the middle 2 and calculate their mean.</p>
+        <p>To calculate the mean of [2, 6.6, 14, 9, 5, 22]:</p>
+        <p>Sort the numbers: [2, 5, 6.6, 9, 14, 22]</p>
+        <p>Find the 2 middle numbers (because we have an even amount of numbers): [6.6, 9]</p>
+        <p>Find the mean: (6.6 + 9) / 2 = 7.8</p>
+    </div>
+
+    <div class="modal-body-section">
+        <span class="modal-description-title">Mode</span>
+        <p>The mode is the number (or numbers) that appear the most in a list.</p>
+        <p>The mode of [1, 1, 1, 2, 3, 4] is 1 because it appears 3 times, while 2, 3, and 4 only appear once.</p>
+        <p>The modes of [1, 1, 2, 2, 3, 4] are 1 and 2 because they each appear twice, while 3 and 4 only appear once.</p>
+    </div>
+
+    <div class="modal-body-section">
+        <span class="modal-description-title">Range</span>
+        <p>The range is how far apart the smallest and largest numbers are.</p>
+        <p>The range of [3, 5.5, 10] is 7 because the smallest number (3) and largest number (10) are 7 apart.</p>
     </div>
 </div>

@@ -1137,7 +1137,7 @@ input[type="radio"]:checked + label {
         line-height: 1.5em;
         font-size: 140%; }
       .modal .modal-inner .modal-content .modal-body .modal-body-section {
-        margin-top: 25px; }
+        margin-top: 35px; }
         .modal .modal-inner .modal-content .modal-body .modal-body-section .modal-section-title {
           font-size: 110%;
           margin-bottom: 5px;

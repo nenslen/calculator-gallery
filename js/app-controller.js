@@ -88,6 +88,7 @@ angular.module('calculatorApp', ['ngCookies']).controller('app-controller', ['$s
 		let calcInfoElement = $('#' + calcName + '-info').clone();
 		let modalBody = $('#info-modal-body');
 		
+		modalBody.empty();
 		calcInfoElement.appendTo(modalBody);
 		calcInfoElement.attr('ng-hide', 'false');
 		calcInfoElement.attr('class', '');
