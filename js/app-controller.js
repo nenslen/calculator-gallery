@@ -210,10 +210,22 @@ angular.module('calculatorApp', ['ngCookies']).controller('app-controller', ['$s
 	};
 
 	$scope.copyOutput = function($event) {
+		// Copy the output to user's clipboard
 		let output = $event.currentTarget;
 		output.select();
 		document.execCommand('copy');
-		output.selectionStart = output.selectionEnd;
+
+		// Show copy message
+		let copyMessage = $(
+			'<div class="popup">' +
+  				'<div class="popuptext show" id="copy-popup">Copied!</div>' +
+			'</div>');
+
+		copyMessage.insertBefore(output)
+
+		setTimeout(function(){
+			$('#copy-popup').remove();
+		}, 1000);
 	};
 
 	// Close modal

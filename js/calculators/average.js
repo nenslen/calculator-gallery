@@ -46,7 +46,6 @@ angular.module('calculatorApp').controller('average', ['$scope', function($scope
 }]);
 
 function mode(numbers) {
-	console.log(numbers == null);
 	let modes = math.mode(numbers);
 	
 	// Find out how many times the 'first' mode appears in the list of numbers
