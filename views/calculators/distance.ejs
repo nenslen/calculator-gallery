@@ -4,13 +4,15 @@
 <div id="distance-info" ng-hide="true">
     <div class="modal-body-section">
         <span class="modal-description-title">Manhattan</span>
-        <p>The manhattan distance (L1 distance) between two points is calculated as if we are only allowed to move in straight lines, and turn 90 degrees at a time.</p>
-        <p>Here's a fancy-looking equation that describes this.</p>
+        <p>The manhattan (L1) distance between two points is calculated by summing the distance between each pair of coordinates.</p>
+        <p>eg) The manhatten distance between [1, 2, 3] and [5, 6, 8]:</p>
+        <p>dist(1, 5) + dist(2, 6) + dist(3, 8) = 4 + 4 + 5 = 13</p>
     </div>
     <div class="modal-body-section">
         <span class="modal-description-title">Euclidean</span>
         <p>The euclidean distance (L2 distance) between two points is the length of the 'direct' path from one point to the other.</p>
-        <p>Here's a fancy-looking equation that describes this type of distance as well.</p>
+        <p>eg) The manhatten distance between [1, 2, 3] and [5, 6, 8]:</p>
+        <p>[INSERT FANCY MATHJAX DISTANCE FORMULA HERE</p>
         <p>
           When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
           $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
