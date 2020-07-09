@@ -6,6 +6,14 @@
  * @param $events: If the element should respond to mouse events (hover, etc). False by default
  * @param $input: If the element is an input element. False by default
  */
+/**
+ * @param $h: Hue
+ * @param $s: Saturation
+ * @param $b: Brightness
+ * @param $blackText: If the text color should be black. False by default
+ * @param $events: If the element should respond to mouse events (hover, etc). False by default
+ * @param $input: If the element is an input element. False by default
+ */
 .default {
   background-color: #0d0d0d;
   background-image: linear-gradient(to bottom, #0d0d0d, #0d0d0d);
@@ -99,6 +107,21 @@
     color: #c9c9c9;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3); }
 
+.default-title {
+  background-color: #a6a6a6;
+  background-image: linear-gradient(to bottom, #a6a6a6, #a6a6a6);
+  border: 1px solid #737373;
+  box-shadow: inset 0 1px 0 #d2d2d2, inset 0 -1px 0 #8c8c8c, inset 0 0 0 1px #a6a6a6, 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: black;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5); }
+  .default-title ::placeholder {
+    color: #000;
+    opacity: 0.5;
+    text-shadow: none; }
+  .default-title .fa {
+    color: #737373;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3); }
+
 .magenta {
   background-color: #a8489d;
   background-image: linear-gradient(to bottom, #a8489d, #a8389b);
@@ -160,6 +183,17 @@
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
   .magenta-background .fa {
     color: #4d1b47;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3); }
+
+.magenta-title {
+  background-color: #a8489d;
+  background-image: linear-gradient(to bottom, #a8489d, #a8389b);
+  border: 1px solid #751b6b;
+  box-shadow: inset 0 1px 0 #c27ab9, inset 0 -1px 0 #8f2f84, inset 0 0 0 1px #a8599f, 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: #eee;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
+  .magenta-title .fa {
+    color: #751b6b;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3); }
 
 .white-output {
@@ -255,6 +289,17 @@
     color: #1e5873;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3); }
 
+.blue-title {
+  background-color: #4fb4e3;
+  background-image: linear-gradient(to bottom, #4fb4e3, #39ade3);
+  border: 1px solid #1a81b0;
+  box-shadow: inset 0 1px 0 #8bd8fc, inset 0 -1px 0 #329ac9, inset 0 0 0 1px #66bbe3, 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: #eee;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
+  .blue-title .fa {
+    color: #1a81b0;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3); }
+
 .green {
   background-color: #97cc76;
   background-image: linear-gradient(to bottom, #97cc76, #8bcc62);
@@ -316,6 +361,17 @@
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
   .green-background .fa {
     color: #476633;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3); }
+
+.green-title {
+  background-color: #97cc76;
+  background-image: linear-gradient(to bottom, #97cc76, #8bcc62);
+  border: 1px solid #5f993a;
+  box-shadow: inset 0 1px 0 #c6e6b3, inset 0 -1px 0 #79b356, inset 0 0 0 1px #a4cc8b, 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: #eee;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
+  .green-title .fa {
+    color: #5f993a;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3); }
 
 .purple {
@@ -381,6 +437,17 @@
     color: #312c4d;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3); }
 
+.purple-title {
+  background-color: #847bba;
+  background-image: linear-gradient(to bottom, #847bba, #7568ba);
+  border: 1px solid #493e87;
+  box-shadow: inset 0 1px 0 #bab6d4, inset 0 -1px 0 #655aa1, inset 0 0 0 1px #948dba, 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: #eee;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
+  .purple-title .fa {
+    color: #493e87;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3); }
+
 .orange {
   background-color: #f58a38;
   background-image: linear-gradient(to bottom, #f58a38, #f57c20);
@@ -442,6 +509,17 @@
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
   .orange-background .fa {
     color: #8c5123;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3); }
+
+.orange-title {
+  background-color: #f58a38;
+  background-image: linear-gradient(to bottom, #f58a38, #f57c20);
+  border: 1px solid #c25706;
+  box-shadow: inset 0 1px 0 #ffb984, inset 0 -1px 0 #db6f1d, inset 0 0 0 1px #f59851, 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: #eee;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
+  .orange-title .fa {
+    color: #c25706;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3); }
 
 .red {
@@ -507,6 +585,17 @@
     color: #8c3731;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3); }
 
+.red-title {
+  background-color: #ed6d64;
+  background-image: linear-gradient(to bottom, #ed6d64, #ed574c);
+  border: 1px solid #ba3329;
+  box-shadow: inset 0 1px 0 #ffb0aa, inset 0 -1px 0 #d44d44, inset 0 0 0 1px #ed837b, 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: #eee;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
+  .red-title .fa {
+    color: #ba3329;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3); }
+
 .yellow {
   background-color: #f2d555;
   background-image: linear-gradient(to bottom, #f2d555, #f2d13d);
@@ -568,6 +657,17 @@
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
   .yellow-background .fa {
     color: #8c7a2a;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3); }
+
+.yellow-title {
+  background-color: #f2d555;
+  background-image: linear-gradient(to bottom, #f2d555, #f2d13d);
+  border: 1px solid #bfa11d;
+  box-shadow: inset 0 1px 0 #ffeea0, inset 0 -1px 0 #d9bb36, inset 0 0 0 1px #f2da6d, 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: #eee;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
+  .yellow-title .fa {
+    color: #bfa11d;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3); }
 
 .dark-red {
@@ -633,6 +733,17 @@
     color: #1a0003;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3); }
 
+.dark-red-title {
+  background-color: #330006;
+  background-image: linear-gradient(to bottom, #330006, #2e0005);
+  border: 1px solid black;
+  box-shadow: inset 0 1px 0 #4d0f16, inset 0 -1px 0 #170003, inset 0 0 0 1px #33050a, 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: #eee;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
+  .dark-red-title .fa {
+    color: black;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3); }
+
 .dark-blue {
   background-color: #002333;
   background-image: linear-gradient(to bottom, #002333, #001f2e);
@@ -694,6 +805,17 @@
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
   .dark-blue-background .fa {
     color: #00111a;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3); }
+
+.dark-blue-title {
+  background-color: #002333;
+  background-image: linear-gradient(to bottom, #002333, #001f2e);
+  border: 1px solid black;
+  box-shadow: inset 0 1px 0 #0f394d, inset 0 -1px 0 #001017, inset 0 0 0 1px #052433, 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: #eee;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
+  .dark-blue-title .fa {
+    color: black;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3); }
 
 .dark-grey {
@@ -759,6 +881,17 @@
     color: black;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3); }
 
+.dark-grey-title {
+  background-color: #666666;
+  background-image: linear-gradient(to bottom, #666666, #666666);
+  border: 1px solid #333333;
+  box-shadow: inset 0 1px 0 #8c8c8c, inset 0 -1px 0 #4d4d4d, inset 0 0 0 1px #666666, 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: #eee;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
+  .dark-grey-title .fa {
+    color: #333333;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3); }
+
 ul, body {
   padding: 0;
   margin: 0; }
@@ -789,6 +922,19 @@ nav {
     font-size: 125%;
     margin: 5px; }
 
+.page-title {
+  display: block;
+  font-style: italic;
+  font-size: 400%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  position: relative;
+  animation: headerLeft 0.55s, headerFade 1.3s;
+  text-shadow: -1px 1px 0px #c29d0b, -2px 2px 0px #c29d0b, -3px 3px 0px #927608, -4px 4px 0px #614f06; }
+
+#calculator-results-title {
+  text-align: center; }
+
 #search {
   margin-bottom: 50px; }
   #search input {
@@ -803,8 +949,7 @@ nav {
     text-shadow: none; }
   #search #search-message {
     margin-top: 50px;
-    text-align: center;
-    font-size: 1.5em; }
+    text-align: center; }
 
 ::placeholder {
   color: #EEEEEE;
@@ -854,7 +999,7 @@ nav {
       margin-top: 0;
       margin-bottom: 0; }
       .calc .calc-content .calc-top .calc-title {
-        border-bottom: 1px solid gainsboro;
+        padding: 7px;
         line-height: 1.5em;
         font-size: 140%; }
       .calc .calc-content .calc-top .calc-preferences {
@@ -1207,5 +1352,15 @@ input[type="radio"]:checked + label {
     opacity: 0; }
   to {
     opacity: 1; } }
+@keyframes headerLeft {
+  0% {
+    left: -1000px; }
+  100% {
+    left: 0; } }
+@keyframes headerFade {
+  0% {
+    opacity: 0.0; }
+  100% {
+    opacity: 1.0; } }
 
 /*# sourceMappingURL=style.css.map */

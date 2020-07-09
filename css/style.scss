@@ -42,6 +42,27 @@ nav {
 	}
 }
 
+$yellow: #f1c40f;
+.page-title {
+	display: block;
+	font-style: italic;
+	font-size: 400%;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	// margin-left: 50px;
+	// margin-right: 50px;
+	position: relative;
+	animation: headerLeft 0.55s, headerFade 1.3s;
+	text-shadow: -1px 1px 0px darken($yellow, 10%),
+	             -2px 2px 0px darken($yellow, 10%),
+                 -3px 3px 0px darken($yellow, 20%),
+                 -4px 4px 0px darken($yellow, 30%)
+}
+
+#calculator-results-title {
+	text-align: center;
+}
+
 #search {
 	margin-bottom: 50px;
 
@@ -62,7 +83,6 @@ nav {
 	#search-message {
 		margin-top: 50px;
 		text-align: center;
-		font-size: 1.5em;
 	}
 }
 
@@ -124,9 +144,11 @@ nav {
 			margin-bottom: 0;
 			
 			.calc-title {
-				border-bottom: 1px solid $calculator-border-color;
+				// border-bottom: 1px solid $calculator-border-color;
+				padding: 7px;
 				line-height: 1.5em;
 				font-size: 140%;
+
 			}
 			.calc-preferences {
 				position: absolute;
@@ -474,4 +496,13 @@ input[type="radio"]:checked+label{
 @keyframes fadeIn {
 	from {opacity: 0;}
 	to {opacity:1 ;}
+}
+
+@keyframes headerLeft {
+    0%   { left: -1000px; }
+    100% { left: 0; }
+}
+@keyframes headerFade {
+    0%   { opacity: 0.0; }
+    100% { opacity: 1.0; }
 }

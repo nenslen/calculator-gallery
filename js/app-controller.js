@@ -53,25 +53,34 @@ angular.module('calculatorApp', ['ngCookies']).controller('app-controller', ['$s
 		let searchMessage = $('#search-message');
 		let calculators = $('.calc-outer');
 		let calculatorCount = 0;
+		let searchTerm = $scope.searchTerm.toLowerCase();
 
 		calculators.each(function(index) {
 			let calculatorText = this.innerHTML.toLowerCase();
-			let searchTerm = $scope.searchTerm.toLowerCase();
 			let found = calculatorText.indexOf(searchTerm) >= 0;
 			let calculator = $(this);
 
 			if (found) {
-				calculator.show();
+				calculator.fadeIn();
 				calculatorCount++;
 			} else {
-				calculator.hide();
+				calculator.fadeOut();
 			}
 		});
-
+		
 		if (calculatorCount > 0) {
-			searchMessage.text(' ');
+			if ($scope.searchTerm == '') {
+				searchMessage.text('');
+			} else {
+				if (calculatorCount == 1) {
+					searchMessage.text(calculatorCount + ' calculator found');
+				} else {
+					searchMessage.text(calculatorCount + ' calculators found');
+				}
+				
+			}
 		} else {
-			searchMessage.text('Sorry! No calculators found :(');
+			searchMessage.text('No calculators found');
 		}
 	};
 
